@@ -26,7 +26,8 @@ function obtenerProductos(){
 }
 
 function obtenerProducto(){
-    $resultado = (new Producto())->obtenerProductoModelo();
+    $id_producto = $_POST["id_producto"];
+    $resultado = (new Producto())->obtenerProductoModelo($id_producto);
     echo json_encode($resultado);
 }
 

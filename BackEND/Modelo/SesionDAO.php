@@ -6,42 +6,41 @@ require_once "../Connection/Connection.php";
 
 class Usuario { 
 
-    function LoginUsuarioModel($usuario, $contraseña){
+    function LoginUsuarioModel($email, $contraseña){
         $connection = connection();
-
-        $sql = "SELECT * FROM usuario WHERE usuario = ?";
+    
+        $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
         $stmt = $connection->prepare($sql);
-        $stmt->bind_param("s", $usuario);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $respuesta = $stmt->get_result();
         $resultado = $respuesta->fetch_assoc();
-
-        session_start();
-        $_SESSION['id_usuario'] = $resultado['id_usuario'];
-        return $resultado;
-
-        if ($resultado == null) {
-            return null;
+    
+        // Verificar si el usuario existe
+        if ($resultado === null) {
+            return null; 
+        }
+    
+        // Verificar la contraseña usando password_verify()
+        if (password_verify($contraseña, $resultado['contraseña'])) {
+            session_start();
+            $_SESSION['id_usuario'] = $resultado['id_usuario'];
+            $_SESSION["email"] = $email;
+            return $resultado;
         } else {
-            // Verificar la contraseña usando password_verify()
-            if (password_verify($contraseña, $resultado['contraseña'])) {
-                $_SESSION["usuario"] = $usuario;
-                return "resultado correcto";
-            } else {
-                return "Contraseña incorrecta";
-            }
+            return "Contraseña incorrecta";
         }
     }
     
-    function RegisterUsuarioModel($nombre, $usuario, $email, $telefono $contraseña){
+    function RegisterUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña){
         $connection = connection();
 
         // Hash de la contraseña
         $contraseñaHash = password_hash($contraseña, PASSWORD_BCRYPT);
 
-        $sql = "INSERT INTO usuario(usuario, email, contraseña) VALUES(?, ?, ?)";
+        $sql = "INSERT INTO usuario(nombre, usuario, email, telefono, contraseña) VALUES('$nombre', '$usuario', '$email', '$telefono', '$contraseña')";
         $stmt = $connection->prepare($sql);
-        $stmt->bind_param("sss", $usuario, $email, $contraseñaHash);
+        $stmt->bind_param("sss", $nombre, $usuario, $email, $telefono, $contraseñaHash);
         $respuesta = $stmt->execute();
         $stmt->close();
 

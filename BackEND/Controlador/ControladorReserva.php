@@ -21,7 +21,8 @@ function cambiarEstado(){
 }
 
 function obtenerReserva(){
-    $resultado = (new Reserva())->obtenerReservaModelo();
+    $id_reserva = $_POST["id_reserva"];
+    $resultado = (new Reserva())->obtenerReservaModelo($id_reserva);
     echo json_encode($resultado);
 }
 

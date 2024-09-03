@@ -36,9 +36,14 @@ function LoginUsuario(){
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
     $resultado = (new Usuario())->LoginUsuarioModel($usuario, $contraseña);
-    echo json_encode($resultado);
-
+    if (!$resultado) {
+        echo json_encode(['error' => 'Usuario no encontrado']);
+    } else {
+        // Devuelve la información del usuario, como el token y el correo
+        echo json_encode(['token' => 'some_generated_token', 'usuario' => $usuario]);
+    }
 }
+
 function cerrarSesion(){
 
 
