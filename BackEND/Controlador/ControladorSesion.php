@@ -1,6 +1,6 @@
 <?php
 
-require_once '../Model/ClienteDAO.php';
+require_once '../Modelo/SesionDAO.php';
 
 
 $function = $_GET['function'];
@@ -12,6 +12,9 @@ switch ($function) {
     case "RegisterUsuario":
         RegisterUsuario();
         break;
+    case "cerrarSesion":
+        cerrarSesion();
+        break;
 }
 
 function RegisterUsuario(){
@@ -21,7 +24,6 @@ function RegisterUsuario(){
     $contraseña = $_POST['contraseña'];
 
     // Hashing de la contraseña
-
     $contraseñaHash = password_hash($contraseña, PASSWORD_BCRYPT);
 
     $resultado = (new Usuario())->RegisterUsuarioModel($usuario, $email, $contraseñaHash);
@@ -35,4 +37,5 @@ function LoginUsuario(){
     echo json_encode($resultado);
 
 }
-?>
+function cerrarSesion(){
+}
