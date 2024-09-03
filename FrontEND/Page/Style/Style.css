@@ -359,7 +359,7 @@ main {
 .div-container {
     max-width: 750px;
     background-color: var(--clarito-color);
-    height: 600px;
+    height: 700px;
     margin: auto;
     align-items: center;
     justify-content: center;
@@ -367,11 +367,13 @@ main {
     margin-bottom: 90px;
     position: relative;
     border-radius: 30px;
+    box-shadow: 0 0 15px black;
+    border: 2px solid rgb(4, 26, 53);
 }
 
 .form-container {
     background-color: var(--principal-color);
-    height: 600px;
+    height: 100%;
     width: 50%;
     align-items: end;
     border-radius: 30px 0 0 30px;
@@ -391,6 +393,7 @@ h1 {
     margin-top: 50px;
     justify-content: center;
     text-align: center;
+    border-bottom: 1px solid var(--principal-color);
 }
 
 .prueba2 {
@@ -421,24 +424,64 @@ h1 {
 
 /* BOTON DEL FORMULARIO */
 
-.button-container {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}
-
-button {
-    margin-top: 15px;
-    background-color: var(--clarito-color);
-    width: 150px;
-    padding: 10px;
-    border-radius: 10px;
+.boton-log {
+    display: block;
     text-align: center;
-    box-shadow: 0 0 10px;
+    text-decoration: none;
+    color: black;
+    padding: 7px;
+    border-radius: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    user-select: none;
+    background-color: #add48d;
+    border: 1px solid black;
+    margin: 0 30px;
 }
 
-button:hover {
-    opacity: .6;
+.boton-loginnn {
+    border-radius: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    user-select: none;
+    background-color: #add48d;
+    border: 1px solid black;
+    margin: 0 30px;
+    padding: 7px;
+}
+
+.boton-log:hover {
+    opacity: .7;
+}
+
+.o {
+    text-align: center;
+    border-bottom: 1px solid var(--principal-color);
+    width: 100%;
+}
+
+.div-cont {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    opacity: .7;
+    user-select: none;
+}
+
+.div-izq {
+    display: flex;
+    width: 50%;
+    background-color: rgb(0, 0, 0);
+    height: 1px;
+    margin-right: 5px;
+}
+
+.div-der {
+    width: 50%;
+    background-color: rgb(0, 0, 0);
+    height: 1px;
+    margin-left: 5px;
 }
 
 
@@ -446,6 +489,7 @@ button:hover {
 
 h2 {
     font-size: 1.2rem;
+    margin: 19px 0 3px 0;
 }
 
 label {
@@ -456,8 +500,8 @@ label {
 
 input {
     padding: 9px;
-    border-radius: 15px;
-    box-shadow: 0 0 9px;
+    border-radius: 9px;
+    border: none;
 }
 
 
@@ -490,3 +534,5 @@ footer {
     margin: auto;
     color: var(--principal-color);
 }
+
+bpx

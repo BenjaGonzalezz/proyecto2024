@@ -33,7 +33,7 @@ class Usuario {
         }
     }
     
-    function RegisterUsuarioModel($usuario, $email, $contraseña){
+    function RegisterUsuarioModel($nombre, $usuario, $email, $telefono $contraseña){
         $connection = connection();
 
         // Hash de la contraseña

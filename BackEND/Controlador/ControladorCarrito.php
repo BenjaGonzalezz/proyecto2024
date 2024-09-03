@@ -13,6 +13,6 @@ switch ($function) {
 
 
 function solicitarReserva(){
-
+ 
 }
 

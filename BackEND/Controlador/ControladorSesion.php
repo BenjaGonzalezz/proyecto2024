@@ -19,14 +19,16 @@ switch ($function) {
 
 function RegisterUsuario(){
     
+    $nombre = $_POST['nombre'];
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
     $contraseña = $_POST['contraseña'];
-
+    
     // Hashing de la contraseña
     $contraseñaHash = password_hash($contraseña, PASSWORD_BCRYPT);
 
-    $resultado = (new Usuario())->RegisterUsuarioModel($usuario, $email, $contraseñaHash);
+    $resultado = (new Usuario())->RegisterUsuarioModel($nombre, $usuario, $email, $telefono, $contraseñaHash);
     echo json_encode($resultado);
 }
 
@@ -38,4 +40,6 @@ function LoginUsuario(){
 
 }
 function cerrarSesion(){
+
+
 }
