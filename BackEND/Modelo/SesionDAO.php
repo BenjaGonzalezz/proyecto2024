@@ -1,7 +1,6 @@
 <?php
 
 require_once "../Connection/Connection.php";
-
 //Clase Cliente que contiene un método ObtenerClienteModelo 
 
 class Usuario { 

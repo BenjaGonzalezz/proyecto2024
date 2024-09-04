@@ -150,6 +150,7 @@ main {
         width: 160px;
         max-height: 10px;
         border-radius: 90px;
+        box-shadow: 0 0 10px black;
     }
     /*CATEGORIAS DE LOS PRODUCTOS*/
     .productos-navbar {
@@ -420,13 +421,15 @@ h1 {
 .todo-img{
     width: 50%;
     display: flex;
+    background-image: radial-gradient(white, rgb(157, 195, 254));
+    border-radius: 0 30px 30px 0;
 }
 .img-div-form {
-    max-width: 315px;
-    max-height: 200px;
+    width: 100%;
     justify-content: center;
     align-items: center;
     margin: auto;
+    user-select: none;
 }
 
 

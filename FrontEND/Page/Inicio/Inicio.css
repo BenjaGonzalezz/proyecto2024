@@ -150,6 +150,7 @@ main {
         width: 160px;
         max-height: 10px;
         border-radius: 90px;
+        box-shadow: 0 0 10px black;
     }
     /*CATEGORIAS DE LOS PRODUCTOS*/
     .productos-navbar {
