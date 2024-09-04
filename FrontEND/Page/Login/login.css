@@ -9,7 +9,7 @@ body {
     box-sizing: border-box;
     --principal-color: #0b8dea;
     --clarito-color: #b2d0e6;
-    height: 300dvh;
+    height: 100dvh;
     background-image: linear-gradient(90deg, white, rgb(186, 236, 241));
 }
 
@@ -31,7 +31,7 @@ main {
 }
 
 
-/*hacer la pagina responsive*/
+/*hacer EL HEADER responsive*/
 
 @media (min-width: 820px) {
     /*EN CASO DE QUE LA PANTALLA SEA MAYOR A 980PX SE APLICA ESTO*/
@@ -289,10 +289,12 @@ main {
     .login {
         list-style: none;
         display: flex;
+        margin-right: 7px;
     }
     .login a {
         text-decoration: none;
         color: #000;
+        justify-content: center;
     }
     .login:hover {
         opacity: .7;
@@ -367,7 +369,7 @@ main {
     border-radius: 30px;
     box-shadow: 0 0 15px black;
     border: 2px solid rgb(4, 26, 53);
-    min-height: 730px;
+    min-height: 600px;
 }
 .todo-formulario{
     width: 50%;
@@ -384,13 +386,14 @@ main {
     border-radius: 30px 0 0 0;
     display: flex;
     flex-direction: column;
-    height: 600px;
+    margin: auto;
 }
 
 h1 {
     font-family: sans-serif;
     font-size: 2.9rem;
-    margin: 50px 0 0 0;
+    margin: 0;
+    padding: 40px 0 20px 0;
     justify-content: center;
     text-align: center;
 }
@@ -408,7 +411,7 @@ h1 {
 
 .form_input {
     width: 100%;
-    margin: auto;
+    margin: 20px auto;
 }
 
 

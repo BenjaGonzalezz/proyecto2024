@@ -9,7 +9,7 @@ body {
     box-sizing: border-box;
     --principal-color: #0b8dea;
     --clarito-color: #b2d0e6;
-    height: 300dvh;
+    height: 100dvh;
     background-image: linear-gradient(90deg, white, rgb(186, 236, 241));
 }
 
@@ -144,6 +144,7 @@ main {
         letter-spacing: 1.5px;
         display: flex;
         align-items: center;
+        text-align: center;
         padding: 40px;
         margin-right: 20px;
         margin-left: 40px;
@@ -289,10 +290,12 @@ main {
     .login {
         list-style: none;
         display: flex;
+        margin-right: 6px;
     }
     .login a {
         text-decoration: none;
         color: #000;
+        justify-content: center;
     }
     .login:hover {
         opacity: .7;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Style/Style.css" />
+    <link rel="stylesheet" href="register.css" />
     <script src="RegisterCliente.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,9 @@
 <body>
     <header class="header">
         <div class="header__logo-container">
+            <a href="../Inicio/Inicio.html">
             <img class="header__logo" src="../img/logoProyectoEMPRESA.png" />
+        </a>
         </div>
         <nav class="header__nav">
             <ul class="header__nav-list">
@@ -60,7 +62,7 @@
                 <img src="../img/Carrito.png" class="imagen-carrito" alt="">
             </div>
             <li class="login">
-                <a class="login2" href="../Login/LoginCliente.html">Log In</a>
+                <a class="login2" href="../Login/LoginCliente.html">Login</a>
             </li>
             </ul>
         </nav>
@@ -72,7 +74,7 @@
 
     <main>
         <div class="div-container">
-            <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
+            <div class="todo-formulario">
             <form id="Register" class="form-container">
                 <div class="formulario-container">
                     <h1>Registrarse</h1>
@@ -80,13 +82,13 @@
                         <div class="form_input">
                             <div class="prueba2">
                                 <label for="nombre"><h2>Nombre Completo</h2></label>
-                                <input type="text" placeholder="Ejemplo" id="nombre" name="nombre" />
+                                <input type="text" placeholder="Mateo Sosa" id="nombre" name="nombre" />
                             </div>
                         </div>
                         <div class="form_input">
                             <div class="prueba2">
                                 <label for="usuario"><h2>Usuario</h2></label>
-                                <input type="text" placeholder="Ejemplo" id="usuario" name="usuario" />
+                                <input type="text" placeholder="Mateito20" id="usuario" name="usuario" />
                             </div>
                         </div>
                         <div class="form_input">
@@ -100,7 +102,7 @@
                         <div class="form_input">
                             <div class="prueba2">
                                 <label for="telefono"><h2>Telefono</h2></label>
-                                <input type="email" placeholder="ej: 091 860 203" id="telefono" name="telefono" />
+                                <input type="email" placeholder="091 860 203" id="telefono" name="telefono" />
                             </div>
                         </div>
                         <div class="form_input">
@@ -110,28 +112,53 @@
                             </div>
                         </div>
                     </div>
-
-                    <button class="boton-loginnn" type="submit">LogIn</button>
+                    <input class="boton-loginnn" type="submit" value="Registrarse">
                     <div class="div-cont">
                         <div class="div-izq"></div>
                         <p>O</p>
                         <div class="div-der"></div>
                     </div>
 
-                    <a class="boton-log" href="../page/registro/registro.html">Registrarse</a>
+                    <a class="boton-log" href="../Login/LoginCliente.html">Login</a>
                 </div>
             </form>
+        </div>
+        <div class="todo-img">
+            <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
+            </div>
         </div>
     </main>
 
     <!-- / LOG IN   -->
 
     <!--  FOOTER  -->
-
     <footer>
-        <div class="footer-general">Sofia Aberturas @CopyRight 2024</div>
+        <div class="footer-title">
+            <p class="footer-title-lit">Sofia Aberturas Copyright © 2024</p>
+        </div>
+        <div class="contenido-footer">
+            <div class="footer-cont">
+                <h4 class="footer-text">Contactanos</h4>
+                <p class="parrafo">
+                    Telefono: 094 403 230
+                </p>
+                <p class="parrafo">
+                    Email: sofiaberturas@gmail.com
+                </p>
+            </div>
+            <div class="footer-cont2">
+                <h4 class="footer-text">Direccion</h4>
+                <p class="parrafo">
+                    Colonia del Sacramento, ******
+                </p>
+            </div>
+            <div class="footer-cont2">
+                <h4 class="footer-text">Redes Sociales</h4>
+                <a href="https://www.instagram.com/"><img src="../img/ig.png" alt=""></a>
+                <a href="https://www.facebook.com/"><img src="../img/face.png" alt=""></a>
+            </div>
+        </div>
     </footer>
-
     <!-- / FOOTER  -->
 </body>
 

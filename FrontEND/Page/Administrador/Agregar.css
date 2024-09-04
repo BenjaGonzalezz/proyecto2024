@@ -37,6 +37,7 @@ div, ul, nav, header, footer, a, li, label, body{
             font-size: 20px;
             border-bottom: 1px solid var(--principal-color);
             max-height: 110px;
+            user-select: none;
         }
         
         
@@ -223,6 +224,7 @@ div, ul, nav, header, footer, a, li, label, body{
                 font-size: 20px;
                 border-bottom: 1px solid var(--principal-color);
                 max-height: 110px;
+                user-select: none;
             }
             
             
@@ -421,4 +423,71 @@ input[type="submit"]{
 }
 input[type="submit"]:hover{
     opacity: .7;
+}
+
+
+
+
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+    background-color: var(--clarito-color);
+}
+
+.footer-title {
+    width: 100%;
+    background-color: var(--principal-color);
+    text-align: center;
+    padding: 18px 0;
+    font-size: 17px;
+    box-shadow: 0 5px 10px rgba(0, 2, 96, 0.2);
+    margin: 0;
+    user-select: none;
+}
+
+.footer-title-lit {
+    margin: 0;
+}
+
+.footer-text{
+    margin: 0;
+}
+
+.footer-cont {
+    width: 50%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    user-select: none;
+}
+
+.footer-text {
+    padding-top: 15px;
+}
+
+.parrafo {
+    margin-top: 20px;
+}
+
+.footer-cont2 {
+    width: 50%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    user-select: none;
+}
+
+.footer-cont2 a img{
+    width: 40px;
+    margin: 20px 15px;
+    transition: transform 0.3s;
+}
+.footer-cont2 a img:hover{
+    transform: scale(1.1);
+    opacity: .7;
+}
+
+.contenido-footer {
+    display: flex;
+    margin-top: 10px;
 }

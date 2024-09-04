@@ -7,16 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Style/Style.css" />
+    <link rel="stylesheet" href="login.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Login</title>
 </head>
 
 <body>
     <header class="header">
         <div class="header__logo-container">
+            <a href="../Inicio/Inicio.html">
             <img class="header__logo" src="../img/logoProyectoEMPRESA.png" />
+        </a>
         </div>
         <nav class="header__nav">
             <ul class="header__nav-list">
@@ -63,7 +65,7 @@
                 <img src="../img/Carrito.png" class="imagen-carrito" alt="">
             </div>
             <li class="login">
-                <a class="login2" href="../Login/LoginCliente.html">Log In</a>
+                <a class="login2" href="../Login/LoginCliente.html">Login</a>
             </li>
             </ul>
         </nav>
@@ -75,11 +77,10 @@
 
     <main>
         <div class="div-container">
-            <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
-
+            <div class="todo-formulario">
             <form class="form-container">
+                <h1>Login</h1>
                 <div class="formulario-container">
-                    <h1>Log In</h1>
                     <div class="prueba">
                         <div class="form_input">
                             <div class="prueba2">
@@ -93,27 +94,54 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button-container">
-                        <div class="div-button">
-                            <button type="submit">Enviar</button>
-                        </div>
+                    <input class="boton-loginnn" type="submit" value="Login">
+                    <div class="div-cont">
+                        <div class="div-izq"></div>
+                        <p>O</p>
+                        <div class="div-der"></div>
                     </div>
-                    <div class="parrafo-container">
-                        <p>En caso de NO tener una cuenta <a href="../Register/RegisterCliente.html">Registrarse</a></p>
-                    </div>
+
+                    <a class="boton-log" href="../Register/RegisterCliente.html">Registrarse</a>
                 </div>
             </form>
+            </div>
+            <div class="todo-img">
+                <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- / LOG IN   -->
 
     <!--  FOOTER  -->
-
     <footer>
-        <div class="footer-general">Sofia Aberturas @CopyRight 2024</div>
+        <div class="footer-title">
+            <p class="footer-title-lit">Sofia Aberturas Copyright © 2024</p>
+        </div>
+        <div class="contenido-footer">
+            <div class="footer-cont">
+                <h4 class="footer-text">Contactanos</h4>
+                <p class="parrafo">
+                    Telefono: 094 403 230
+                </p>
+                <p class="parrafo">
+                    Email: sofiaberturas@gmail.com
+                </p>
+            </div>
+            <div class="footer-cont2">
+                <h4 class="footer-text">Direccion</h4>
+                <p class="parrafo">
+                    Colonia del Sacramento, ******
+                </p>
+            </div>
+            <div class="footer-cont2">
+                <h4 class="footer-text">Redes Sociales</h4>
+                <a href="https://www.instagram.com/"><img src="../img/ig.png" alt=""></a>
+                <a href="https://www.facebook.com/"><img src="../img/face.png" alt=""></a>
+            </div>
+        </div>
     </footer>
-
     <!-- / FOOTER  -->
 </body>
 
