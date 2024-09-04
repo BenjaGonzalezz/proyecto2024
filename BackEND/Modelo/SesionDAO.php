@@ -5,7 +5,7 @@ require_once "../Connection/Connection.php";
 
 class Usuario { 
 
-    function LoginUsuarioModel($email, $contraseña){
+    function loginUsuarioModel($email, $contraseña){
         $connection = connection();
     
         $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
@@ -31,7 +31,7 @@ class Usuario {
         }
     }
     
-    function RegisterUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña){
+    function registerUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña){
         $connection = connection();
 
         // Hash de la contraseña
@@ -46,7 +46,7 @@ class Usuario {
         return $respuesta;
     }
 
-    function ActualizarContraseñaModel($contraseña, $email){
+    function actualizarContraseñaModel($contraseña, $email){
         $connection = connection();
 
         // Hash de la nueva contraseña

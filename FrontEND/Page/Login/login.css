@@ -372,9 +372,11 @@ main {
     border: 2px solid rgb(4, 26, 53);
     min-height: 600px;
 }
-.todo-formulario{
+
+.todo-formulario {
     width: 50%;
 }
+
 .form-container {
     background-color: var(--principal-color);
     height: 100%;
@@ -418,12 +420,13 @@ h1 {
 
 /*IMG DEL LOGO FORMULARIO*/
 
-.todo-img{
+.todo-img {
     width: 50%;
     display: flex;
     background-image: radial-gradient(white, rgb(157, 195, 254));
     border-radius: 0 30px 30px 0;
 }
+
 .img-div-form {
     width: 100%;
     justify-content: center;
@@ -450,7 +453,7 @@ h1 {
     margin: 0 30px;
 }
 
-.boton-log:hover{
+.boton-log:hover {
     opacity: .7;
 }
 
@@ -466,7 +469,7 @@ h1 {
     cursor: pointer;
 }
 
-.boton-loginnn:hover{
+.boton-loginnn:hover {
     opacity: .7;
 }
 
@@ -535,7 +538,6 @@ input {
 }
 
 
-
 /* FOOTER */
 
 footer {
@@ -558,7 +560,7 @@ footer {
     margin: 0;
 }
 
-.footer-text{
+.footer-text {
     margin: 0;
 }
 
@@ -584,12 +586,13 @@ footer {
     user-select: none;
 }
 
-.footer-cont2 a img{
+.footer-cont2 a img {
     width: 40px;
     margin: 20px 15px;
     transition: transform 0.3s;
 }
-.footer-cont2 a img:hover{
+
+.footer-cont2 a img:hover {
     transform: scale(1.1);
     opacity: .7;
 }

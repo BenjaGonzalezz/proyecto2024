@@ -6,18 +6,18 @@ require_once '../Modelo/SesionDAO.php';
 $function = $_GET['function'];
 
 switch ($function) {
-    case "LoginUsuario":
-        LoginUsuario();
+    case "loginUsuario":
+        loginUsuario();
         break;
-    case "RegisterUsuario":
-        RegisterUsuario();
+    case "registerUsuario":
+        registerUsuario();
         break;
     case "cerrarSesion":
         cerrarSesion();
         break;
 }
 
-function RegisterUsuario(){
+function registerUsuario(){
     
     $nombre = $_POST['nombre'];
     $usuario = $_POST['usuario'];
@@ -32,7 +32,7 @@ function RegisterUsuario(){
     echo json_encode($resultado);
 }
 
-function LoginUsuario(){
+function loginUsuario(){
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
     $resultado = (new Usuario())->LoginUsuarioModel($usuario, $contraseña);
