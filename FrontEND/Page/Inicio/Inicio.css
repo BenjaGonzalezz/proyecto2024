@@ -370,9 +370,11 @@ main {
     border: 2px solid rgb(4, 26, 53);
     min-height: 730px;
 }
-.todo-formulario{
+
+.todo-formulario {
     width: 50%;
 }
+
 .form-container {
     background-color: var(--principal-color);
     height: 100%;
@@ -415,10 +417,11 @@ h1 {
 
 /*IMG DEL LOGO FORMULARIO*/
 
-.todo-img{
+.todo-img {
     width: 50%;
     display: flex;
 }
+
 .img-div-form {
     max-width: 315px;
     max-height: 200px;
@@ -445,7 +448,7 @@ h1 {
     margin: 0 30px;
 }
 
-.boton-log:hover{
+.boton-log:hover {
     opacity: .7;
 }
 
@@ -461,7 +464,7 @@ h1 {
     cursor: pointer;
 }
 
-.boton-loginnn:hover{
+.boton-loginnn:hover {
     opacity: .7;
 }
 
@@ -530,7 +533,6 @@ input {
 }
 
 
-
 /* FOOTER */
 
 footer {
@@ -542,18 +544,28 @@ footer {
     width: 100%;
     background-color: var(--principal-color);
     text-align: center;
+    justify-content: center;
+    align-items: center;
     padding: 18px 0;
     font-size: 17px;
     box-shadow: 0 5px 10px rgba(0, 2, 96, 0.2);
     margin: 0;
     user-select: none;
+    display: flex;
 }
 
 .footer-title-lit {
     margin: 0;
+    padding: 0;
 }
 
-.footer-text{
+.copy {
+    margin: 0;
+    padding: 0 4px;
+    font-weight: bold;
+}
+
+.footer-text {
     margin: 0;
 }
 
@@ -562,6 +574,7 @@ footer {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     user-select: none;
+    border-right: 1px solid var(--principal-color);
 }
 
 .footer-text {
@@ -577,19 +590,20 @@ footer {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     user-select: none;
+    border-right: 1px solid var(--principal-color);
 }
 
-.footer-cont2 a img{
+.footer-cont2 a img {
     width: 40px;
     margin: 20px 15px;
     transition: transform 0.3s;
 }
-.footer-cont2 a img:hover{
+
+.footer-cont2 a img:hover {
     transform: scale(1.1);
     opacity: .7;
 }
 
 .contenido-footer {
     display: flex;
-    margin-top: 10px;
 }

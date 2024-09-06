@@ -362,7 +362,8 @@ main {
 
 
 /*FORM LOGIN*/
-.div-container{
+
+.div-container {
     max-width: 770px;
     background-color: var(--clarito-color);
     display: flex;
@@ -371,13 +372,17 @@ main {
     box-shadow: 0 0 15px black;
     border: 2px solid rgb(4, 26, 53);
     min-height: 730px;
+    user-select: none;
 }
+
 .container {
     display: flex;
 }
-.todo-formulario{
+
+.todo-formulario {
     width: 50%;
 }
+
 .form-container {
     background-color: var(--principal-color);
     height: 100%;
@@ -420,12 +425,13 @@ h1 {
 
 /*IMG DEL LOGO FORMULARIO*/
 
-.todo-img{
+.todo-img {
     width: 50%;
     display: flex;
     background-image: radial-gradient(white, rgb(157, 195, 254));
     border-radius: 0 30px 30px 0;
 }
+
 .img-div-form {
     width: 100%;
     justify-content: center;
@@ -452,7 +458,7 @@ h1 {
     margin: 0 30px;
 }
 
-.boton-log:hover{
+.boton-log:hover {
     opacity: .7;
 }
 
@@ -468,7 +474,7 @@ h1 {
     cursor: pointer;
 }
 
-.boton-loginnn:hover{
+.boton-loginnn:hover {
     opacity: .7;
 }
 
@@ -537,38 +543,59 @@ input {
 }
 
 
-
 /* FOOTER */
 
 footer {
     width: 100%;
-    background-color: var(--clarito-color);
+    background-color: #979292;
+    height: 150px;
 }
 
 .footer-title {
     width: 100%;
-    background-color: var(--principal-color);
+    height: 40px;
+    background-color: #b8b0b0;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     padding: 18px 0;
     font-size: 17px;
     box-shadow: 0 5px 10px rgba(0, 2, 96, 0.2);
     margin: 0;
     user-select: none;
+    display: flex;
+}
+
+h4 {
+    display: flex;
+    font-size: 14px;
+    border-bottom: 1px solid black;
+    padding: 7px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .footer-title-lit {
     margin: 0;
+    padding: 0;
 }
 
-.footer-text{
+.copy {
+    margin: 0;
+    padding: 0 4px;
+    font-weight: bold;
+}
+
+.footer-text {
     margin: 0;
 }
 
 .footer-cont {
     width: 50%;
-    text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     user-select: none;
+    margin: 0 40px;
 }
 
 .footer-text {
@@ -576,7 +603,8 @@ footer {
 }
 
 .parrafo {
-    margin-top: 20px;
+    font-size: 14px;
+    margin: 10px;
 }
 
 .footer-cont2 {
@@ -584,19 +612,20 @@ footer {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     user-select: none;
+    margin: 0 40px;
 }
 
-.footer-cont2 a img{
+.footer-cont2 a img {
     width: 40px;
-    margin: 20px 15px;
+    margin: 10px 15px 0 15px;
     transition: transform 0.3s;
 }
-.footer-cont2 a img:hover{
+
+.footer-cont2 a img:hover {
     transform: scale(1.1);
     opacity: .7;
 }
 
 .contenido-footer {
     display: flex;
-    margin-top: 10px;
 }
