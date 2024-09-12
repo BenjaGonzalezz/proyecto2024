@@ -30,7 +30,8 @@ function registerUsuario(){
     // Mostrar el hash generado para verificar
     var_dump($contraseñaHash);
 
-    $resultado = (new Usuario())->RegisterUsuarioModel($nombre, $usuario, $email, $telefono, $contraseñaHash);
+    $resultado = (new Usuario())->RegisterUsuarioModel($nombre, $usuario,
+     $email, $telefono, $contraseñaHash);
     echo json_encode($resultado);
 }
 

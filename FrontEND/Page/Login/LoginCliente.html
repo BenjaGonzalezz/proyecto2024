@@ -60,9 +60,17 @@
             <div class="carrito-container">
                 <img src="../img/Carrito.png" class="imagen-carrito" alt="">
             </div>
-            <li class="login">
-                <a class="login2" href="../Login/LoginCliente.html">Login</a>
-            </li>
+            <div class="login-boton">
+                <input type="checkbox" class="menu-desplegable" id="menu-toggle">
+                <label class="login-link" for="menu-toggle">
+                    <img class="user" src="../img/user.webp" alt="">
+            </label>
+                <div class="menuUser">
+                    <a href="../Login/LoginCliente.html">Login</a>
+                    <a href="../Register/RegisterCliente.html">Registro</a>
+                </div>
+
+            </div>
             </ul>
         </nav>
     </header>
@@ -72,42 +80,45 @@
     <!--  LOG IN   -->
 
     <main>
-        <div class="div-container">
-            <div class="todo-formulario">
-                <form id="Login" class="form-container">
-                    <h1>Login</h1>
-                    <div class="formulario-container">
-                        <div class="prueba">
-                            <div class="form_input">
-                                <div class="prueba2">
-                                    <label for="usuario"><h2>Usuario</h2></label>
-                                    <input type="text" placeholder="Juan22" id="usuario" name="usuario" />
+        <div class="div-container1">
+            <div class="div-container">
+                <div class="todo-formulario">
+                    <form id="Login" class="form-container">
+                        <h1>Login</h1>
+                        <div class="formulario-container">
+                            <div class="prueba">
+                                <div class="form_input">
+                                    <div class="prueba2">
+                                        <label for="usuario"><h2>Usuario</h2></label>
+                                        <input type="text" placeholder="Juan22" id="usuario" name="usuario" required/>
+                                    </div>
+                                </div>
+                                <div class="form_input">
+                                    <div class="prueba2" style="position: relative;">
+                                        <label for="contraseña"><h2>Contraseña</h2></label>
+                                        <input type="password" placeholder="Password" id="contraseña" name="contraseña" minlength="8" required pattern="(?=.*[A-Z])(?=.*\d).{8,}" title="La contraseña debe tener al menos 8 caracteres, Una letra mayúscula y Un número." />
+                                        <img src="../img/ver.png" class="ojitoContra" alt="Mostrar Contraseña" id="togglePassword">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form_input">
-                                <div class="prueba2">
-                                    <label for="contraseña"><h2>Contraseña</h2></label>
-                                    <input type="password" placeholder="Password" id="contraseña" name="contraseña"/>
-                                </div>
+                            <input class="boton-loginnn" type="submit" value="Login">
+                            <div class="div-cont">
+                                <div class="div-izq"></div>
+                                <p>O</p>
+                                <div class="div-der"></div>
                             </div>
+
+                            <a class="boton-log" href="../Register/RegisterCliente.html">Registrarse</a>
                         </div>
-                        <input class="boton-loginnn" type="submit" value="Login">
-                        <div class="div-cont">
-                            <div class="div-izq"></div>
-                            <p>O</p>
-                            <div class="div-der"></div>
-                        </div>
-    
-                        <a class="boton-log" href="../Register/RegisterCliente.html">Registrarse</a>
-                    </div>
-                </form>
-            </div>
-            <div class="todo-img">
-                <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
+                    </form>
+                </div>
+                <div class="todo-img">
+                    <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
+                </div>
             </div>
         </div>
     </main>
-    
+
 
     <!-- / LOG IN   -->
 

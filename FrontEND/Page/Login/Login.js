@@ -1,7 +1,7 @@
-import SesionDAO from '../../dao/SesionDAO.js'; 
+import SesionDAO from '../../dao/SesionDAO.js';
 
 document.getElementById("Login").addEventListener("submit", async function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     let usuario = document.getElementById("usuario").value;
     let contraseña = document.getElementById("contraseña").value;
@@ -16,5 +16,20 @@ document.getElementById("Login").addEventListener("submit", async function(event
     } else {
         alert('Login exitoso'); // Muestra un mensaje de éxito
         window.location.href = '../Inicio/Inicio.html'; // Redirige a la página de inicio
+    }
+});
+
+
+
+// Funcionalidad para mostrar/ocultar contraseña
+const toggleIcon = document.getElementById('togglePassword');
+toggleIcon.addEventListener('click', function() {
+    const passwordInput = document.getElementById('contraseña');
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.src = '../img/esconder.png'; // Cambia la imagen a "ocultar"
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.src = '../img/ver.png'; // Cambia la imagen a "mostrar"
     }
 });
