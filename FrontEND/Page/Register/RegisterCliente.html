@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="register.css" />
+    <script type="module" src="Register.js"></script>
     <title>Registrarse</title>
 </head>
 
@@ -59,7 +60,7 @@
                 <img src="../img/Carrito.png" class="imagen-carrito" alt="">
             </div>
             <li class="login">
-                <a class="login2" href="../Login/LoginCliente.html">Login</a>
+                <a class="login2" href="../Login/LoginCliente.html">Login <div class="transition"></div></a>
             </li>
             </ul>
         </nav>
@@ -100,13 +101,16 @@
                                 <div class="form_input">
                                     <div class="prueba2">
                                         <label for="telefono"><h2>Telefono</h2></label>
-                                        <input type="email" placeholder="091 860 203" id="telefono" name="telefono" />
+                                        <input type="text" placeholder="091 860 203" id="telefono" name="telefono" />
                                     </div>
                                 </div>
                                 <div class="form_input">
-                                    <div class="prueba2">
+                                    <div class="prueba2"  style="position: relative;">
                                         <label for="contraseña"><h2>Contraseña</h2></label>
-                                        <input type="password" placeholder="Password" id="contraseña" name="contraseña" />
+                                        <input type="password" placeholder="Password" id="contraseña" name="contraseña" minlength="8" required
+                                        pattern="(?=.*[A-Z])(?=.*\d).{8,}"
+                                        title="La contraseña debe tener al menos 8 caracteres, Una letra mayúscula y Un número."/>
+                                        <img src="../img/ver.png" class="ojitoContra" alt="Mostrar Contraseña" id="togglePassword">
                                     </div>
                                 </div>
                             </div>

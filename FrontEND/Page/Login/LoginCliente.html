@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="login.css" />
+    <script type="module" src="Login.js"></script>
     <title>Login</title>
 </head>
 
@@ -73,19 +74,20 @@
     <main>
         <div class="div-container">
             <div class="todo-formulario">
-                <form class="form-container">
+                <form id="Login" class="form-container">
                     <h1>Login</h1>
                     <div class="formulario-container">
                         <div class="prueba">
                             <div class="form_input">
                                 <div class="prueba2">
-                                    <label for="nombre"><h2>Usuario</h2></label>
-                                    <input type="text" placeholder="Juan22" id="nombre" /></div>
+                                    <label for="usuario"><h2>Usuario</h2></label>
+                                    <input type="text" placeholder="Juan22" id="usuario" name="usuario" />
+                                </div>
                             </div>
                             <div class="form_input">
                                 <div class="prueba2">
-                                    <label for="email"><h2>Contraseña</h2></label>
-                                    <input type="password" placeholder="Password" id="contraseña" />
+                                    <label for="contraseña"><h2>Contraseña</h2></label>
+                                    <input type="password" placeholder="Password" id="contraseña" name="contraseña"/>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +97,7 @@
                             <p>O</p>
                             <div class="div-der"></div>
                         </div>
-
+    
                         <a class="boton-log" href="../Register/RegisterCliente.html">Registrarse</a>
                     </div>
                 </form>
@@ -104,8 +106,8 @@
                 <img class="img-div-form" src="../img/logoProyectoEMPRESA.png" alt="" />
             </div>
         </div>
-        </div>
     </main>
+    
 
     <!-- / LOG IN   -->
 

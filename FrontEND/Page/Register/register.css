@@ -129,29 +129,83 @@ main {
     .login {
         list-style: none;
         display: flex;
+        margin: 0;
+        padding: 0;
     }
     .login a {
         text-decoration: none;
         color: #000;
         justify-content: center;
     }
-    .login:hover {
-        opacity: .7;
-    }
     .login2 {
-        background-color: var(--principal-color);
         font-size: 24px;
-        letter-spacing: 1.5px;
+        width: 140px;
         display: flex;
+        justify-content: center;
         align-items: center;
-        text-align: center;
-        padding: 40px;
-        margin-right: 20px;
-        margin-left: 40px;
-        width: 160px;
-        max-height: 10px;
-        border-radius: 90px;
-        box-shadow: 0 0 10px black;
+        cursor: hand;
+        text-transform: capitalize;
+        border: 1px solid #73a6ff;
+        border-radius: 20px;
+        padding: 0px 25px;
+        position: relative;
+        overflow: hidden!important;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+        background: rgb(126, 171, 249);
+        z-index:10;
+        box-shadow: 0 0 15px 1px black;
+    }
+    .login2:hover{
+        border: 1px solid #8493e3;
+        color: black;
+        
+    }
+    .login2::before {
+        content: '';
+        width: 0%;
+        height: 100%;
+        display: block;
+        background: #35b7eb;
+        position: absolute;
+        -ms-transform: skewX(-20deg);
+        -webkit-transform: skewX(-20deg); 
+        transform: skewX(-20deg);   
+        left: -10%;
+        top: 0;
+        z-index: -12;
+        -moz-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      -o-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      -webkit-transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+      transition: all .7s cubic-bezier(0.77, 0, 0.175, 1);
+         box-shadow:2px 0px 14px rgba(0,0,0,.6);
+      }
+    .login2::after {
+        content: '';
+        width: 0%;
+        height: 100%;
+        display: block;
+        background: #6fb7f9;
+        position: absolute;
+      -ms-transform: skewX(-20deg);
+        -webkit-transform: skewX(-20deg); 
+        transform: skewX(-20deg);   
+        left: -10%;
+        top: 0;
+        z-index: -15;
+        -webkit-transition: all .94s cubic-bezier(.2,.95,.57,.99);
+        -moz-transition: all .4s cubic-bezier(.2,.95,.57,.99);
+        -o-transition: all .4s cubic-bezier(.2,.95,.57,.99);
+        transition: all .4s cubic-bezier(.2,.95,.57,.99);
+        box-shadow: 2px 0px 14px rgba(0,0,0,.6);
+    }
+    .login2:hover::before, .login2:hover::before{
+      width: 116%;
+    }
+    .login2:hover::after, .login2:hover::after{
+      width: 120%;
     }
     /*CATEGORIAS DE LOS PRODUCTOS*/
     .productos-navbar {
@@ -529,18 +583,15 @@ input {
 }
 
 
-/*PARRAFO DE ABAJO FORMULARIO */
-
-.parrafo-container {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 1.1rem;
+.ojitoContra{
+    position: absolute;
+    width: 30px;
+    cursor: pointer;
+    top: 50px;
+    right: 5px;
+    box-sizing: border-box;
 }
 
-.parrafo-container a {
-    color: white;
-    text-decoration: underline;
-}
 
 
 /* FOOTER */
@@ -548,7 +599,7 @@ input {
 footer {
     width: 100%;
     background-color: #979292;
-    height: 150px;
+    min-height: 170px;
 }
 
 .footer-title {
@@ -628,4 +679,33 @@ h4 {
 
 .contenido-footer {
     display: flex;
+}
+
+
+@media (max-width: 680px) {
+    
+.contenido-footer {
+    display: block;
+}
+.footer-cont {
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    user-select: none;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.footer-cont2 {
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    user-select: none;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
 }
