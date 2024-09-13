@@ -432,6 +432,7 @@
     /*FORM LOGIN*/
     
     .div-container {
+        margin-top: 200px;
         max-width: 770px;
         background-color: var(--clarito-color);
         display: flex;

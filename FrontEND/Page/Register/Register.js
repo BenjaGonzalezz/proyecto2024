@@ -1,35 +1,40 @@
 import SesionDAO from '../../dao/SesionDAO.js'; 
 
-document.getElementById("Register").addEventListener("submit", async function(event) {
-    event.preventDefault(); 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("Register").addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-    // Obtén los datos del formulario
-    let nombre = document.getElementById("nombre").value;
-    let usuario = document.getElementById("usuario").value;
-    let email = document.getElementById("email").value;
-    let telefono = document.getElementById("telefono").value;
-    let contraseña = document.getElementById("contraseña").value;
+        // Datos del formulario
+        let nombre = document.getElementById("nombre2").value;
+        let usuario = document.getElementById("usuario2").value;
+        let email = document.getElementById("email2").value;
+        let telefono = document.getElementById("telefono2").value;
+        let contraseña = document.getElementById("contraseña2").value;
 
-    // Llama a tu función para registrar el usuario
-    let sesionDAO = new SesionDAO();
-    let resultado = await sesionDAO.registerUsuario(nombre, usuario, contraseña, email, telefono);
+        console.log('nombre', nombre);
+        console.log('usuario', usuario);
+        console.log('email', email);
+        console.log('telefono', telefono);
+        console.log('contraseña', contraseña);
 
-    // Maneja la respuesta del servidor
-    if (resultado.error) {
-        alert(resultado.error); // Muestra un mensaje de error
-    } else {
-        alert('Registro exitoso'); // Muestra un mensaje de éxito
-        window.location.href = '../Login/LoginCliente.html';
-    }
+        // Llama a tu función para registrar el usuario
+        let sesionDAO = new SesionDAO();
+        let resultado = await sesionDAO.registerUsuario(nombre, usuario, contraseña, email, telefono);
 
+        console.log('Resultado de registro:', resultado);
 
-});
-
+        if (resultado.success) {
+            alert('Registro exitoso');
+            window.location.href = '../Login/LoginCliente.html';
+        } else {
+            alert(resultado.message || 'Error en el registro');
+        }
+    });
 
     // Funcionalidad para mostrar/ocultar contraseña
     const toggleIcon = document.getElementById('togglePassword');
     toggleIcon.addEventListener('click', function () {
-        const passwordInput = document.getElementById('contraseña');
+        const passwordInput = document.getElementById('contraseña2');
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
             toggleIcon.src = '../img/esconder.png'; // Cambia la imagen a "ocultar"
@@ -38,3 +43,4 @@ document.getElementById("Register").addEventListener("submit", async function(ev
             toggleIcon.src = '../img/ver.png'; // Cambia la imagen a "mostrar"
         }
     });
+});

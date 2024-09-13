@@ -57,25 +57,52 @@
             </div>
 
             </li>
-            <div class="carrito-container ">
+            <div id="aparecer" class="carrito-container" style="display: none;">
                 <img src="../img/Carrito.png " class="imagen-carrito " alt=" ">
             </div>
-            <div class="login-boton ">
-                <input type="checkbox " class="menu-desplegable " id="menu-toggle ">
-                <label class="login-link " for="menu-toggle ">
-                    <img class="user " src="../img/user.webp " alt=" ">
-            </label>
-                <div class="menuUser ">
-                    <a href="../Login/LoginCliente.html ">Login</a>
-                    <a href="../Register/RegisterCliente.html ">Registro</a>
+            <div class="login-boton">
+                <input type="checkbox" class="menu-desplegable" id="menu-toggle">
+                <label class="login-link" for="menu-toggle">
+                    <img class="user" src="../img/user.webp" alt="">
+                </label>
+                <div class="menuUser">
+                    <a id="desaparecer" href="../Login/LoginCliente.html">Login</a>
+                    <a id="desaparecer" href="../Register/RegisterCliente.html">Registro</a>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Nombre:</span>
+                            <span class="span" id="nombre"></span>
+                        </p>
+                    </div>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Usuario:</span>
+                            <span class="span" id="usuario"></span>
+                        </p>
+                    </div>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Teléfono:</span>
+                            <span class="span" id="telefono"></span>
+                        </p>
+                    </div>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Email:</span>
+                            <span class="span" id="email"></span>
+                        </p>
+                    </div>
+                    <a id="cerrarSesion" class="aparecer"  style="display: none;"href="#">Cerrar Sesión</a>
                 </div>
-
+  
             </div>
             </ul>
         </nav>
     </header>
 
+ <!-- // HEADER  -->
 
+ 
 
     <main>
 

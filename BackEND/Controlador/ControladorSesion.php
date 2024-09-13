@@ -1,7 +1,8 @@
 <?php
-
 require_once '../Modelo/SesionDAO.php';
 
+
+header('Content-Type: application/json');
 
 $function = $_GET['function'];
 
@@ -23,28 +24,35 @@ function registerUsuario(){
     $email = $_POST['email'];
     $telefono = $_POST['telefono'];
     $contraseña = $_POST['contraseña'];
-    
-    // Hash de la contraseña
-    $contraseñaHash = password_hash($contraseña, PASSWORD_BCRYPT);
 
-    // Mostrar el hash generado para verificar
-    var_dump($contraseñaHash);
 
     $resultado = (new Usuario())->RegisterUsuarioModel($nombre, $usuario,
-     $email, $telefono, $contraseñaHash);
+     $email, $telefono, $contraseña);
     echo json_encode($resultado);
 }
 
-function loginUsuario(){
+function loginUsuario() {
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
-    
+
+    // Obtener el resultado desde el modelo
     $resultado = (new Usuario())->loginUsuarioModel($usuario, $contraseña);
+
+    // Enviar la respuesta en formato JSON
     echo json_encode($resultado);
 }
 
+function cerrarSesion() {
+    // Iniciar sesión si aún no está iniciada
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-function cerrarSesion(){
+    // Destruir la sesión
+    session_unset();
+    session_destroy();
 
-
+    // Enviar una respuesta en formato JSON
+    echo json_encode(["success" => true, "message" => "Sesión cerrada"]);
 }
+

@@ -10,45 +10,46 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__logo-container">
-            <a href="../Inicio/Inicio.html">
-                <img class="header__logo" src="../img/logoProyectoEMPRESA.png" />
+    <header class=" header ">
+        <div class="header__logo-container ">
+            <a href="../Inicio/Inicio.html ">
+                <img class="header__logo " src="../img/logoProyectoEMPRESA.png " />
             </a>
         </div>
-        <nav class="header__nav">
-            <ul class="header__nav-list">
-                <li class="header__nav-item">
-                    <a href="../Inicio/Inicio.html">Inicio</a>
+        <nav class="header__nav ">
+            <ul class="header__nav-list ">
+                <li class="header__nav-item ">
+                    <a href="../Inicio/Inicio.html ">Inicio</a>
                 </li>
-                <li class="header__nav-item header__nav-item2">
-                    <div class="menu">
-                        <ul class="tipos-productos">
+                <li class="header__nav-item header__nav-item2 ">
+                    <div class="menu ">
+                        <ul class="tipos-productos ">
                             <li>
-                                <div class="productos-navbar">
-                                    <a class="productos-principal" href="../Productos/Productos.html">Productos🡣</a
+                                <div class="productos-navbar ">
+                                    <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a
                     >
-                  </div><ul>
-                    <li class="lista-productos">
-                      <a href="../Productos/Productos.html#seccion-mosquitero">MOSQUITEROS</a>
+                  </div>
+                  <ul>
+                    <li class="lista-productos ">
+                      <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
                             </li>
-                            <li class="lista-productos">
-                                <a href="../Productos/Productos.html#seccion-ventana">VENTANAS</a>
+                            <li class="lista-productos ">
+                                <a href="../Productos/Productos.html#seccion-ventana ">VENTANAS</a>
                             </li>
-                            <li class="lista-productos">
-                                <a href="../Productos/Productos.html#seccion-puerta">PUERTAS</a>
+                            <li class="lista-productos ">
+                                <a href="../Productos/Productos.html#seccion-puerta ">PUERTAS</a>
                             </li>
-                            <li class="lista-productos">
-                                <a href="../Productos/Productos.html#seccion-mampara">MAMPARAS</a>
+                            <li class="lista-productos ">
+                                <a href="../Productos/Productos.html#seccion-mampara ">MAMPARAS</a>
                             </li>
-                            <li class="lista-productos">
-                                <a href="../Productos/Productos.html#seccion-pañofijo">PAÑOFIJOS</a>
+                            <li class="lista-productos ">
+                                <a href="../Productos/Productos.html#seccion-pañofijo ">PAÑOFIJOS</a>
                             </li>
-                            <li class="lista-productos">
-                                <a href="../Productos/Productos.html#seccion-monoblock">MONOBLOCKS</a>
+                            <li class="lista-productos ">
+                                <a href="../Productos/Productos.html#seccion-monoblock ">MONOBLOCKS</a>
                             </li>
-                            <li class="lista-productos">
-                                <a href="../Productos/Productos.html#seccion-vidrio">VIDRIOS</a>
+                            <li class="lista-productos ">
+                                <a href="../Productos/Productos.html#seccion-vidrio ">VIDRIOS</a>
                             </li>
                         </ul>
                 </li>
@@ -56,26 +57,52 @@
             </div>
 
             </li>
-            <div class="carrito-container">
-                <img src="../img/Carrito.png" class="imagen-carrito" alt="">
+            <div id="aparecer" class="carrito-container" style="display: none;">
+                <img src="../img/Carrito.png " class="imagen-carrito " alt=" ">
             </div>
             <div class="login-boton">
                 <input type="checkbox" class="menu-desplegable" id="menu-toggle">
                 <label class="login-link" for="menu-toggle">
                     <img class="user" src="../img/user.webp" alt="">
-            </label>
+                </label>
                 <div class="menuUser">
-                    <a href="../Login/LoginCliente.html">Login</a>
-                    <a href="../Register/RegisterCliente.html">Registro</a>
+                    <a id="desaparecer" href="../Login/LoginCliente.html">Login</a>
+                    <a id="desaparecer" href="../Register/RegisterCliente.html">Registro</a>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Nombre:</span>
+                            <span class="span" id="nombre"></span>
+                        </p>
+                    </div>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Usuario:</span>
+                            <span class="span" id="usuario"></span>
+                        </p>
+                    </div>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Teléfono:</span>
+                            <span class="span" id="telefono"></span>
+                        </p>
+                    </div>
+                    <div class="a" id="aparecer" style="display: none;">
+                        <p class="parrafoMenu">
+                            <span class="etiqueta">Email:</span>
+                            <span class="span" id="email"></span>
+                        </p>
+                    </div>
+                    <a id="cerrarSesion" class="aparecer"  style="display: none;"href="#">Cerrar Sesión</a>
                 </div>
-
+  
             </div>
             </ul>
         </nav>
     </header>
 
-    <!--  / HEADER   -->
+ <!-- // HEADER  -->
 
+ 
     <!--  LOG IN   -->
 
     <main>
@@ -90,19 +117,19 @@
                                     <div class="form_input">
                                         <div class="prueba2">
                                             <label for="nombre"><h2>Nombre Completo</h2></label>
-                                            <input type="text" placeholder="Mateo Sosa" id="nombre" name="nombre" />
+                                            <input type="text" placeholder="Mateo Sosa" id="nombre2" name="nombre" />
                                         </div>
                                     </div>
                                     <div class="form_input">
                                         <div class="prueba2">
                                             <label for="usuario"><h2>Usuario</h2></label>
-                                            <input type="text" placeholder="Mateito20" id="usuario" name="usuario" />
+                                            <input type="text" placeholder="Mateito20" id="usuario2" name="usuario" />
                                         </div>
                                     </div>
                                     <div class="form_input">
                                         <div class="prueba2">
                                             <label for="email"><h2>Email</h2></label>
-                                            <input type="text" placeholder="Ejemplo@Email.com" id="email" name="email" />
+                                            <input type="text" placeholder="Ejemplo@Email.com" id="email2" name="email" />
                                         </div>
                                     </div>
 
@@ -110,13 +137,13 @@
                                     <div class="form_input">
                                         <div class="prueba2">
                                             <label for="telefono"><h2>Telefono</h2></label>
-                                            <input type="text" placeholder="091 860 203" id="telefono" name="telefono" />
+                                            <input type="text" placeholder="091 860 203" id="telefono2" name="telefono" />
                                         </div>
                                     </div>
                                     <div class="form_input">
                                         <div class="prueba2" style="position: relative;">
                                             <label for="contraseña"><h2>Contraseña</h2></label>
-                                            <input type="password" placeholder="Password" id="contraseña" name="contraseña" minlength="8" required pattern="(?=.*[A-Z])(?=.*\d).{8,}" title="La contraseña debe tener al menos 8 caracteres, Una letra mayúscula y Un número." />
+                                            <input type="password" placeholder="Password" id="contraseña2" name="contraseña" minlength="8" required pattern="(?=.*[A-Z])(?=.*\d).{8,}" title="La contraseña debe tener al menos 8 caracteres, Una letra mayúscula y Un número." />
                                             <img src="../img/ver.png" class="ojitoContra" alt="Mostrar Contraseña" id="togglePassword">
                                         </div>
                                     </div>
