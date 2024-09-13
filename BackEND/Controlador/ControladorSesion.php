@@ -37,7 +37,6 @@ function loginUsuario() {
 
     // Obtener el resultado desde el modelo
     $resultado = (new Usuario())->loginUsuarioModel($usuario, $contraseña);
-
     // Enviar la respuesta en formato JSON
     echo json_encode($resultado);
 }
