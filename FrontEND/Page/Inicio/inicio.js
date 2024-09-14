@@ -44,8 +44,31 @@ document.getElementById('cerrarSesion').addEventListener('click', async function
         }
         // Limpiar localStorage y redirigir al login
         localStorage.clear();
-        alert
+        mostrarAlerta("Has cerrado sesión correctamente.", () => { // Alerta Personalizada
         window.location.href = '../Login/LoginCliente.html';
+    });
 
 });
 });
+
+
+
+
+function mostrarAlerta(mensaje, callback) {
+    const fondoOscuro = document.getElementById('fondoOscuro');
+    const alerta = document.getElementById('alertaPersonalizada');
+    const alertaMensaje = document.getElementById('alertaMensaje');
+    const alertaCerrar = document.getElementById('alertaCerrar');
+
+    alertaMensaje.textContent = mensaje;
+    fondoOscuro.style.display = 'block'; // Mostrar el fondo oscuro
+    alerta.style.display = 'block'; // Mostrar la alerta
+
+    alertaCerrar.onclick = function() {
+        fondoOscuro.style.display = 'none'; // Ocultar el fondo oscuro
+        alerta.style.display = 'none'; // Ocultar la alerta
+        if (callback) {
+            callback(); // Ejecutar la función de callback si se proporciona
+        }
+    }
+}
