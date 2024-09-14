@@ -24,9 +24,12 @@ function registerUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña
 
     // Confirmar transacción
     $connection->commit();
-    return true;
+    return [
+        "success" => true,
+        "message" => "Registro exitoso",
+        "contraseña_hash" => $contraseñaHash
+    ];
 }
-
 function loginUsuarioModel($usuario, $contraseña) {
     $connection = connection();
 
@@ -62,6 +65,7 @@ function loginUsuarioModel($usuario, $contraseña) {
         "message" => $resultado ? "Contraseña incorrecta" : "Usuario no encontrado"
     ];
 }
+
 }
 
 

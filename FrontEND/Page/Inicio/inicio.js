@@ -44,6 +44,7 @@ document.getElementById('cerrarSesion').addEventListener('click', async function
         }
         // Limpiar localStorage y redirigir al login
         localStorage.clear();
+        alert
         window.location.href = '../Login/LoginCliente.html';
 
 });

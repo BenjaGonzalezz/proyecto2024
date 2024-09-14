@@ -1,14 +1,14 @@
 // Archivo: sesionDAO.js
 export default class SesionDAO {
 
-    async registerUsuario(nombre, usuario, email, telefono, contraseña) {
+    async registerUsuario(nombre, usuario, contraseña, email, telefono) {
         let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=registerUsuario";
         let formdata = new FormData();
         formdata.append("nombre", nombre);
         formdata.append("usuario", usuario);
+        formdata.append("contraseña", contraseña);
         formdata.append("email", email);
         formdata.append("telefono", telefono);
-        formdata.append("contraseña", contraseña);
 
         let config = {
             method: "POST",

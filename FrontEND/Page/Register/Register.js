@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log('Resultado de registro:', resultado);
 
-        if (resultado == true) {
+        if (resultado.success === true) {
             alert('Registro exitoso');
+            console.log('Intentando redirigir al login...');
             window.location.href = '../Login/LoginCliente.html';
         } else {
-            alert(resultado.message || 'Error en el registro' + resultado.success);
+            console.log('Registro fallido:', resultado);
+            alert(resultado.message || 'Error en el registro');
         }
     });
 
