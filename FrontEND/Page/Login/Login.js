@@ -30,7 +30,7 @@ document.getElementById("Login").addEventListener("submit", async function(event
     });
     } else {
         console.log('Login fallido:', resultado);
-        alert(resultado.message || 'Error en el login');
+        mostrarAlerta2(resultado.message || 'Error en el login');
     }
 });
 
@@ -55,6 +55,27 @@ function mostrarAlerta(mensaje, callback) {
     const alerta = document.getElementById('alertaPersonalizada');
     const alertaMensaje = document.getElementById('alertaMensaje');
     const alertaCerrar = document.getElementById('alertaCerrar');
+
+    alertaMensaje.textContent = mensaje;
+    fondoOscuro.style.display = 'block'; // Mostrar el fondo oscuro
+    alerta.style.display = 'block'; // Mostrar la alerta
+
+    alertaCerrar.onclick = function() {
+        fondoOscuro.style.display = 'none'; // Ocultar el fondo oscuro
+        alerta.style.display = 'none'; // Ocultar la alerta
+        if (callback) {
+            callback(); // Ejecutar la función de callback si se proporciona
+        }
+    }
+}
+
+
+
+function mostrarAlerta2(mensaje, callback) {
+    const fondoOscuro = document.getElementById('fondoOscuro2');
+    const alerta = document.getElementById('alertaPersonalizada2');
+    const alertaMensaje = document.getElementById('alertaMensaje2');
+    const alertaCerrar = document.getElementById('alertaCerrar2');
 
     alertaMensaje.textContent = mensaje;
     fondoOscuro.style.display = 'block'; // Mostrar el fondo oscuro

@@ -472,6 +472,7 @@ main {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 
 .titulo img {

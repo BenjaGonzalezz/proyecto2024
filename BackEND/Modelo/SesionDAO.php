@@ -3,9 +3,37 @@
 require_once "../Connection/Connection.php";
 
 class Usuario { 
-function registerUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña) {
+    
+    
+    function registerUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña) {
     $connection = connection();
     $contraseñaHash = password_hash($contraseña, PASSWORD_BCRYPT);
+
+    // Verificar si el usuario ya existe
+    $stmtCheckUsuario = $connection->prepare("SELECT * FROM persona WHERE usuario = ?");
+    $stmtCheckUsuario->bind_param("s", $usuario);
+    $stmtCheckUsuario->execute();
+    $resultUsuario = $stmtCheckUsuario->get_result();
+    
+    if ($resultUsuario->num_rows > 0) {
+        return [
+            "success" => false,
+            "message" => "El usuario ya existe"
+        ];
+    }
+
+    // Verificar si el email ya existe
+    $stmtCheckEmail = $connection->prepare("SELECT * FROM cliente WHERE email = ?");
+    $stmtCheckEmail->bind_param("s", $email);
+    $stmtCheckEmail->execute();
+    $resultEmail = $stmtCheckEmail->get_result();
+
+    if ($resultEmail->num_rows > 0) {
+        return [
+            "success" => false,
+            "message" => "El email ya está registrado"
+        ];
+    }
 
     // Iniciar transacción
     $connection->begin_transaction();
@@ -24,12 +52,14 @@ function registerUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña
 
     // Confirmar transacción
     $connection->commit();
+    
     return [
         "success" => true,
         "message" => "Registro exitoso",
         "contraseña_hash" => $contraseñaHash
     ];
 }
+
 function loginUsuarioModel($usuario, $contraseña) {
     $connection = connection();
 
