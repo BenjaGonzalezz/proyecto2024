@@ -3,7 +3,7 @@
 require_once "../Connection/Connection.php";
 
 class Producto{
-    function agregarProductoModelo($nombre, $stock, $precio, $imagen, $color, $medida) {
+    function agregarProductoModelo($categoria, $nombre, $stock, $precio, $imagen, $color, $medida) {
         $connection = connection();
         
         // Obtener nombre y extensión de la imagen
@@ -11,7 +11,7 @@ class Producto{
         $extension = pathinfo($nomImg, PATHINFO_EXTENSION);
         
         // Insertar los datos en la tabla producto (la imagen es solo el nombre del archivo)
-        $sql = "INSERT INTO producto (nombre, stock, precio, imagen, color, medida) VALUES ('$nombre', '$stock', '$precio', '$nomImg', '$color', '$medida');";
+        $sql = "INSERT INTO producto (categoria, nombre, stock, precio, imagen, color, medida) VALUES ('$categoria', '$nombre', '$stock', '$precio', '$nomImg', '$color', '$medida');";
         
         if ($connection->query($sql) === TRUE) {
             $id = $connection->insert_id; // Obtener el ID del producto recién insertado
@@ -25,16 +25,28 @@ class Producto{
             return array("success" => false, "message" => "Error al agregar producto: " . $connection->error);
         }
     }
+    function obtenerProductosModelo(){
+        $connection = connection();
+        
+        // Consulta para obtener todos los productos
+        $sql = "SELECT * FROM producto";
+        $result = $connection->query($sql);
+        
+        // Verifica si la consulta devuelve filas
+        if ($result->num_rows > 0) {
+            $productos = array();
+            
+            // Recorrer cada fila y agregarla al array de productos
+            while($row = $result->fetch_assoc()) {
+                $productos[] = $row;
+            }
+            
+            return array("success" => true, "productos" => $productos);
+        } else {
+            return array("success" => false, "message" => "No se encontraron productos");
+        }
+    }
     
-function obtenerProductosModelo(){
-    
-    $connection = connection();
-    $sql = "SELECT * FROM producto;";
-    $respuesta = $connection->query($sql);
-    $productos = $respuesta->fetch_all(MYSQLI_ASSOC);
-    return $productos;
-
-}
 
     
 function obtenerProductoModelo($id_producto){

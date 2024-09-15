@@ -1,3 +1,41 @@
+import ProductosDAO from '../../dao/ProductosDAO';
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+
+    // Escuchar el evento de envío del formulario
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+
+        // Obtener los valores de los campos del formulario
+        const nombre = document.getElementById('nombre').value;
+        const stock = document.getElementById('stock').value;
+        const precio = document.getElementById('precio').value;
+        const imagen = document.getElementById('imagen').files[0]; // Obtener el archivo de imagen
+        const color = document.getElementById('color').value;
+        const medida = document.getElementById('medida').value;
+
+        // Crear una instancia de ProductosDAO
+        const productosDAO = new ProductosDAO();
+
+        try {
+            // Enviar los datos al backend usando la función agregarProducto
+            const resultado = await productosDAO.agregarProducto(nombre, stock, precio, imagen, color, medida);
+
+            // Mostrar el resultado
+            if (resultado.success) {
+                alert('Producto agregado exitosamente');
+                form.reset(); // Limpiar el formulario
+            } else {
+                alert('Error: ' + resultado.message);
+            }
+        } catch (error) {
+            console.error('Error al agregar producto:', error);
+            alert('Hubo un error al intentar agregar el producto.');
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     let nombre = localStorage.getItem('nombre');
     let usuario = localStorage.getItem('usuario');

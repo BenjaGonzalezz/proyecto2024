@@ -516,30 +516,52 @@ form {
   border: 1px solid var(--principal-color);
 }
 
+.categoria-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #333;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.categoria-select:focus {
+  border-color: #007bff; /* Color cuando está en foco */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
 label {
   margin: 20px;
   display: flex;
   font-size: 1.3rem;
 }
 
-input {
+input[type="text"] {
   width: 100%;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
   margin: auto;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
 }
 
 input[type="submit"] {
   width: 50%;
-  justify-content: center;
+  margin: 50px auto 0 auto;
   align-items: center;
+  justify-content: center;
   display: flex;
-  margin-top: 50px;
   padding: 15px 20px;
+  border-radius: 10px;
   cursor: pointer;
+  border: 1px solid black;
 }
 
 input[type="submit"]:hover {

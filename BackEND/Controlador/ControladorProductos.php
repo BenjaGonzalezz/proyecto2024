@@ -22,7 +22,9 @@ switch ($function) {
         eliminarProducto();
         break;
 }
+
 function agregarProducto() {
+    $categoria = $_POST['categoria'];
     $nombre = $_POST['nombre'];
     $stock = $_POST['stock'];
     $precio = $_POST['precio'];
@@ -30,10 +32,12 @@ function agregarProducto() {
     $color = $_POST['color'];
     $medida = $_POST['medida'];
     
-    $resultado = (new Producto())->agregarProductoModelo($nombre, $stock, $precio, $imagen, $color, $medida);
+    // Cambiar el orden de los parámetros para que coincida con la función del modelo
+    $resultado = (new Producto())->agregarProductoModelo($categoria, $nombre, $stock, $precio, $imagen, $color, $medida);
     
     echo json_encode($resultado);
 }
+
 
 function obtenerProductos(){
     $resultado = (new Producto())->obtenerProductosModelo();

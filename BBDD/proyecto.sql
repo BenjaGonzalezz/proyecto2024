@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 04:00:47
+-- Tiempo de generación: 15-09-2024 a las 04:52:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -24,16 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admin`
---
-
-CREATE TABLE `admin` (
-  `usuario` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `cliente`
 --
 
@@ -49,7 +39,6 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`usuario`, `telefono`, `email`) VALUES
 ('Administrador1', '000 000 000', 'Administrador1@admin.com'),
-('Tatara99', '312312312', 'Tatara99@a'),
 ('UsuarioNormal1', '111 111 111', 'UsuarioNormal1@gmail.com');
 
 -- --------------------------------------------------------
@@ -71,7 +60,6 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`usuario`, `contraseña`, `nombre`, `role`) VALUES
 ('Administrador1', '$2y$10$lQ4KLsNBW/H7s.Cmr8edmOkL0Acf99FNHqltKqx.wxvM3N6VTmbhW', 'Administrador1', 'admin'),
-('Tatara99', '$2y$10$DfwoxuXg8X3RhfJUn/6PAepUg7zdbtbXZtW3kxFBDVAiN7rVRZ4Ei', 'Tatara99', 'user'),
 ('UsuarioNormal1', '$2y$10$ct9Nz1RoEZDrU4xXDcF/E.Qu/PR80KEg/NbN1Udpg/4McgNQgvy7q', 'UsuarioNormal1', 'user');
 
 -- --------------------------------------------------------
@@ -82,6 +70,7 @@ INSERT INTO `persona` (`usuario`, `contraseña`, `nombre`, `role`) VALUES
 
 CREATE TABLE `producto` (
   `id_producto` int(11) NOT NULL,
+  `categoria` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `stock` varchar(255) NOT NULL,
   `precio` varchar(255) NOT NULL,
@@ -94,8 +83,8 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `nombre`, `stock`, `precio`, `imagen`, `color`, `medida`) VALUES
-(1, 'hola', '22', '$3.999', 'g.png', 'rojo', '3metros');
+INSERT INTO `producto` (`id_producto`, `categoria`, `nombre`, `stock`, `precio`, `imagen`, `color`, `medida`) VALUES
+(4, 'puerta', 'Puerta de aluminio', '20', '$2.399', 'LOGO R.png', 'rojo', '2 metros');
 
 -- --------------------------------------------------------
 
@@ -126,12 +115,6 @@ CREATE TABLE `reserva` (
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`usuario`);
 
 --
 -- Indices de la tabla `cliente`
@@ -173,7 +156,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
@@ -184,12 +167,6 @@ ALTER TABLE `reserva`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `admin`
---
-ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `persona` (`usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `cliente`

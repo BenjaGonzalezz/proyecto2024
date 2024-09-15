@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Agregar.css">
-    <script src="Admin.js"></script>
+    <script type="module" src="Admin.js"></script>
     <title>AdminProductos</title>
 </head>
 
@@ -111,6 +111,17 @@
     <main>
         <form action="">
             <h2>Agregar Producto</h2>
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria" class="categoria-select">
+                <option value="mosquitero">Mosquitero</option>
+                <option value="ventana">Ventana</option>
+                <option value="puerta">Puerta</option>
+                <option value="mampara">Mampara</option>
+                <option value="pañofijo">Pañofijo</option>
+                <option value="monoblock">Monoblock</option>
+                <option value="vidrio">Vidrio</option>
+            </select>
+
             <label for="">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
             <label for="">Stock</label>
