@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Style/Style.css">
+    <link rel="stylesheet" href="Agregar.css">
+    <script src="Admin.js"></script>
     <title>Administrador</title>
 </head>
 
@@ -25,29 +26,34 @@
                         <ul class="tipos-productos ">
                             <li>
                                 <div class="productos-navbar ">
-                                    <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a
-                    >
+                                    <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
                   </div>
                   <ul>
-                    <li class="lista-productos ">
-                      <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
+                    <li style="display: none;" class="AgregarAdmin aparecerAdmin">
+                        <a href="../Administrador/Agregar.html">Agregar Productos</a>
+                    </li>
+                    <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
+                        <a href="../Administrador/Eliminar.html">Eliminar Productos</a>
+                    </li>
+                            <li class="lista-productos">
+                                <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
                             </li>
-                            <li class="lista-productos ">
+                            <li class="lista-productos">
                                 <a href="../Productos/Productos.html#seccion-ventana ">VENTANAS</a>
                             </li>
-                            <li class="lista-productos ">
+                            <li class="lista-productos">
                                 <a href="../Productos/Productos.html#seccion-puerta ">PUERTAS</a>
                             </li>
-                            <li class="lista-productos ">
+                            <li class="lista-productos">
                                 <a href="../Productos/Productos.html#seccion-mampara ">MAMPARAS</a>
                             </li>
-                            <li class="lista-productos ">
+                            <li class="lista-productos">
                                 <a href="../Productos/Productos.html#seccion-pañofijo ">PAÑOFIJOS</a>
                             </li>
-                            <li class="lista-productos ">
+                            <li class="lista-productos">
                                 <a href="../Productos/Productos.html#seccion-monoblock ">MONOBLOCKS</a>
                             </li>
-                            <li class="lista-productos ">
+                            <li class="lista-productos">
                                 <a href="../Productos/Productos.html#seccion-vidrio ">VIDRIOS</a>
                             </li>
                         </ul>
@@ -56,7 +62,7 @@
             </div>
 
             </li>
-            <div id="aparecer" class="carrito-container" style="display: none;">
+            <div id="aparecer" class="carrito-container desaparecerAdmin" style="display: none;">
                 <img src="../img/Carrito.png " class="imagen-carrito " alt=" ">
             </div>
             <div class="login-boton">
@@ -100,6 +106,7 @@
     </header>
 
  <!-- // HEADER  -->
+
 
  
     <main>

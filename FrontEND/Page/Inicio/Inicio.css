@@ -208,7 +208,18 @@ main {
     width: 90%;
     font-size: 15px;
   }
-
+  .AgregarAdmin{
+    border-bottom: 1px solid black;
+  }
+  .AgregarAdmin:hover{
+    background-color: rgb(204, 252, 204);
+  }
+  .EliminarAdmin2{
+    border-bottom: 1px solid black;
+  }
+  .EliminarAdmin2:hover{
+    background-color: rgb(255, 198, 198);
+  }
   .etiqueta {
     display: block;
     font-size: 15px; /* Tamaño de fuente para la etiqueta */
@@ -222,6 +233,8 @@ main {
   }
 
   /*CATEGORIAS DE LOS PRODUCTOS*/
+
+
   .productos-navbar {
     display: flex;
     align-items: center;
@@ -254,6 +267,9 @@ main {
     background-color: var(--clarito-color);
     border: 2px solid var(--principal-color);
     border-radius: 5px;
+  }
+  .lista-productos:hover{
+    background-color: #d3d6ff;
   }
   .menu ul ul li {
     width: 100%;
@@ -418,6 +434,20 @@ main {
     transition: none;
     border: none;
   }
+
+  .AgregarAdmin{
+    border-bottom: 1px solid black;
+  }
+  .AgregarAdmin:hover{
+    background-color: rgb(204, 252, 204);
+  }
+  .EliminarAdmin2{
+    border-bottom: 1px solid black;
+  }
+  .EliminarAdmin2:hover{
+    background-color: rgb(255, 198, 198);
+  }
+
   /*CATEGORIAS DE LOS PRODUCTOS*/
   .productos-navbar {
     display: flex;
@@ -466,6 +496,11 @@ main {
     min-height: calc(100% - 120px - 80px);
   }
 }
+
+
+/* INICIO */
+
+
 .titulo {
   display: flex;
   width: 100%;

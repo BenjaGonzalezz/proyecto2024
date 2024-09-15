@@ -1,6 +1,5 @@
 import SesionDAO from '../../dao/SesionDAO.js';
 
-
 document.getElementById("Login").addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -10,7 +9,6 @@ document.getElementById("Login").addEventListener("submit", async function(event
     console.log('usuario', usuario);
     console.log('contraseña', contraseña);
 
-
     let sesionDAO = new SesionDAO();
     let resultado = await sesionDAO.loginUsuario(usuario, contraseña);
 
@@ -19,22 +17,25 @@ document.getElementById("Login").addEventListener("submit", async function(event
     if (resultado.success === true) {
         mostrarAlerta("✅Login Exitoso✅", () => {
         
-        // Guardar datos en localStorage
-
+        // Guardar datos en localStorage, incluyendo el rol del usuario
         localStorage.setItem('nombre', resultado.nombre);
         localStorage.setItem('usuario', resultado.usuario);
         localStorage.setItem('telefono', resultado.telefono);
         localStorage.setItem('email', resultado.email);
+        localStorage.setItem('role', resultado.role); // Guardar el rol
 
-        window.location.href = '../Inicio/Inicio.html';
+        // Redirigir según el rol del usuario
+        if (resultado.role === 'admin') {
+            window.location.href = '../Inicio/Inicio.html';
+        } else {
+            window.location.href = '../Inicio/Inicio.html'; 
+        }
     });
     } else {
         console.log('Login fallido:', resultado);
         mostrarAlerta2(resultado.message || 'Error en el login');
     }
 });
-
-
 
 // Funcionalidad para mostrar/ocultar contraseña
 const toggleIcon = document.getElementById('togglePassword');
@@ -48,7 +49,6 @@ toggleIcon.addEventListener('click', function() {
         toggleIcon.src = '../img/ver.png'; // Cambia la imagen a "mostrar"
     }
 });
-
 
 function mostrarAlerta(mensaje, callback) {
     const fondoOscuro = document.getElementById('fondoOscuro');
@@ -68,8 +68,6 @@ function mostrarAlerta(mensaje, callback) {
         }
     }
 }
-
-
 
 function mostrarAlerta2(mensaje, callback) {
     const fondoOscuro = document.getElementById('fondoOscuro2');

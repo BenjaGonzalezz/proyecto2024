@@ -1,69 +1,58 @@
 document.addEventListener('DOMContentLoaded', function() {
-  let nombre = localStorage.getItem('nombre');
-  let usuario = localStorage.getItem('usuario');
-  let telefono = localStorage.getItem('telefono');
-  let email = localStorage.getItem('email');
+    let nombre = localStorage.getItem('nombre');
+    let usuario = localStorage.getItem('usuario');
+    let telefono = localStorage.getItem('telefono');
+    let email = localStorage.getItem('email');
 
-  // Insertar los valores en elementos HTML, por ejemplo:
-  document.getElementById('nombre').textContent = nombre;
-  document.getElementById('usuario').textContent = usuario;
-  document.getElementById('telefono').textContent = telefono;
-  document.getElementById('email').textContent = email;
+    // Insertar los valores en elementos HTML, por ejemplo:
+    document.getElementById('nombre').textContent = nombre;
+    document.getElementById('usuario').textContent = usuario;
+    document.getElementById('telefono').textContent = telefono;
+    document.getElementById('email').textContent = email;
 
-
-  // Ocultar las etiquetas con la clase 'desaparecer' si hay datos de usuario
-  if (nombre && usuario && telefono && email) {
-      // Seleccionar todos los elementos con el id 'desaparecer'
-      let desaparecer = document.querySelectorAll('#desaparecer');
-      
-      // Ocultar cada uno de los elementos seleccionados
-      desaparecer.forEach(desaparecer => {
-          desaparecer.style.display = 'none';
-      });
-      let aparecer = document.querySelectorAll('#aparecer');
-      
-      // Ocultar cada uno de los elementos seleccionados
-      aparecer.forEach(aparecer => {
-          aparecer.style.display = 'block';
-      });
-      let aparecer2 = document.querySelectorAll('.aparecer');
-      
-      // Ocultar cada uno de los elementos seleccionados
-      aparecer2.forEach(aparecer2 => {
-          aparecer2.style.display = 'block';
-      });
-  }
   
+    // Ocultar las etiquetas con la clase 'desaparecer' si hay datos de usuario
+    if (nombre && usuario && telefono && email) {
+        // Seleccionar todos los elementos con el id 'desaparecer'
+        let desaparecer = document.querySelectorAll('#desaparecer');
+        
+        // Ocultar cada uno de los elementos seleccionados
+        desaparecer.forEach(desaparecer => {
+            desaparecer.style.display = 'none';
+        });
+        let aparecer = document.querySelectorAll('#aparecer');
+        
+        // Ocultar cada uno de los elementos seleccionados
+        aparecer.forEach(aparecer => {
+            aparecer.style.display = 'block';
+        });
+        let aparecer2 = document.querySelectorAll('.aparecer');
+        
+        // Ocultar cada uno de los elementos seleccionados
+        aparecer2.forEach(aparecer2 => {
+            aparecer2.style.display = 'block';
+        });
+    }
+    
 
 document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-      let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
-      if (!response.ok) {
-          throw new Error('Error en la respuesta del servidor');
-      }
-      // Limpiar localStorage y redirigir al login
-      localStorage.clear();
-      mostrarAlerta("Has cerrado sesión correctamente.", () => { // Alerta Personalizada
-      window.location.href = '../Login/LoginCliente.html';
-  });
+        let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        // Limpiar localStorage y redirigir al login
+        localStorage.clear();
+        mostrarAlerta("Has cerrado sesión correctamente.", () => { // Alerta Personalizada
+        window.location.href = '../Login/LoginCliente.html';
+    });
+
 });
 });
 
 
-function desplazarDerecha() {
-    const contenedor = document.querySelector('.producto-mosquitero');
-    contenedor.scrollLeft += 500; // Ajusta este valor según la cantidad de desplazamiento deseado
-  }
-  
-function desplazarIzquierda() {
-    const contenedor = document.querySelector('.producto-mosquitero');
-    contenedor.scrollLeft -= 500; // Ajusta este valor según la cantidad de desplazamiento deseado
-  }
-  
 
-
-  
 
 function mostrarAlerta(mensaje, callback) {
     const fondoOscuro = document.getElementById('fondoOscuro');
@@ -83,3 +72,32 @@ function mostrarAlerta(mensaje, callback) {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el rol del usuario del localStorage
+    const role = localStorage.getItem('role');
+
+    // Mostrar/ocultar elementos según el rol
+    if (role === 'admin') {
+        // Mostrar elementos específicos para admin
+        document.querySelectorAll('.aparecerAdmin').forEach(element => {
+            element.style.display = 'block';
+        });
+        // Ocultar elementos específicos para admin (si es necesario)
+        document.querySelectorAll('.desaparecerAdmin').forEach(element => {
+            element.style.display = 'none';
+        });
+    } else {
+    }
+});
+
+function desplazarDerecha() {
+    const contenedor = document.querySelector('.producto-mosquitero');
+    contenedor.scrollLeft += 500; // Ajusta este valor según la cantidad de desplazamiento deseado
+  }
+  
+function desplazarIzquierda() {
+    const contenedor = document.querySelector('.producto-mosquitero');
+    contenedor.scrollLeft -= 500; // Ajusta este valor según la cantidad de desplazamiento deseado
+  }
+  
