@@ -531,132 +531,42 @@ h1 {
     }
 }
 
-
-/* PRODUCTOS PARA LA DERECHA*/
-
-.producto-container1 {
-    background-color: rgb(224, 249, 255);
-    padding: 15px 0 50px 0;
-    margin-top: 70px;
-    box-shadow: 0 0 40px rgb(170, 195, 202);
+.productos-categoria{
+  display: flex;
+  width: 85%;
+  background-color: rgb(150, 228, 150);
+  margin: 0 auto;
+  padding: 20px;
 }
-
-h2 {
-    margin-left: 50px;
+.producto-item{
+  margin: 0 20px;
+  padding: 15px;
+  border: 1px solid black;
 }
-
-.contenedor-principal {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin: 0 25px;
-    padding: 0px 20px;
-    border-radius: 20px;
-    border: 1px solid var(--principal-color);
-    background-color: rgb(204, 234, 253);
+.parrafo-y-img{
+  display: flex;
 }
-
-.producto-mosquitero {
-    display: flex;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    height: 100%;
+.P-producto{
+  font-size: 13px;
+  margin: 7px 0 0 10px;
+  padding: 0;
+  display: none;
 }
+.img-producto{
+  height: 120px;
+  width: 120px;
+  transition: all .3s;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 
-.producto {
-    flex: 0 0 auto;
-    width: 200px;
-    height: 100%;
-    margin: 30px 17px;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid var(--principal-color);
-    border-radius: 8px;
-    box-shadow: 0 0 17px rgb(0, 32, 86);
 }
-
-.producto img {
-    width: 150px;
-    margin: auto;
-    justify-content: center;
-    border: 2px solid var(--principal-color);
+.img-producto:hover{
+  transform: scale(1.1);
 }
-
-.ag-carrito {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: 15px auto 0 auto;
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid var(--principal-color);
-    background-color: rgb(211, 222, 247);
-    font-size: 15px;
-    cursor: pointer;
+.producto-item:hover .P-producto{
+  display: block;
+  transition: all .3s; /* NOSE PORQUE NO ANDA LPM*/
 }
-
-.ag-carrito:hover {
-    opacity: .7;
-}
-
-.verDetalles {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 15px;
-    border: 1px solid var(--principal-color);
-    background-color: rgb(211, 222, 247);
-    font-size: 15px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-}
-
-.verDetalles:hover {
-    opacity: .7;
-}
-
-.flecha {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 40px 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.flecha.izquierda {
-    left: 0;
-    border-radius: 0 15px 15px 0;
-}
-
-.flecha.derecha {
-    right: 0;
-    border-radius: 15px 0 0 15px;
-}
-
-
-/* Ocultar la barra de scroll en navegadores Webkit (opcional) */
-
-.contenedor::-webkit-scrollbar {
-    display: none;
-}
-
-.contenedor {
-    -ms-overflow-style: none;
-    /* IE y Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-
 
 
 /*alerta personalizada :)*/

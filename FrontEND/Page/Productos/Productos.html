@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Productos.css" />
-    <script src="Productos.js"></script>
+    <script type="module" src="Productos.js"></script>
     <title>Productos</title>
 </head>
 
@@ -117,270 +117,64 @@
         <button id="alertaCerrar">Aceptar</button>
     </div>
 
- 
- <!-- MAIN -->
+
+
+
+
+
 
     <main>
         <h1 class="h1animado">Todos los Productos</h1>
         <div class="todos-productos">
-            <div class="producto-container1" id="seccion-mosquitero">
-                <h2>Mosquiteros ➤</h2>
-                <div class="contenedor-principal">
-                    <button class="flecha izquierda" onclick="desplazarIzquierda()">
-              &#9664;
-            </button>
+            <h2>Mosquiteros</h2>
 
-                    <div class="producto-mosquitero">
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                        <div class="producto">
-                            <img src="../img/prueba.png" alt="" />
-                            <h3>NombreProducto</h3>
-                            <p>$1200</p>
-                            <a class="verDetalles" href="#">Ver Detalles</a>
-                            <input class="ag-carrito" type="submit" value="Agregar al Carrito">
-                        </div>
-                    </div>
-                    <button class="flecha derecha" onclick="desplazarDerecha()">
-              &#9654;
-            </button>
-                </div>
+            <div class="productos-contenedor">
+            <div class="productos-categoria" data-categoria="mosquitero">
+            </div>
             </div>
 
-            <div class="producto-container2" id="seccion-ventana">
-                <h2>Ventanas ➤</h2>
-                <div class="producto-ventana">
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                </div>
+            
+            <div class="productos-contenedor">
+            <h2>Ventanas</h2>
+            <div class="productos-categoria" data-categoria="ventana">
             </div>
-            <div class="producto-container3" id="seccion-puerta">
-                <h2>Puertas ➤</h2>
-                <div class="producto-puerta">
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                </div>
             </div>
-            <div class="producto-container4" id="seccion-mampara">
-                <h2>Mamparas ➤</h2>
-                <div class="producto-mampara">
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                </div>
+            <div class="productos-contenedor">
+            <h2>Puertas</h2>
+            <div class="productos-categoria" data-categoria="puerta"></div>
             </div>
-            <div class="producto-container5" id="seccion-pañofijo">
-                <h2>Pañofijos ➤</h2>
-                <div class="producto-pañofijo">
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                </div>
+    
+            <div class="productos-contenedor">
+            <h2>Mamparas</h2>
+            <div class="productos-categoria" data-categoria="mampara"></div>
             </div>
-            <div class="producto-container6" id="seccion-monoblock">
-                <h2>Monoblocks ➤</h2>
-                <div class="producto-monoblock">
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                </div>
+    
+            <div class="productos-contenedor">
+            <h2>Pañofijos</h2>
+            <div class="productos-categoria" data-categoria="pañofijo"></div>
             </div>
-            <div class="producto-container7" id="seccion-vidrio">
-                <h2>Vidrios ➤</h2>
-                <div class="producto-vidrio">
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                    <div class="producto">
-                        <img src="../img/prueba.png" alt="" />
-                        <h3>NombreProducto</h3>
-                        <p>$1200</p>
-                    </div>
-                </div>
+    
+            <div class="productos-contenedor">
+            <h2>Monoblocks</h2>
+            <div class="productos-categoria" data-categoria="monoblock"></div>
             </div>
+    
+            <div class="productos-contenedor">
+            <h2>Vidrios</h2>
+            <div class="productos-categoria" data-categoria="vidrio"></div>
+        </div>
         </div>
     </main>
+    
+
+
+
+
+
+
+
+
+
 
     <!--  FOOTER  -->
     <footer>

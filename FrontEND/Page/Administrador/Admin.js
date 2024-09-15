@@ -1,4 +1,4 @@
-import ProductosDAO from '../../dao/ProductosDAO';
+import ProductosDAO from '../../dao/ProductosDAO.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
 
         // Obtener los valores de los campos del formulario
+        const categoria = document.getElementById('categoria').value;
         const nombre = document.getElementById('nombre').value;
         const stock = document.getElementById('stock').value;
         const precio = document.getElementById('precio').value;
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Enviar los datos al backend usando la función agregarProducto
-            const resultado = await productosDAO.agregarProducto(nombre, stock, precio, imagen, color, medida);
+            const resultado = await productosDAO.agregarProducto(categoria, nombre, stock, precio, imagen, color, medida);
 
             // Mostrar el resultado
             if (resultado.success) {
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     let nombre = localStorage.getItem('nombre');

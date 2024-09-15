@@ -2,7 +2,6 @@
 
 require_once '../Modelo/ProductosDAO.php';
 
-
 $function = $_GET['function'];
 
 switch ($function) {
@@ -11,6 +10,9 @@ switch ($function) {
         break;
     case "obtenerProductos":
         obtenerProductos();
+        break;
+    case "obtenerProductosPorCategoria":
+        obtenerProductosPorCategoria();
         break;
     case "obtenerProducto":
         obtenerProducto();
@@ -32,15 +34,20 @@ function agregarProducto() {
     $color = $_POST['color'];
     $medida = $_POST['medida'];
     
-    // Cambiar el orden de los parámetros para que coincida con la función del modelo
     $resultado = (new Producto())->agregarProductoModelo($categoria, $nombre, $stock, $precio, $imagen, $color, $medida);
     
     echo json_encode($resultado);
 }
 
-
-function obtenerProductos(){
+function obtenerProductos() {
     $resultado = (new Producto())->obtenerProductosModelo();
+    echo json_encode($resultado);
+}
+
+function obtenerProductosPorCategoria() {
+    $categoria = $_POST['categoria'];
+    $categoria = filter_var($categoria, FILTER_SANITIZE_STRING);
+    $resultado = (new Producto())->obtenerProductosPorCategoriaModelo($categoria);
     echo json_encode($resultado);
 }
 
