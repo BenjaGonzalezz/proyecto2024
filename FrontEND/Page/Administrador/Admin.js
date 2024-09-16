@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Obtener los valores de los campos del formulario
         const categoria = document.getElementById('categoria').value;
-        const nombre = document.getElementById('nombre').value;
+        const nombre = document.getElementById('nombreProducto').value;
         const stock = document.getElementById('stock').value;
         const precio = document.getElementById('precio').value;
         const imagen = document.getElementById('imagen').files[0]; // Obtener el archivo de imagen
