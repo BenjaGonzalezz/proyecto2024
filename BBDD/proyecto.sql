@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 04:52:32
+-- Tiempo de generación: 16-09-2024 a las 06:03:42
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -84,7 +84,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `categoria`, `nombre`, `stock`, `precio`, `imagen`, `color`, `medida`) VALUES
-(4, 'puerta', 'Puerta de aluminio', '20', '$2.399', 'LOGO R.png', 'rojo', '2 metros');
+(17, 'mosquitero', 'Mosquitero PREMIUM', '21', '43.400', 'mosquitero.png', 'Blanco', '1x1');
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`

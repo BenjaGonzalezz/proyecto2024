@@ -8,9 +8,14 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
   --principal-color: #0b8dea;
+  --principalLogo-color: #0b8dea;
   --clarito-color: #b2d0e6;
   height: 100dvh;
   background-image: linear-gradient(90deg, white, rgb(186, 236, 241));
+}
+
+.admin-body {
+  --principalLogo-color: #f14141;
 }
 
 div,
@@ -124,7 +129,13 @@ main {
     max-width: 700px;
     z-index: 1;
   }
+
+
+
   /* BOTON DE USER */
+
+
+  
   .user {
     user-select: none;
     width: 45px;
@@ -144,7 +155,7 @@ main {
   }
   .login-link {
     cursor: pointer;
-    background-color: var(--principal-color);
+    background-color: var(--principalLogo-color);
     padding: 3px;
     border-radius: 15px;
     box-shadow: 0 0 5px black;
@@ -496,6 +507,7 @@ main {
     min-height: calc(100% - 120px - 80px);
   }
 }
+
 
 
 /* INICIO */

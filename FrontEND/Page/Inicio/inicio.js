@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar/ocultar elementos según el rol
     if (role === 'admin') {
+        // Añadir clase para los estilos específicos de admin al body
+        document.body.classList.add('admin-body');
+
         // Mostrar elementos específicos para admin
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
@@ -89,5 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.display = 'none';
         });
     } else {
+        // Remover la clase de admin si no es administrador
+        document.body.classList.remove('admin-body');
     }
 });

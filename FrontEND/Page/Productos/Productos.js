@@ -1,12 +1,8 @@
 import ProductosDAO from "../../dao/ProductosDAO.js";
-import CarritoDAO from "../../dao/CarritoDAO.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
     const productosDAO = new ProductosDAO();
-    const carritoDAO = new CarritoDAO();
     const contenedores = document.querySelectorAll(".todos-productos > div > .productos-categoria");
-    const carritoContainer = document.querySelector('.carrito-container');
-    const carritoImage = document.querySelector('.imagen-carrito');
 
     // Cargar productos y mostrarlos
 
@@ -45,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                             </a>
                             </div>
                             <div class="p-contenedor">
-                            <p class="P-producto">Precio: ${producto.precio}</p>
+                            <p class="P-producto">Precio: $ ${producto.precio}</p>
                             <p class="P-producto">Stock: ${producto.stock}</p>
                             <p class="P-producto">Color: ${producto.color}</p>
                             <p class="P-producto">Medida: ${producto.medida}</p>
@@ -138,17 +134,29 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         };
     }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el rol del usuario del localStorage
+    const role = localStorage.getItem('role');
 
     // Mostrar/ocultar elementos según el rol
-    const role = localStorage.getItem("role");
-    if (role === "admin") {
+    if (role === 'admin') {
+        // Añadir clase para los estilos específicos de admin al body
+        document.body.classList.add('admin-body');
+
         // Mostrar elementos específicos para admin
-        document.querySelectorAll(".aparecerAdmin").forEach((element) => {
-            element.style.display = "block";
+        document.querySelectorAll('.aparecerAdmin').forEach(element => {
+            element.style.display = 'block';
         });
         // Ocultar elementos específicos para admin (si es necesario)
-        document.querySelectorAll(".desaparecerAdmin").forEach((element) => {
-            element.style.display = "none";
+        document.querySelectorAll('.desaparecerAdmin').forEach(element => {
+            element.style.display = 'none';
         });
+    } else {
+        // Remover la clase de admin si no es administrador
+        document.body.classList.remove('admin-body');
     }
 });
