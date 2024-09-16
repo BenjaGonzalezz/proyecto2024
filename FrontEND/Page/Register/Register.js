@@ -1,6 +1,7 @@
 // Importa la clase SesionDAO desde el archivo ../../dao/SesionDAO.js
 import SesionDAO from '../../dao/SesionDAO.js';
 
+
 // Espera a que todo el contenido de la página se haya cargado
 document.addEventListener('DOMContentLoaded', function() {
 

@@ -15,7 +15,7 @@ document.getElementById("Login").addEventListener("submit", async function(event
 
     // Crea una instancia de SesionDAO para gestionar la sesión
     let sesionDAO = new SesionDAO();
-    
+
     // Llama al método loginUsuario y espera el resultado
     let resultado = await sesionDAO.loginUsuario(usuario, contraseña);
 
@@ -26,21 +26,21 @@ document.getElementById("Login").addEventListener("submit", async function(event
     if (resultado.success === true) {
         // Muestra una alerta de éxito
         mostrarAlerta("✅Login Exitoso✅", () => {
-        
-        // Guarda los datos del usuario en el localStorage, incluyendo el rol
-        localStorage.setItem('nombre', resultado.nombre);
-        localStorage.setItem('usuario', resultado.usuario);
-        localStorage.setItem('telefono', resultado.telefono);
-        localStorage.setItem('email', resultado.email);
-        localStorage.setItem('role', resultado.role); // Guarda el rol
 
-        // Redirige según el rol del usuario
-        if (resultado.role === 'admin') {
-            window.location.href = '../Inicio/Inicio.html';
-        } else {
-            window.location.href = '../Inicio/Inicio.html'; 
-        }
-    });
+            // Guarda los datos del usuario en el localStorage, incluyendo el rol
+            localStorage.setItem('nombre', resultado.nombre);
+            localStorage.setItem('usuario', resultado.usuario);
+            localStorage.setItem('telefono', resultado.telefono);
+            localStorage.setItem('email', resultado.email);
+            localStorage.setItem('role', resultado.role); // Guarda el rol
+
+            // Redirige según el rol del usuario
+            if (resultado.role === 'admin') {
+                window.location.href = '../Inicio/Inicio.html';
+            } else {
+                window.location.href = '../Inicio/Inicio.html';
+            }
+        });
     } else {
         // Si el login falla, muestra un mensaje de error
         console.log('Login fallido:', resultado);

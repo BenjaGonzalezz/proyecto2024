@@ -1,7 +1,14 @@
 // Importa la clase ProductosDAO desde el archivo '../../dao/ProductosDAO'
 import ProductosDAO from '../../dao/ProductosDAO.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = () => {
+    EventosFormularios();
+    guardarLocalStorage();
+    admin();
+    EventoPreviw();
+}
+
+function EventosFormularios() {
     const form = document.querySelector('form');
 
     // Escuchar el evento de envío del formulario
@@ -36,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Hubo un error al intentar agregar el producto.');
         }
     });
-});
+}
 
 // Espera a que el contenido del documento esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+function guardarLocalStorage() {
     // Obtener los datos del usuario desde el localStorage
     let nombre = localStorage.getItem('nombre');
     let usuario = localStorage.getItem('usuario');
@@ -88,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '../Login/LoginCliente.html'; // Redirigir al login
         });
     });
-});
+};
 
 // Función para mostrar una alerta personalizada
 function mostrarAlerta(mensaje, callback) {
@@ -113,7 +120,7 @@ function mostrarAlerta(mensaje, callback) {
 }
 
 // Espera a que el contenido del documento esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+function admin() {
     // Obtener el rol del usuario desde el localStorage
     const role = localStorage.getItem('role');
 
@@ -129,4 +136,17 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.display = 'none';
         });
     }
-});
+};
+
+
+function EventoPreviw() {
+
+    let imagen = document.getElementById('imagenpreviw');
+    let imagenpreviw = document.getElementById('imagen');
+    imagenpreviw.onchange = () => {
+        let url = URL.createObjectURL(imagenpreviw.files[0])
+        imagen.src = url
+    }
+
+
+}

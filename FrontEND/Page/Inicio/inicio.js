@@ -1,5 +1,11 @@
+window.onload = () => {
+    guardarLocalStorage();
+    admin();
+}
+
+
 // Espera a que el contenido del documento esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+function guardarLocalStorage() {
     // Recupera los datos del usuario desde el localStorage
     let nombre = localStorage.getItem('nombre');
     let usuario = localStorage.getItem('usuario');
@@ -16,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nombre && usuario && telefono && email) {
         // Selecciona todos los elementos con el id 'desaparecer'
         let desaparecer = document.querySelectorAll('#desaparecer');
-        
+
         // Oculta cada uno de los elementos seleccionados
         desaparecer.forEach(desaparecer => {
             desaparecer.style.display = 'none';
@@ -51,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '../Login/LoginCliente.html'; // Redirige al login
         });
     });
-});
+};
 
 // Función para mostrar una alerta personalizada
 function mostrarAlerta(mensaje, callback) {
@@ -76,7 +82,7 @@ function mostrarAlerta(mensaje, callback) {
 }
 
 // Espera a que el contenido del documento esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+function admin() {
     // Recupera el rol del usuario desde el localStorage
     const role = localStorage.getItem('role');
 
@@ -98,4 +104,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Si no es administrador, remueve la clase 'admin-body'
         document.body.classList.remove('admin-body');
     }
-});
+};
