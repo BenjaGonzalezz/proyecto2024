@@ -5,28 +5,30 @@ require_once '../Modelo/ReservaDAO.php';
 $function = $_GET['function'];
 
 switch ($function) {
+    case "obtenerReservas":
+        obtenerReservas();
+        break;
     case "cambiarEstado":
         cambiarEstado();
-        break;
-    case "obtenerReserva":
-        obtenerReserva();
         break;
     case "obtenerReservaUsuario":
        obtenerReservaUsuario();
         break;
 }
 
-function cambiarEstado(){
-
+function obtenerReservas(){
+    $resultado = (new Reserva())->obtenerReservasModelo();
+    echo json_encode($resultado);
 }
-
-function obtenerReserva(){
-    $id_reserva = $_POST["id_reserva"];
-    $resultado = (new Reserva())->obtenerReservaModelo($id_reserva);
+function cambiarEstado() {
+    $id_reserva = $_POST['id_reserva'];
+    $nuevo_estado = $_POST['nuevo_estado'];
+    $resultado = (new Reserva())->cambiarEstadoModelo($id_reserva, $nuevo_estado);
     echo json_encode($resultado);
 }
 
-function obtenerReservaUsuario(){
-    $usuario = $_POST['usuario'];
+function obtenerReservaUsuario() {
+    $usuario_cliente = $_POST['usuario_cliente'];
+    $resultado = (new Reserva())->obtenerReservaUsuarioModelo($usuario_cliente);
+    echo json_encode($resultado);
 }
-

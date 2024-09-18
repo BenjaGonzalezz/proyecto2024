@@ -211,6 +211,18 @@ main {
         width: 90%;
         font-size: 15px;
     }
+    .ReservasAdmin {
+        border-bottom: 1px solid black;
+    }
+    .ReservasAdmin:hover {
+        background-color: rgba(177, 255, 239, 0.492);
+    }
+    .MisReservas {
+        border-bottom: 1px solid black;
+    }
+    .MisReservas:hover {
+        background-color: rgb(255, 248, 198);
+    }
     .OfertaAdmin {
         border-bottom: 1px solid black;
     }
@@ -503,9 +515,7 @@ main {
     }
 }
 
-
-/* // header */
-
+/* // HEADER */
 
 
 /* AGREGAR PRODUCTOS */

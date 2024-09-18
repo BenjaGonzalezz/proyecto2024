@@ -29,7 +29,9 @@
                                     <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
                                 </div>
                                 <ul>
-                                    
+                                    <li style="display: none;" class="ReservasAdmin aparecerAdmin">
+                                        <a href="../Administrador/VerReservas.html">Ver Reservas</a>
+                                    </li>
                                     <li style="display: none;" class="OfertaAdmin aparecerAdmin">
                                         <a href="../Administrador/AgregarOferta.html">Modificar Ofertas</a>
                                     </li>
@@ -66,8 +68,9 @@
                     </div>
 
                 </li>
-                <div class="carrito-container desaparecerAdmin aparecerU" style="display: none;">
+                <div class="carrito-container aparecerU" style="display: none;">
                     <img src="../img/Carrito.png " class="imagen-carrito" alt="">
+                    <div id="prodctos-carrito"></div>
                 </div>
                 <div class="login-boton">
                     <input type="checkbox" class="menu-desplegable" id="menu-toggle">
@@ -101,6 +104,11 @@
                                 <span class="span" id="email"></span>
                             </p>
                         </div>
+                        <div id="aparecer" style="display: none;">
+                            <div style="display: none;" class="ReservasAdmin aparecerU">
+                                <a href="../ReservasUsuarios/ReservaUsuario.html">Mis Reservas</a>
+                            </div>
+                        </div>
                         <a id="cerrarSesion" class="aparecer" style="display: none;" href="#">Cerrar Sesión</a>
                     </div>
 
@@ -111,9 +119,6 @@
         </nav>
     </header>
 
-    <!-- // HEADER  -->
-
-
     <!-- Alerta personalizada -->
 
     <div id="fondoOscuro"></div>
@@ -122,10 +127,6 @@
         <p class="p-alerta1" id="alertaMensaje">!Muchas gracias por confiar en nosotros!</p>
         <button id="alertaCerrar">Aceptar</button>
     </div>
-
-
-
-
 
     <main>
         <h1 class="h1animado">Todos los Productos</h1>
@@ -136,7 +137,6 @@
             <div class="productos-categoria" data-categoria="mosquitero">
             </div>
             </div>
-
             
             <div class="productos-contenedor">
             <h2 id="seccion-ventana">Ventanas</h2>
@@ -172,7 +172,6 @@
     </main>
 
     <!--  FOOTER  -->
-
 
     <footer>
         <div class="footer-title">

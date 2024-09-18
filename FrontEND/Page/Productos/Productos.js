@@ -1,9 +1,9 @@
-// Importa la clase ProductosDAO desde el archivo "../../dao/ProductosDAO.js"
 import ProductosDAO from "../../dao/ProductosDAO.js";
 
 window.onload = () => {
     mostrarProductoCategoria();
     admin();
+    guardarLocalStorage();
 }
 
 // Espera a que el contenido del documento esté completamente cargado
@@ -43,12 +43,11 @@ async function  mostrarProductoCategoria() {
                     const productoDiv = document.createElement("div"); // Crea un div para cada producto
                     productoDiv.classList.add("producto-item"); // Añade una clase al div
                     productoDiv.innerHTML = `
+                    <a href="../ProductosDetalles/Mamparas/Mampara1.html" style="text-decoration: none; color:black;">
                         <h3>${producto.nombre}</h3>
                         <div class="parrafo-y-img">
                             <div class="img-contenedor">
-                                <a href="">
                                     <img class="img-producto" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150">
-                                </a>
                             </div>
                             <div class="p-contenedor">
                                 <p class="P-producto">Precio: $ ${producto.precio}</p>
@@ -57,6 +56,7 @@ async function  mostrarProductoCategoria() {
                                 <p class="P-producto">Medida: ${producto.medida}</p>
                             </div>
                         </div>
+                    </a>
                         <button class="botonAgregarCarrito aparecer">Agregar al Carrito</button>
                     `; // Inserta el contenido HTML del producto
                     contenedor.appendChild(productoDiv); // Añade el producto al contenedor
@@ -70,7 +70,9 @@ async function  mostrarProductoCategoria() {
         // Si hay un error al obtener productos, muestra un mensaje de error en la consola
         console.error("Error al obtener productos:", resultado.message);
     }
+}
 
+function guardarLocalStorage() {
     // Cargar los datos del usuario desde el localStorage
     let nombre = localStorage.getItem("nombre");
     let usuario = localStorage.getItem("usuario");
@@ -125,7 +127,7 @@ async function  mostrarProductoCategoria() {
                 window.location.href = "../Login/LoginCliente.html";
             });
         });
-
+}
     // Función para mostrar una alerta personalizada
     function mostrarAlerta(mensaje, callback) {
         const fondoOscuro = document.getElementById("fondoOscuro");
@@ -145,8 +147,7 @@ async function  mostrarProductoCategoria() {
                 callback(); // Ejecutar la función de callback si se proporciona
             }
         };
-    }
-};
+}
 
 // Espera a que el contenido del documento esté completamente cargado
 function admin() {
@@ -178,4 +179,4 @@ function admin() {
         // Si no es administrador, remueve la clase 'admin-body'
         document.body.classList.remove('admin-body');
     }
-};
+}

@@ -1,43 +1,13 @@
+import ReservaDAO from '../../dao/ReservaDAO.js';
+
+// Cargar las reservas cuando se cargue la página
 window.onload = () => {
+    mostrarReservas();
     guardarLocalStorage();
-    admin();
-    mostrarOfertas();
 }
 
-function mostrarOfertas() {
-    fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta')
-    .then(response => response.json())
-    .then(data => {
-        const ofertasContainer = document.getElementById('ofertas');
-        ofertasContainer.innerHTML = '';
-
-        if (data.success) {
-            data.productos.forEach(producto => {
-                ofertasContainer.innerHTML += `
-
-                        <div class="nombre-e-imagen"> 
-
-                        <h2>${producto.nombre}</h2>
-                        <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100">
-
-                        </div>
-
-
-                        <div class="detalles-anuncio"> 
-
-                        <p>Precio: $ ${producto.precio}</p>
-                        <p>Stock: ${producto.stock}</p>
-
-                        </div>
-
-                `;
-            });
-        } else {
-            ofertasContainer.innerText = data.message;
-        }
-    })
-    .catch(error => console.error('Error:', error));
-}
+// Crear una instancia de ReservaDAO
+const reservaDAO = new ReservaDAO();
 
 
 // Espera a que el contenido del documento esté completamente cargado
@@ -93,7 +63,7 @@ function guardarLocalStorage() {
             window.location.href = '../Login/LoginCliente.html'; // Redirige al login
         });
     });
-}
+};
 
 // Función para mostrar una alerta personalizada
 function mostrarAlerta(mensaje, callback) {
@@ -117,34 +87,46 @@ function mostrarAlerta(mensaje, callback) {
     }
 }
 
-// Espera a que el contenido del documento esté completamente cargado
-function admin() {
-    // Recupera el rol del usuario desde el localStorage
-    const role = localStorage.getItem('role');
-    // Muestra/oculta elementos según el rol del usuario
-    if (role === 'user') {
-
-        document.querySelectorAll('.aparecerU').forEach(element => {
-            element.style.display = 'block';
-        });
-
+// Función para mostrar reservas del usuario que ha iniciado sesión
+async function mostrarReservas() {
+    // Obtener el nombre de usuario del localStorage
+    const usuario = localStorage.getItem('usuario');
+    
+    if (!usuario) {
+        console.error('Usuario no encontrado en localStorage');
+        return;
     }
-    // Muestra/oculta elementos según el rol del usuario
-    if (role === 'admin') {
-        // Añade una clase al body para estilos específicos de admin
-        document.body.classList.add('admin-body');
 
-        // Muestra los elementos específicos para admin
-        document.querySelectorAll('.aparecerAdmin').forEach(element => {
-            element.style.display = 'block';
-        });
+        // Obtener reservas del usuario
+        let resultado = await reservaDAO.obtenerReservaUsuario(usuario);
 
-        // Oculta los elementos específicos que no deberían verse para admin
-        document.querySelectorAll('.desaparecerAdmin').forEach(element => {
-            element.style.display = 'none';
-        });
-    } else {
-        // Si no es administrador, remueve la clase 'admin-body'
-        document.body.classList.remove('admin-body');
-    }
+        // Verificar el estado de la respuesta
+        if (resultado.status === 'success') {
+            // Obtener el contenedor donde se mostrarán las reservas
+            const reservasContainer = document.getElementById('reservas-container');
+
+            // Limpiar el contenedor
+            reservasContainer.innerHTML = '';
+
+            // Iterar sobre las reservas y agregarlas al contenedor
+            resultado.data.forEach(reserva => {
+                // Crear un elemento para cada reserva
+                const reservaElement = document.createElement('div');
+                reservaElement.classList.add('reserva-item');
+
+                // Agregar detalles de la reserva al elemento
+                reservaElement.innerHTML = `
+                    <p>ID Reserva: ${reserva.id_reserva}</p>
+                    <p>Estado: ${reserva.estado}</p>
+                    <p>Fecha Reserva: ${reserva.fecha_reserva}</p>
+                    <p>Fecha Límite: ${reserva.fecha_limite}</p>
+                `;
+
+                // Agregar el elemento de reserva al contenedor
+                reservasContainer.appendChild(reservaElement);
+            });
+        } else {
+            // Manejar el caso de error
+            console.error('Error al obtener reservas:', resultado.message);
+        }
 }

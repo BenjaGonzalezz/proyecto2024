@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="EliminarProductos.css">
-    <script type="module" src="EliminarProductos.js"></script>
-    <title>Administrador</title>
+    <link rel="stylesheet" href="VerReservas.css">
+    <script type="module" src="VerReservas.js"></script>
+    <title>Ver Reservas</title>
 </head>
-
 <body>
     <header class=" header ">
         <div class="header__logo-container ">
@@ -66,9 +64,8 @@
                             </li>
                         </ul>
                     </div>
-
                 </li>
-                <div id="aparecer" class="carrito-container desaparecerAdmin" style="display: none;">
+                <div class="carrito-container aparecerU" style="display: none;">
                     <img src="../img/Carrito.png " class="imagen-carrito" alt="">
                 </div>
                 <div class="login-boton">
@@ -121,37 +118,31 @@
     <!-- // HEADER  -->
 
 
-    <!-- Alerta personalizada -->
+    <!-- MAIN  -->
 
-    <div id="fondoOscuro"></div>
+    <main>
+    <h1>Reservas</h1>
+    <div id="reservas-container"></div>
 
-    <div id="alertaPersonalizada">
-        <p class="p-alerta1" id="alertaMensaje">!Muchas gracias por confiar en nosotros!</p>
-        <button id="alertaCerrar">Aceptar</button>
-    </div>
-
-
-<main>
-
- <h1>Eliminar Productos</h1>
- <table id="productosTable">
-     <thead>
-         <tr class="tr-head">
-             <th>ID</th>
-             <th>Nombre</th>
-             <th>Categoría</th>
-             <th>Imagen</th>
-             <th>Precio</th>
-             <th>Stock</th>
-             <th></th>
-         </tr>
-     </thead>
-     <tbody>
-     </tbody>
- </table>
-
+    <h2>Cambiar Estado de Reserva</h2>
+    <form id="cambiar-estado-form">
+        <div class="form-group">
+            <label for="id_reserva">ID de Reserva:</label>
+            <input type="text" id="id_reserva" name="id_reserva" required>
+        </div>
+        <div class="form-group">
+            <label for="nuevo_estado">Nuevo Estado:</label>
+            <select id="nuevo_estado" name="nuevo_estado" required>
+                <option value="pendiente">Pendiente</option>
+                <option value="confirmada">Confirmada</option>
+                <option value="cancelada">Cancelada</option>
+            </select>
+        </div>
+        <button type="submit">Cambiar Estado</button>
+    </form>
 </main>
- 
+
+
     <!--  FOOTER  -->
     <footer>
         <div class="footer-title">
@@ -182,6 +173,6 @@
         </div>
     </footer>
     <!-- / FOOTER  -->
-</body>
 
+</body>
 </html>

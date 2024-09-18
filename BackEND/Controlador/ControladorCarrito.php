@@ -13,6 +13,8 @@ switch ($function) {
 
 
 function solicitarReserva(){
- 
+    $usuario_cliente = $_POST['usuario_cliente'];
+    $resultado = (new ReservaCarrito())->solicitarReservaModelo($usuario_cliente);
+    echo json_encode($resultado);
 }
 
