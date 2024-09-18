@@ -1,52 +1,60 @@
 // Importa la clase SesionDAO desde el archivo '../../dao/SesionDAO.js'
 import SesionDAO from '../../dao/SesionDAO.js';
 
-// Agrega un evento al formulario de login que se activa cuando se envía
-document.getElementById("Login").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+window.onload = () => {
+    Login();
+}
 
-    // Obtiene los valores del campo de usuario y contraseña
-    let usuario = document.getElementById("usuario2").value;
-    let contraseña = document.getElementById("contraseña2").value;
+// Definir la función Login que se ejecutará cuando la página cargue
+async function Login() {
+    // Agrega un evento al formulario de login que se activa cuando se envía
+    document.getElementById("Login").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
 
-    // Muestra en la consola los valores de usuario y contraseña
-    console.log('usuario', usuario);
-    console.log('contraseña', contraseña);
+        // Obtiene los valores del campo de usuario y contraseña
+        let usuario = document.getElementById("usuario2").value;
+        let contraseña = document.getElementById("contraseña2").value;
 
-    // Crea una instancia de SesionDAO para gestionar la sesión
-    let sesionDAO = new SesionDAO();
+        // Muestra en la consola los valores de usuario y contraseña
+        console.log('usuario', usuario);
+        console.log('contraseña', contraseña);
 
-    // Llama al método loginUsuario y espera el resultado
-    let resultado = await sesionDAO.loginUsuario(usuario, contraseña);
+        // Crea una instancia de SesionDAO para gestionar la sesión
+        let sesionDAO = new SesionDAO();
 
-    // Muestra en la consola el resultado del login
-    console.log('Resultado de login:', resultado);
+        // Llama al método loginUsuario y espera el resultado
+        let resultado = await sesionDAO.loginUsuario(usuario, contraseña);
 
-    // Si el login es exitoso
-    if (resultado.success === true) {
-        // Muestra una alerta de éxito
-        mostrarAlerta("✅Login Exitoso✅", () => {
+        // Muestra en la consola el resultado del login
+        console.log('Resultado de login:', resultado);
 
-            // Guarda los datos del usuario en el localStorage, incluyendo el rol
-            localStorage.setItem('nombre', resultado.nombre);
-            localStorage.setItem('usuario', resultado.usuario);
-            localStorage.setItem('telefono', resultado.telefono);
-            localStorage.setItem('email', resultado.email);
-            localStorage.setItem('role', resultado.role); // Guarda el rol
+        // Si el login es exitoso
+        if (resultado.success === true) {
+            // Muestra una alerta de éxito
+            mostrarAlerta("✅Login Exitoso✅", () => {
 
-            // Redirige según el rol del usuario
-            if (resultado.role === 'admin') {
-                window.location.href = '../Inicio/Inicio.html';
-            } else {
-                window.location.href = '../Inicio/Inicio.html';
-            }
-        });
-    } else {
-        // Si el login falla, muestra un mensaje de error
-        console.log('Login fallido:', resultado);
-        mostrarAlerta2(resultado.message || 'Error en el login');
-    }
-});
+                // Guarda los datos del usuario en el localStorage, incluyendo el rol
+                localStorage.setItem('nombre', resultado.nombre);
+                localStorage.setItem('usuario', resultado.usuario);
+                localStorage.setItem('telefono', resultado.telefono);
+                localStorage.setItem('email', resultado.email);
+                localStorage.setItem('role', resultado.role); // Guarda el rol
+
+                // Redirige según el rol del usuario
+                if (resultado.role === 'admin') {
+                    window.location.href = '../Inicio/Inicio.html';
+                } else {
+                    window.location.href = '../Inicio/Inicio.html';
+                }
+            });
+        } else {
+            // Si el login falla, muestra un mensaje de error
+            console.log('Login fallido:', resultado);
+            mostrarAlerta2(resultado.message || 'Error en el login');
+        }
+    });
+}
+
 
 // Funcionalidad para mostrar/ocultar la contraseña
 const toggleIcon = document.getElementById('togglePassword');

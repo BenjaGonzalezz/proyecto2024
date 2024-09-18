@@ -1,8 +1,13 @@
 // Importa la clase ProductosDAO desde el archivo "../../dao/ProductosDAO.js"
 import ProductosDAO from "../../dao/ProductosDAO.js";
 
+window.onload = () => {
+    mostrarProductoCategoria();
+    admin();
+}
+
 // Espera a que el contenido del documento esté completamente cargado
-document.addEventListener("DOMContentLoaded", async function () {
+async function  mostrarProductoCategoria() {
     const productosDAO = new ProductosDAO(); // Crea una instancia de ProductosDAO
     const contenedores = document.querySelectorAll(".todos-productos > div > .productos-categoria"); // Selecciona los contenedores de productos por categoría
 
@@ -100,9 +105,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Manejar el evento de cierre de sesión
-    document
-        .getElementById("cerrarSesion")
-        .addEventListener("click", async function (event) {
+    document.getElementById("cerrarSesion")
+    .addEventListener("click", async function (event) {
             event.preventDefault(); // Evita el comportamiento predeterminado del enlace
 
             // Enviar la solicitud para cerrar sesión al servidor
@@ -142,28 +146,36 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         };
     }
-});
+};
 
 // Espera a que el contenido del documento esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el rol del usuario desde el localStorage
+function admin() {
+    // Recupera el rol del usuario desde el localStorage
     const role = localStorage.getItem('role');
+    // Muestra/oculta elementos según el rol del usuario
+    if (role === 'user') {
 
-    // Si el rol es 'admin', mostrar elementos específicos para administradores
+        document.querySelectorAll('.aparecerU').forEach(element => {
+            element.style.display = 'block';
+        });
+
+    }
+    // Muestra/oculta elementos según el rol del usuario
     if (role === 'admin') {
-        document.body.classList.add('admin-body'); // Añadir una clase para estilos de admin
+        // Añade una clase al body para estilos específicos de admin
+        document.body.classList.add('admin-body');
 
-        // Mostrar elementos específicos para administradores
+        // Muestra los elementos específicos para admin
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
         });
 
-        // Ocultar elementos que no deberían aparecer para administradores
+        // Oculta los elementos específicos que no deberían verse para admin
         document.querySelectorAll('.desaparecerAdmin').forEach(element => {
             element.style.display = 'none';
         });
     } else {
-        // Si no es administrador, remover la clase de admin
+        // Si no es administrador, remueve la clase 'admin-body'
         document.body.classList.remove('admin-body');
     }
-});
+};

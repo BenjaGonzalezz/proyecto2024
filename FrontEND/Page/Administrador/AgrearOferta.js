@@ -1,43 +1,84 @@
 window.onload = () => {
+    agregarOferta();
+    verificarOferta();
     guardarLocalStorage();
     admin();
-    mostrarOfertas();
 }
 
-function mostrarOfertas() {
-    fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta')
-    .then(response => response.json())
-    .then(data => {
-        const ofertasContainer = document.getElementById('ofertas');
-        ofertasContainer.innerHTML = '';
+function agregarOferta() {
+    const formularioOferta = document.getElementById('ofertaForm');
 
-        if (data.success) {
-            data.productos.forEach(producto => {
-                ofertasContainer.innerHTML += `
+    formularioOferta.addEventListener('submit', async function(event) {
+        event.preventDefault();
 
-                        <div class="nombre-e-imagen"> 
+        const idProducto = document.getElementById('id_producto').value;
 
-                        <h2>${producto.nombre}</h2>
-                        <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100">
-
-                        </div>
-
-
-                        <div class="detalles-anuncio"> 
-
-                        <p>Precio: $ ${producto.precio}</p>
-                        <p>Stock: ${producto.stock}</p>
-
-                        </div>
-
-                `;
-            });
-        } else {
-            ofertasContainer.innerText = data.message;
+        if (!idProducto) {
+            alert('Por favor, ingresa un ID de producto.');
+            return;
         }
-    })
-    .catch(error => console.error('Error:', error));
+
+        try {
+            const response = await fetch("http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=agregarOferta", {
+                method: 'POST',
+                body: new FormData(formularioOferta)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                mostrarAlerta("Oferta agregada exitosamente.", () => {
+                    window.location.href = '../Inicio/Inicio.html'; // Redirige al login
+                });
+            } else {
+                mostrarAlerta("Error, " + result.message, () => {
+                });
+            }
+        } catch{
+            alert('el id de ese producto no Existe');
+        }
+    });
 }
+
+function verificarOferta() {
+    fetch("http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta")
+        .then(response => response.json())
+        .then(data => {
+            const divEliminarOferta = document.getElementById('divEliminarOferta');
+
+            if (data.success && data.productos.length > 0) {
+                divEliminarOferta.style.display = 'block'; // Mostrar el div
+                eliminarOferta(); // Configurar el evento si hay una oferta
+            } else {
+                divEliminarOferta.style.display = 'none'; // Ocultar el div
+            }
+        })
+}
+
+function eliminarOferta() {
+    const botonEliminar = document.getElementById('eliminarOfertaBtn');
+
+    botonEliminar.addEventListener('click', async function() {
+
+            const response = await fetch("http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=eliminarOferta", {
+                method: 'POST'
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                mostrarAlerta("Has eliminado la oferta correctamente.", () => {
+                    window.location.href = '../Inicio/Inicio.html'; // Redirige al login
+                });
+            } else {
+                mostrarAlerta("Error" + result.message, () => {
+                    window.location.href = '../Inicio/Inicio.html'; // Redirige al login
+                });
+            }
+
+    });
+}
+
 
 
 // Espera a que el contenido del documento esté completamente cargado

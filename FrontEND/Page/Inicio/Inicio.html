@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Inicio.css" />
-    <script src="inicio.js"></script>
+    <script type="module" src="inicio.js"></script>
     <title>Inicio</title>
 </head>
 
@@ -29,11 +29,15 @@
                                     <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
                                 </div>
                                 <ul>
+                                    
+                                    <li style="display: none;" class="OfertaAdmin aparecerAdmin">
+                                        <a href="../Administrador/AgregarOferta.html">Modificar Ofertas</a>
+                                    </li>
                                     <li style="display: none;" class="AgregarAdmin aparecerAdmin">
-                                        <a href="../Administrador/Agregar.html">Agregar Productos</a>
+                                        <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
                                     </li>
                                     <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
-                                        <a href="../Administrador/Eliminar.html">Eliminar Productos</a>
+                                        <a href="../Administrador/EliminarProductos.html">Eliminar Productos</a>
                                     </li>
                                     <li class="lista-productos">
                                         <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
@@ -63,7 +67,7 @@
 
                 </li>
                 <div id="aparecer" class="carrito-container desaparecerAdmin" style="display: none;">
-                    <img src="../img/Carrito.png " class="imagen-carrito " alt=" ">
+                    <img src="../img/Carrito.png " class="imagen-carrito" alt="">
                 </div>
                 <div class="login-boton">
                     <input type="checkbox" class="menu-desplegable" id="menu-toggle">
@@ -122,12 +126,17 @@
     <!-- MAIN -->
 
 
-    <div class="anuncio-Inicio-contenedor">
-        <h3> ALUMINIO SOFIA</h3>
-        <img class="anuncio-Inicio" src="../img/fondoAnuncio.png" alt="">
+    <div class="anuncio-Inicio-contenedor1">
+        <div class="anuncio-Inicio1">
+            <h3 class="titulo-aluminio1">ALUMINIO SOFIA</h3>
+            <div id="ofertas" class="ofertas-container"></div>
+        </div>
     </div>
+    
+    
+
     <main>
-        <h1>Ofertas</h1>
+        <h1>Productos Destacados</h1>
         <section class="productos-destacados ">
             <br>
             <div class="contenedor-productos ">

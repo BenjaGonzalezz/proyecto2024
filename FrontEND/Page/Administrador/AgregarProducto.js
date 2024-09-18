@@ -1,4 +1,3 @@
-// Importa la clase ProductosDAO desde el archivo '../../dao/ProductosDAO'
 import ProductosDAO from '../../dao/ProductosDAO.js';
 
 window.onload = () => {
@@ -119,22 +118,29 @@ function mostrarAlerta(mensaje, callback) {
     }
 }
 
+
 // Espera a que el contenido del documento esté completamente cargado
 function admin() {
-    // Obtener el rol del usuario desde el localStorage
+    // Recupera el rol del usuario desde el localStorage
     const role = localStorage.getItem('role');
 
-    // Mostrar u ocultar elementos según el rol del usuario
+    // Muestra/oculta elementos según el rol del usuario
     if (role === 'admin') {
-        // Mostrar los elementos específicos para administradores
+        // Añade una clase al body para estilos específicos de admin
+        document.body.classList.add('admin-body');
+
+        // Muestra los elementos específicos para admin
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
         });
 
-        // Ocultar elementos que no deben verse para administradores
+        // Oculta los elementos específicos que no deberían verse para admin
         document.querySelectorAll('.desaparecerAdmin').forEach(element => {
             element.style.display = 'none';
         });
+    } else {
+        // Si no es administrador, remueve la clase 'admin-body'
+        document.body.classList.remove('admin-body');
     }
 };
 

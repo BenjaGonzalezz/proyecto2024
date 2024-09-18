@@ -1,9 +1,12 @@
 // Importa la clase SesionDAO desde el archivo ../../dao/SesionDAO.js
 import SesionDAO from '../../dao/SesionDAO.js';
 
+window.onload = () => {
+    Registro();
+}
 
 // Espera a que todo el contenido de la página se haya cargado
-document.addEventListener('DOMContentLoaded', function() {
+function Registro() {
 
     // Añade un "listener" para el evento "submit" del formulario con ID "Register"
     document.getElementById("Register").addEventListener("submit", async function(event) {
@@ -58,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleIcon.src = '../img/ver.png'; // Cambia la imagen a "mostrar"
         }
     });
-});
+};
 
 // Función para mostrar una alerta personalizada con un mensaje
 function mostrarAlerta(mensaje, callback) {

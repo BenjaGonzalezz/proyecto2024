@@ -92,19 +92,34 @@ export default class ProductosDAO {
         return resultado;
     }
 
+    async eliminarProducto(id_producto) {
 
-    async obtenerProducto() {
+    let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=eliminarProducto";
+    
 
+    let formdata = new FormData();
+    formdata.append("id_producto", id_producto); 
+
+    // Configuración de la solicitud fetch con el método POST
+    let config = {
+        method: "POST",        // Método HTTP para enviar los datos
+        body: formdata         // Datos que se envían en el cuerpo de la solicitud
+    };
+
+    // Envío de la solicitud al backend y espera de la respuesta
+    let respuesta = await fetch(url, config);
+    
+    // Si la respuesta no es exitosa, se lanza un error
+    if (!respuesta.ok) {
+        throw new Error('Error en la respuesta del servidor');
     }
-
-    async agregarStockProducto() {
-
-    }
-
-    async eliminarProducto() {
-
-
-    }
+    
+    // Se convierte la respuesta en JSON para obtener los datos
+    let resultado = await respuesta.json();
+    
+    // Se devuelve el resultado de la operación de eliminar producto
+    return resultado;
+}
 
 
 }

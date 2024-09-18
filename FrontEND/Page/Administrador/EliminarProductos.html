@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Agregar.css">
-    <script type="module" src="Admin.js"></script>
-    <title>AdminProductos</title>
+    <link rel="stylesheet" href="EliminarProductos.css">
+    <script type="module" src="EliminarProductos.js"></script>
+    <title>Administrador</title>
 </head>
 
 <body>
@@ -29,11 +29,15 @@
                                     <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
                                 </div>
                                 <ul>
+                                    
+                                    <li style="display: none;" class="OfertaAdmin aparecerAdmin">
+                                        <a href="../Administrador/AgregarOferta.html">Modificar Ofertas</a>
+                                    </li>
                                     <li style="display: none;" class="AgregarAdmin aparecerAdmin">
-                                        <a href="../Administrador/Agregar.html">Agregar Productos</a>
+                                        <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
                                     </li>
                                     <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
-                                        <a href="../Administrador/Eliminar.html">Eliminar Productos</a>
+                                        <a href="EliminarProductos.html">Eliminar Productos</a>
                                     </li>
                                     <li class="lista-productos">
                                         <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
@@ -54,7 +58,7 @@
                                         <a href="../Productos/Productos.html#seccion-monoblock ">MONOBLOCKS</a>
                                     </li>
                                     <li class="lista-productos">
-                                        <a href="../Productos/Productos.html#seccion-vidrio ">VIDRIOS</a>
+                                        <a href="../Productos/Productos.html#seccion-vidrio">VIDRIOS</a>
                                     </li>
                                 </ul>
                             </li>
@@ -63,7 +67,7 @@
 
                 </li>
                 <div id="aparecer" class="carrito-container desaparecerAdmin" style="display: none;">
-                    <img src="../img/Carrito.png " class="imagen-carrito " alt=" ">
+                    <img src="../img/Carrito.png " class="imagen-carrito" alt="">
                 </div>
                 <div class="login-boton">
                     <input type="checkbox" class="menu-desplegable" id="menu-toggle">
@@ -101,6 +105,8 @@
                     </div>
 
                 </div>
+
+
             </ul>
         </nav>
     </header>
@@ -108,39 +114,37 @@
     <!-- // HEADER  -->
 
 
-    <main>
-        <form action="">
-            <h2>Agregar Producto</h2>
-            <label for="categoria">Categoría</label>
-            <select id="categoria" name="categoria" class="categoria-select">
-                <option value="mosquitero">Mosquitero</option>
-                <option value="ventana">Ventana</option>
-                <option value="puerta">Puerta</option>
-                <option value="mampara">Mampara</option>
-                <option value="pañofijo">Pañofijo</option>
-                <option value="monoblock">Monoblock</option>
-                <option value="vidrio">Vidrio</option>
-            </select>
+    <!-- Alerta personalizada -->
 
-            <label for="">Nombre</label>
-            <input type="text" id="nombreProducto" name="nombre" placeholder="Puerta Aluminio" required>
-            <label for="">Stock</label>
-            <input type="text" id="stock" name="stock" placeholder="30" required>
-            <label for="">Precio</label>
-            <input type="text" id="precio" name="precio" placeholder="Ej: 3.000" required>
-            <label for="">Imagen</label>
-            <img src="" id="imagenpreviw" class="imagenpreviw" alt="">
-            <input type="file" id="imagen" name="imagen" required>
-            <label for="">Color</label>
-            <input type="text" id="color" name="color" placeholder="Rojo" required>
-            <label for="">Medida</label>
-            <input type="text" id="medida" name="medida" placeholder="2x3 metros" required>
-            <input type="submit" value="Agregar Producto">
-        </form>
-    </main>
+    <div id="fondoOscuro"></div>
+
+    <div id="alertaPersonalizada">
+        <p class="p-alerta1" id="alertaMensaje">!Muchas gracias por confiar en nosotros!</p>
+        <button id="alertaCerrar">Aceptar</button>
+    </div>
 
 
+<main>
 
+ <h1>Eliminar Productos</h1>
+ <table id="productosTable">
+     <thead>
+         <tr class="tr-head">
+             <th>ID</th>
+             <th>Nombre</th>
+             <th>Categoría</th>
+             <th>Imagen</th>
+             <th>Precio</th>
+             <th>Stock</th>
+             <th></th>
+         </tr>
+     </thead>
+     <tbody>
+     </tbody>
+ </table>
+
+</main>
+ 
     <!--  FOOTER  -->
     <footer>
         <div class="footer-title">
@@ -171,7 +175,6 @@
         </div>
     </footer>
     <!-- / FOOTER  -->
-
 </body>
 
 </html>

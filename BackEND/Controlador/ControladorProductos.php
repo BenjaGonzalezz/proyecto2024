@@ -14,11 +14,17 @@ switch ($function) {
     case "obtenerProductosPorCategoria":
         obtenerProductosPorCategoria();
         break;
-    case "obtenerProducto":
-        obtenerProducto();
+    case "obtenerDetallesProducto":
+        obtenerDetallesProducto();
         break;
-    case "agregarStockProducto":
-        agregarStockProducto();
+    case "agregarOferta":
+        agregarOferta();
+        break;
+    case "eliminarOferta":
+        eliminarOferta();
+        break;
+    case "obtenerOferta":
+        obtenerOferta();
         break;
     case "eliminarProducto":
         eliminarProducto();
@@ -50,17 +56,26 @@ function obtenerProductosPorCategoria() {
     $resultado = (new Producto())->obtenerProductosPorCategoriaModelo($categoria);
     echo json_encode($resultado);
 }
+function obtenerDetallesProducto() {
+    $id_producto = $_POST['id_producto'];
+    $resultado = (new Producto())->obtenerDetallesProductoModelo($id_producto);
 
-function obtenerProducto(){
-    $id_producto = $_POST["id_producto"];
-    $resultado = (new Producto())->obtenerProductoModelo($id_producto);
+    // Establecer el tipo de contenido como JSON
+    header('Content-Type: application/json');
     echo json_encode($resultado);
 }
 
-function agregarStockProducto(){
+function agregarOferta() {
     $id_producto = $_POST['id_producto'];
-    $stock = $_POST['stock'];
-    $resultado = (new Producto())->agregarStockProductoModelo($id_producto, $stock);
+    $resultado = (new Producto())->agregarOfertaModelo($id_producto);
+    echo json_encode($resultado);
+}
+function eliminarOferta() {
+    $resultado = (new Producto())->eliminarOfertaModelo();
+    echo json_encode($resultado);
+}
+function obtenerOferta(){
+    $resultado = (new Producto())->obtenerOfertaModelo();
     echo json_encode($resultado);
 }
 

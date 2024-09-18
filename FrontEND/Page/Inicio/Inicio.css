@@ -195,9 +195,7 @@ main {
     }
     .menu-desplegable:checked+.login-link+.menuUser {
         max-height: none;
-        /* Permitir altura automática */
         height: auto;
-        /* Asegurar altura según el contenido */
         width: 300px;
     }
     .menu-desplegable:not(:checked)+.login-link+.menuUser {
@@ -212,6 +210,12 @@ main {
         margin: 10px auto;
         width: 90%;
         font-size: 15px;
+    }
+    .OfertaAdmin {
+        border-bottom: 1px solid black;
+    }
+    .OfertaAdmin:hover {
+        background-color: rgb(255, 248, 198);
     }
     .AgregarAdmin {
         border-bottom: 1px solid black;
@@ -228,17 +232,16 @@ main {
     .etiqueta {
         display: block;
         font-size: 15px;
-        /* Tamaño de fuente para la etiqueta */
         margin-bottom: 4px;
     }
     .span {
         display: block;
         font-size: 18px;
-        /* Tamaño de fuente para el valor */
         font-weight: bold;
-        /* Opcional: para que el valor sea más destacado */
     }
+
     /*CATEGORIAS DE LOS PRODUCTOS*/
+
     .productos-navbar {
         display: flex;
         align-items: center;
@@ -501,6 +504,62 @@ main {
 }
 
 
+
+
+/* PRIMER ANUNCIO INICIO*/
+.anuncio-Inicio-contenedor1 {
+    position: relative;
+    width: 80%;
+    height: 275px;
+    margin: 0 auto;
+    overflow: hidden; 
+    background-image: url('../img/fondoAnuncio.png');
+    background-size: contain;
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.anuncio-Inicio1{
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px; 
+    box-sizing: border-box;
+}
+
+.titulo-aluminio1{
+    margin: 0;
+}
+.ofertas-container {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    display: flex;
+    background-color: rebeccapurple;
+    padding: 5px;
+}
+
+.nombre-e-imagen{
+margin-right: 90px;
+}
+.nombre-e-imagen img{
+    user-select: none;
+}
+
+
+.detalles-anuncio{
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+
+
+
 /* INICIO */
 
 .anuncio-Inicio-contenedor {
@@ -667,9 +726,6 @@ button.boton-Detalle {
     }
 }
 
-.anuncio p {
-    font-size: 35px;
-}
 
 .cuadrante1 {
     width: 30%;
