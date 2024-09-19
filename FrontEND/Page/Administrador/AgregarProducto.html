@@ -39,7 +39,7 @@
                                         <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
                                     </li>
                                     <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
-                                        <a href="../Administrador/EliminarProductos.html">Eliminar Productos</a>
+                                        <a href="../Administrador/GestionarProductos.html">Gestionar Productos</a>
                                     </li>
                                     <li class="lista-productos">
                                         <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
@@ -137,6 +137,8 @@
     <main>
         <form action="">
             <h2>Agregar Producto</h2>
+            
+            <div class="label-input">
             <label for="categoria">Categoría</label>
             <select id="categoria" name="categoria" class="categoria-select">
                 <option value="mosquitero">Mosquitero</option>
@@ -147,21 +149,43 @@
                 <option value="monoblock">Monoblock</option>
                 <option value="vidrio">Vidrio</option>
             </select>
+        </div>
 
-            <label for="">Nombre</label>
+        <div class="label-input">
+            <label for="">Nombre:</label>
             <input type="text" id="nombreProducto" name="nombre" placeholder="Puerta Aluminio" required>
-            <label for="">Stock</label>
+        </div>
+
+            <div class="label-input">
+            <label for="">Stock:</label>
             <input type="text" id="stock" name="stock" placeholder="30" required>
-            <label for="">Precio</label>
+        </div>
+
+            <div class="label-input">
+            <label for="">Precio:</label>
             <input type="text" id="precio" name="precio" placeholder="Ej: 3.000" required>
-            <label for="">Imagen</label>
+        </div>
+
+        <div class="label-input">
+            <label for="">Imagen:</label>
+            <div class="img-previw-contenedor">
             <img src="" id="imagenpreviw" class="imagenpreviw" alt="">
+            </div>
+        </div>
             <input type="file" id="imagen" name="imagen" required>
-            <label for="">Color</label>
+
+
+            <div class="label-input">
+            <label for="">Color:</label>
             <input type="text" id="color" name="color" placeholder="Rojo" required>
-            <label for="">Medida</label>
+        </div>
+
+            <div class="label-input">
+            <label for="">Medida:</label>
             <input type="text" id="medida" name="medida" placeholder="2x3 metros" required>
-            <input type="submit" value="Agregar Producto">
+        </div>
+        <input type="submit" value="Agregar Producto">
+
         </form>
     </main>
 

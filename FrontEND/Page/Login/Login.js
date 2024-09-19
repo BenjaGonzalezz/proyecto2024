@@ -31,7 +31,7 @@ async function Login() {
         // Si el login es exitoso
         if (resultado.success === true) {
             // Muestra una alerta de éxito
-            mostrarAlerta("✅Login Exitoso✅", () => {
+            mostrarAlerta(`✅ Login Exitoso, Disfruta de nuestro productos ${resultado.usuario} ✅`, () => {
 
                 // Guarda los datos del usuario en el localStorage, incluyendo el rol
                 localStorage.setItem('nombre', resultado.nombre);

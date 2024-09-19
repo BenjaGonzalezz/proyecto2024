@@ -518,8 +518,108 @@ main {
 /* // HEADER */
 
 
+/* Agregar productos */
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #006688;
+    text-align: center;
+    font-size: 34px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0px 15px 1px black;
+    min-width: 600px;
+    min-height: 700px;
+    background-color: rgb(183, 201, 201);
+}
+.label-input{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    margin-left: 100px;
+    align-items: center;
+}
+label {
+    color: #333;
+    font-weight: bold;
+    font-size: 17px;
+    width: 100px;
+}
+
+input[type="text"],
+select,
+input[type="file"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #9a9a9a;
+    width: 320px;
+    box-sizing: border-box;
+    margin: 10px  0;
+}
+
+input[type="file"]{
+    margin-left: 60px;
+    background-color: #ccc;
+}
+
+.img-previw-contenedor{
+    width: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="submit"] {
+    background-color: #008cba;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 50px;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #005f6b;
+}
+
+.imagenpreviw {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+}
+
+.categoria-select {
+    background-color: #f8f9fa;
+}
+
+input::placeholder {
+    color: #888;
+} 
+   
+
 /* AGREGAR PRODUCTOS */
 
+/* 
 h2 {
     font-size: 1.9rem;
     text-align: center;
@@ -554,7 +654,6 @@ form {
 
 .categoria-select:focus {
     border-color: #007bff;
-    /* Color cuando está en foco */
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -596,7 +695,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
     opacity: 0.7;
 }
-
+*/
 
 
 /*alerta personalizada :)*/

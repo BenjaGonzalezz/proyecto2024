@@ -209,5 +209,51 @@ class Producto {
         }
     }
 
+
+    // Método para agregar stock a un producto
+function agregarStockProductoModelo($id_producto, $cantidad) {
+    // Obtener la conexión a la base de datos
+    $connection = connection();
+
+    // Consulta para actualizar el stock del producto
+    $sql = "UPDATE producto SET stock = stock + ? WHERE id_producto = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ii", $cantidad, $id_producto);
+
+    // Ejecutar la consulta y verificar si se actualizó el stock
+    if ($stmt->execute()) {
+        if ($stmt->affected_rows > 0) {
+            return array("success" => true, "message" => "Stock actualizado exitosamente.");
+        } else {
+            return array("success" => false, "message" => "Producto no encontrado.");
+        }
+    } else {
+        return array("success" => false, "message" => "Error al actualizar el stock: " . $connection->error);
+    }
+}
+
+
+// Método para modificar el precio de un producto
+function modificarPrecioProductoModelo($id_producto, $nuevo_precio) {
+    // Obtener la conexión a la base de datos
+    $connection = connection();
+
+    // Consulta para actualizar el precio del producto
+    $sql = "UPDATE producto SET precio = ? WHERE id_producto = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("di", $nuevo_precio, $id_producto);
+
+    // Ejecutar la consulta y verificar si se actualizó el precio
+    if ($stmt->execute()) {
+        if ($stmt->affected_rows > 0) {
+            return array("success" => true, "message" => "Precio actualizado exitosamente.");
+        } else {
+            return array("success" => false, "message" => "Producto no encontrado.");
+        }
+    } else {
+        return array("success" => false, "message" => "Error al actualizar el precio: " . $connection->error);
+    }
+}
+
 }
 ?>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="EliminarProductos.css">
-    <script type="module" src="EliminarProductos.js"></script>
+    <link rel="stylesheet" href="GestionarProductos.css">
+    <script type="module" src="GestionarProductos.js"></script>
     <title>Administrador</title>
 </head>
 
@@ -39,7 +39,7 @@
                                         <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
                                     </li>
                                     <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
-                                        <a href="../Administrador/EliminarProductos.html">Eliminar Productos</a>
+                                        <a href="../Administrador/GestionarProductos.html">Gestionar Productos</a>
                                     </li>
                                     <li class="lista-productos">
                                         <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
@@ -132,8 +132,33 @@
 
 
 <main>
+<div class="formulario-stock-precio">
+<!-- Formulario para agregar stock a un producto -->
+<div id="formAgregarStock" class="stock-contenedor">
+    <h3 class="stock-titulo">Agregar Stock a Producto</h3>
+    <label for="id_producto_stock">ID del Producto:</label>
+    <input type="number" id="id_producto_stock" name="id_producto" required><br><br>
+    
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" name="cantidad" required><br><br>
+    
+    <button class="stock-boton" id="agregarStockBtn">Agregar Stock</button>
+</div>
 
- <h1>Eliminar Productos</h1>
+
+<!-- Formulario para modificar el precio de un producto -->
+<div id="formModificarPrecio" class="stock-contenedor">
+    <h3 class="stock-titulo">Modificar Precio de Producto</h3>
+    <label for="id_producto_precio">ID del Producto:</label>
+    <input type="number" id="id_producto_precio" name="id_producto" required><br><br>
+    
+    <label for="nuevo_precio">Nuevo Precio:</label>
+    <input type="number" id="nuevo_precio" name="nuevo_precio" step="0.01" required><br><br>
+    
+    <button class="stock-boton" id="modificarPrecioBtn">Modificar Precio</button>
+</div>
+</div>
+
  <table id="productosTable">
      <thead>
          <tr class="tr-head">

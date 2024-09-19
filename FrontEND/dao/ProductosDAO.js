@@ -120,6 +120,66 @@ export default class ProductosDAO {
     // Se devuelve el resultado de la operación de eliminar producto
     return resultado;
 }
+    // Método para agregar stock a un producto
+    async agregarStockProducto(id_producto, cantidad) {
+        // URL del backend para agregar stock a un producto
+        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=agregarStockProducto";
+        
+        // Crear un objeto FormData para enviar el ID del producto y la cantidad de stock como parámetros
+        let formdata = new FormData();
+        formdata.append("id_producto", id_producto);         // ID del producto
+        formdata.append("cantidad", cantidad);   // Cantidad de stock a agregar
+
+        // Configuración de la solicitud fetch con el método POST
+        let config = {
+            method: "POST",        // Método HTTP para enviar los datos
+            body: formdata         // Datos que se envían en el cuerpo de la solicitud
+        };
+
+        // Envío de la solicitud al backend y espera de la respuesta
+        let respuesta = await fetch(url, config);
+        
+        // Si la respuesta no es exitosa, se lanza un error
+        if (!respuesta.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        
+        // Se convierte la respuesta en JSON para obtener los datos
+        let resultado = await respuesta.json();
+        
+        // Se devuelve el resultado de la operación de agregar stock
+        return resultado;
+    }
+    // Método para agregar stock a un producto
+    async modificarPrecioProducto(id_producto, nuevo_precio) {
+        // URL del backend para agregar stock a un producto
+        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=modificarPrecioProducto";
+        
+        // Crear un objeto FormData para enviar el ID del producto y la cantidad de stock como parámetros
+        let formdata = new FormData();
+        formdata.append("id_producto", id_producto);         // ID del producto
+        formdata.append("nuevo_precio", nuevo_precio);   // Cantidad de stock a agregar
+
+        // Configuración de la solicitud fetch con el método POST
+        let config = {
+            method: "POST",        // Método HTTP para enviar los datos
+            body: formdata         // Datos que se envían en el cuerpo de la solicitud
+        };
+
+        // Envío de la solicitud al backend y espera de la respuesta
+        let respuesta = await fetch(url, config);
+        
+        // Si la respuesta no es exitosa, se lanza un error
+        if (!respuesta.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        
+        // Se convierte la respuesta en JSON para obtener los datos
+        let resultado = await respuesta.json();
+        
+        // Se devuelve el resultado de la operación de agregar stock
+        return resultado;
+    }
 
 
 }

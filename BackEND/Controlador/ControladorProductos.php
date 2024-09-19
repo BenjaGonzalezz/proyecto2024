@@ -47,6 +47,16 @@ switch ($function) {
     case "eliminarProducto":
         eliminarProducto();
         break;
+        
+    // Si 'function' es "agregarStockProducto", se llama a la función agregarStockProducto()
+    case "agregarStockProducto":
+        agregarStockProducto();
+        break;
+
+    // Si 'function' es "modificarPrecioProducto", se llama a la función modificarPrecioProducto()
+    case "modificarPrecioProducto":
+        modificarPrecioProducto();
+        break;
 }
 
 // Función para agregar un nuevo producto
@@ -144,6 +154,32 @@ function eliminarProducto() {
     // Llama al método 'eliminarProductoModelo' del modelo Producto para eliminar el producto de la base de datos
     $resultado = (new Producto())->eliminarProductoModelo($id_producto);
     
+    // Devuelve el resultado en formato JSON
+    echo json_encode($resultado);
+}
+
+// Función para agregar stock a un producto
+function agregarStockProducto() {
+    // Recibe los datos enviados mediante POST
+    $id_producto = $_POST['id_producto'];
+    $cantidad = $_POST['cantidad'];
+
+    // Llama al método 'agregarStockProductoModelo' del modelo Producto para actualizar el stock
+    $resultado = (new Producto())->agregarStockProductoModelo($id_producto, $cantidad);
+
+    // Devuelve el resultado en formato JSON
+    echo json_encode($resultado);
+}
+
+// Función para modificar el precio de un producto
+function modificarPrecioProducto() {
+    // Recibe los datos enviados mediante POST
+    $id_producto = $_POST['id_producto'];
+    $nuevo_precio = $_POST['nuevo_precio'];
+
+    // Llama al método 'modificarPrecioProductoModelo' del modelo Producto para actualizar el precio
+    $resultado = (new Producto())->modificarPrecioProductoModelo($id_producto, $nuevo_precio);
+
     // Devuelve el resultado en formato JSON
     echo json_encode($resultado);
 }

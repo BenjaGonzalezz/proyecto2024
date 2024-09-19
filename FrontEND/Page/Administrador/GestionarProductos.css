@@ -578,6 +578,63 @@ tr{
     transform: scale(1.1);
 }
 
+/* formularios STOCK PRECIO */
+
+.formulario-stock-precio{
+    display: flex;
+}
+
+.stock-contenedor {
+    background-color: #8cbcd2;
+    border: 1px solid #202160;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 60px auto;
+    box-shadow: 0 0 10px 1px black;
+}
+
+.stock-titulo {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--principal-color);
+}
+
+.stock-contenedor label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.stock-contenedor input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.stock-boton {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 4px;
+    display: flex;
+    margin: 0 auto;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.stock-boton:hover {
+    opacity: .8;
+}
+
 
 
 /*alerta personalizada :)*/

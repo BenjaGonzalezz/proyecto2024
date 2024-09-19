@@ -4,22 +4,21 @@ window.onload = function () {
     obtenerProductos();
     guardarLocalStorage();
     admin();
+    FormularioAgregarStock();
+    FormularioModificarPrecio();
 };
 
 async function obtenerProductos() {
     const productosTableBody = document.querySelector("#productosTable tbody");
 
-        const productosDAO = new ProductosDAO(); // Instancia del DAO
-        const resultado = await productosDAO.obtenerProductos(); // Llamada al método para obtener productos
+        const productosDAO = new ProductosDAO();
+        const resultado = await productosDAO.obtenerProductos(); 
 
-        // Verificamos si la solicitud fue exitosa
         if (resultado.success) {
             const productos = resultado.productos;
 
-            // Limpiamos el cuerpo de la tabla antes de agregar los productos
             productosTableBody.innerHTML = "";
 
-            // Iteramos sobre los productos y los agregamos a la tabla
             productos.forEach(producto => {
                 const row = document.createElement("tr");
 
@@ -36,21 +35,17 @@ async function obtenerProductos() {
                 productosTableBody.appendChild(row);
             });
 
-            // Agregamos los event listeners para los botones de eliminar
             document.querySelectorAll(".eliminar-btn").forEach(button => {
                 button.addEventListener("click", async function () {
                     const idProducto = this.dataset.id;
                     await eliminarProducto(idProducto);
                 });
             });
-
         } 
 
 }
 
-// Función para eliminar un producto
 async function eliminarProducto(id_producto) {
-
 
         const productosDAO = new ProductosDAO();
         const resultado = await productosDAO.eliminarProducto(id_producto);
@@ -65,104 +60,130 @@ async function eliminarProducto(id_producto) {
 
 }
 
+// Función para configurar el formulario de agregar stock
+function FormularioAgregarStock() {
+    const agregarStockBtn = document.getElementById('agregarStockBtn');
+
+    // Maneja el evento de clic en el botón de agregar stock
+    agregarStockBtn.addEventListener('click', async () => {
+        const idProducto = document.getElementById('id_producto_stock').value;
+        const cantidadStock = document.getElementById('cantidad').value;
+
+        const productosDAO = new ProductosDAO();
+        const resultado = await productosDAO.agregarStockProducto(idProducto, cantidadStock);
+
+        if (resultado.success) {
+            mostrarAlerta("Stock agregado exitosamente", () => {
+                window.location.reload();
+            });
+
+        } else {
+            mostrarAlerta("el ID del producto que ingresaste no existe", () => {
+                window.location.reload();
+            });
+        }
+    });
+}
+function FormularioModificarPrecio() {
+    const modificarPrecioBtn = document.getElementById('modificarPrecioBtn');
+
+    // Maneja el evento de clic en el botón de modificar precio
+    modificarPrecioBtn.addEventListener('click', async () => {
+        const idProducto = document.getElementById('id_producto_precio').value;
+        const nuevoPrecio = document.getElementById('nuevo_precio').value;
+
+        const productosDAO = new ProductosDAO();
+        const resultado = await productosDAO.modificarPrecioProducto(idProducto, nuevoPrecio);
+
+        if (resultado.success) {
+            mostrarAlerta("Precio modificado exitosamente", () => {
+                window.location.reload();
+            });
+        } else {
+            mostrarAlerta("El ID del producto que ingresaste no existe", () => {
+                window.location.reload();
+            });
+        }
+    });
+}
 
 
-// Espera a que el contenido del documento esté completamente cargado
 function guardarLocalStorage() {
-    // Obtener los datos del usuario desde el localStorage
     let nombre = localStorage.getItem('nombre');
     let usuario = localStorage.getItem('usuario');
     let telefono = localStorage.getItem('telefono');
     let email = localStorage.getItem('email');
 
-    // Insertar los valores recuperados en los elementos HTML correspondientes
     document.getElementById('nombre').textContent = nombre;
     document.getElementById('usuario').textContent = usuario;
     document.getElementById('telefono').textContent = telefono;
     document.getElementById('email').textContent = email;
 
-    // Si los datos del usuario están presentes, oculta elementos con la clase 'desaparecer'
     if (nombre && usuario && telefono && email) {
         let desaparecer = document.querySelectorAll('#desaparecer');
         desaparecer.forEach(desaparecer => {
             desaparecer.style.display = 'none';
         });
 
-        // Muestra los elementos con id 'aparecer'
         let aparecer = document.querySelectorAll('#aparecer');
         aparecer.forEach(aparecer => {
             aparecer.style.display = 'block';
         });
 
-        // Muestra los elementos con la clase 'aparecer'
         let aparecer2 = document.querySelectorAll('.aparecer');
         aparecer2.forEach(aparecer2 => {
             aparecer2.style.display = 'block';
         });
     }
-
-    // Agregar evento al botón de cerrar sesión
+    
     document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
-        event.preventDefault(); // Evita el comportamiento predeterminado del botón
+        event.preventDefault(); 
 
-        // Enviar solicitud para cerrar sesión
         let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
         if (!response.ok) {
             throw new Error('Error en la respuesta del servidor');
         }
 
-        // Limpiar localStorage y redirigir al login
         localStorage.clear();
         mostrarAlerta("Has cerrado sesión correctamente.", () => {
-            window.location.href = '../Login/LoginCliente.html'; // Redirigir al login
+            window.location.href = '../Login/LoginCliente.html';
         });
     });
 };
 
-// Función para mostrar una alerta personalizada
 function mostrarAlerta(mensaje, callback) {
     const fondoOscuro = document.getElementById('fondoOscuro');
     const alerta = document.getElementById('alertaPersonalizada');
     const alertaMensaje = document.getElementById('alertaMensaje');
     const alertaCerrar = document.getElementById('alertaCerrar');
 
-    // Configurar el mensaje y mostrar la alerta
     alertaMensaje.textContent = mensaje;
-    fondoOscuro.style.display = 'block'; // Mostrar fondo oscuro
-    alerta.style.display = 'block'; // Mostrar alerta
+    fondoOscuro.style.display = 'block'; 
+    alerta.style.display = 'block';
 
-    // Ocultar alerta al hacer clic en cerrar
     alertaCerrar.onclick = function() {
-        fondoOscuro.style.display = 'none'; // Ocultar fondo oscuro
-        alerta.style.display = 'none'; // Ocultar alerta
+        fondoOscuro.style.display = 'none';
+        alerta.style.display = 'none';
         if (callback) {
-            callback(); // Ejecutar función callback si se proporciona
+            callback();
         }
     }
 }
 
 
-// Espera a que el contenido del documento esté completamente cargado
 function admin() {
-    // Recupera el rol del usuario desde el localStorage
     const role = localStorage.getItem('role');
 
-    // Muestra/oculta elementos según el rol del usuario
     if (role === 'admin') {
-        // Añade una clase al body para estilos específicos de admin
         document.body.classList.add('admin-body');
-
-        // Muestra los elementos específicos para admin
+        
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
         });
-
-        // Oculta los elementos específicos que no deberían verse para admin
         document.querySelectorAll('.desaparecerAdmin').forEach(element => {
             element.style.display = 'none';
         });
     } else {
-        // Si no es administrador, remueve la clase 'admin-body'
         document.body.classList.remove('admin-body');
     }
 };

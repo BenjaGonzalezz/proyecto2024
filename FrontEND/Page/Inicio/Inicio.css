@@ -36,8 +36,6 @@ main {
 }
 
 
-/*hacer EL HEADER responsive*/
-
 @media (min-width: 820px) {
     /*EN CASO DE QUE LA PANTALLA SEA MAYOR A 980PX SE APLICA ESTO*/
     /* ---------- HEADER --------- */
