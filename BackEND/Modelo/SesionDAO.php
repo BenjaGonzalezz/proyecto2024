@@ -7,7 +7,7 @@ require_once "../Connection/Connection.php";
 class Usuario { 
     
     // Función para registrar un nuevo usuario
-    function registerUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña) {
+    function registerUsuarioModelo($nombre, $usuario, $email, $telefono, $contraseña) {
         // Establecer la conexión a la base de datos
         $connection = connection();
 
@@ -72,7 +72,7 @@ class Usuario {
     }
 
     // Función para el inicio de sesión de un usuario
-    function loginUsuarioModel($usuario, $contraseña) {
+    function loginUsuarioModelo($usuario, $contraseña) {
         // Establecer la conexión a la base de datos
         $connection = connection();
     
@@ -112,6 +112,40 @@ class Usuario {
             "message" => $resultado ? "Contraseña incorrecta" : "Usuario no encontrado"
         ];
     }
+
+
+// Función para eliminar una cuenta de usuario y todos sus datos relacionados
+function eliminarCuentaModelo($usuario) {
+    // Establecer la conexión a la base de datos
+    $connection = connection();
+
+    // Iniciar una transacción para asegurar que todas las operaciones se completen
+    $connection->begin_transaction();
+
+    try {
+        // Eliminar los datos del usuario de la tabla 'cliente'
+        $stmtCliente = $connection->prepare("DELETE FROM cliente WHERE usuario = ?");
+        $stmtCliente->bind_param("s", $usuario);
+        $stmtCliente->execute();
+        $stmtCliente->close();
+
+        // Eliminar los datos del usuario de la tabla 'persona'
+        $stmtPersona = $connection->prepare("DELETE FROM persona WHERE usuario = ?");
+        $stmtPersona->bind_param("s", $usuario);
+        $stmtPersona->execute();
+        $stmtPersona->close();
+
+        // Confirmar la transacción
+        $connection->commit();
+
+        return ["success" => true, "message" => "Cuenta eliminada exitosamente"];
+    } catch (Exception $e) {
+        // Si hay un error, revertir la transacción
+        $connection->rollback();
+        return ["success" => false, "message" => "Error al eliminar la cuenta: " . $e->getMessage()];
+    }
 }
+}
+
 
 ?>

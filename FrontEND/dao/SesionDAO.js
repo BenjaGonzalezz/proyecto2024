@@ -82,4 +82,26 @@ export default class SesionDAO {
         // Se convierte la respuesta en JSON para obtener los datos
         return await respuesta.json(); // Devolución de la respuesta en formato JSON
     }
+
+
+    async eliminarCuenta(usuario) {
+        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=eliminarCuenta";
+        
+        let formdata = new FormData();
+        formdata.append("usuario", usuario);
+    
+        let config = {
+            method: "POST",
+            body: formdata
+        };
+    
+        let respuesta = await fetch(url, config);
+        
+        if (!respuesta.ok) {
+            throw new Error('Error en la respuesta del servidor al eliminar la cuenta');
+        }
+    
+        let resultado = await respuesta.json();
+        return resultado;
+    }
 }

@@ -1,8 +1,40 @@
+
+import SesionDAO from '../../dao/SesionDAO.js';
+
 window.onload = () => {
     guardarLocalStorage();
     admin();
+    eliminarMiCuenta();
 }
 
+const sesionDAO = new SesionDAO(); // Crea una instancia de la clase
+function eliminarMiCuenta() {
+    const eliminarCuentaBtn = document.getElementById('eliminar-cuenta');
+
+    eliminarCuentaBtn.addEventListener('click', async function(event) {
+        event.preventDefault();
+
+        // Mostrar alerta personalizada de confirmación
+        mostrarAlertaConfirmacion("¿Estás seguro de que deseas eliminar tu cuenta?", async () => {
+            const usuario = localStorage.getItem('usuario');
+
+            try {
+                const respuesta = await sesionDAO.eliminarCuenta(usuario);
+                if (respuesta.success) {
+                    localStorage.clear();
+                    mostrarAlertaExito("Tu cuenta ha sido eliminada correctamente.", () => {
+                        window.location.href = '../Login/LoginCliente.html'; // Redirige al login
+                    });
+                } else {
+                    mostrarAlertaExito("Ocurrió un error al eliminar tu cuenta. Por favor, inténtalo nuevamente.");
+                }
+            } catch (error) {
+                console.error(error);
+                mostrarAlertaExito("Error al eliminar la cuenta. Inténtalo más tarde.");
+            }
+        });
+    });
+}
 
 // Espera a que el contenido del documento esté completamente cargado
 function guardarLocalStorage() {
@@ -71,27 +103,71 @@ function guardarLocalStorage() {
 }
 
 
-
-// Función para mostrar una alerta personalizada
-function mostrarAlerta(mensaje, callback) {
+// Función para mostrar alerta de éxito
+function mostrarAlertaExito(mensaje, callback) {
     const fondoOscuro = document.getElementById('fondoOscuro');
     const alerta = document.getElementById('alertaPersonalizada');
     const alertaMensaje = document.getElementById('alertaMensaje');
     const alertaCerrar = document.getElementById('alertaCerrar');
 
-    // Configura el mensaje y muestra la alerta
     alertaMensaje.textContent = mensaje;
     fondoOscuro.style.display = 'block'; // Muestra el fondo oscuro
     alerta.style.display = 'block'; // Muestra la alerta
 
-    // Al hacer clic en cerrar, oculta la alerta
     alertaCerrar.onclick = function() {
-        fondoOscuro.style.display = 'none'; // Oculta el fondo oscuro
-        alerta.style.display = 'none'; // Oculta la alerta
+        fondoOscuro.style.display = 'none';
+        alerta.style.display = 'none';
         if (callback) {
-            callback(); // Ejecuta el callback si se proporciona
+            callback(); // Ejecuta el callback
         }
-    }
+    };
+}
+
+// Función para mostrar alerta de confirmación
+function mostrarAlertaConfirmacion(mensaje, callback) {
+    const alerta = document.getElementById('alertaPersonalizada2');
+    const alertaMensaje = document.getElementById('alertaMensaje2');
+    const alertaCerrar = document.getElementById('alertaCerrar2');
+    const alertaConfirmar = document.getElementById('alertaConfirmar');
+
+    alertaMensaje.textContent = mensaje;
+    alerta.style.display = 'block';
+
+    alertaCerrar.onclick = function() {
+        alerta.style.display = 'none';
+    };
+
+    alertaConfirmar.onclick = function() {
+        alerta.style.display = 'none';
+        if (callback) {
+            callback();
+        }
+    };
+}
+function mostrarAlerta(mensaje, callback) {
+    const fondoOscuro = document.getElementById('fondoOscuro');
+    const alerta = document.getElementById('alertaPersonalizada');
+    const alertaMensaje = document.getElementById('alertaMensaje');
+    const alertaCerrar = document.getElementById('alertaCerrar');
+    const alertaConfirmar = document.getElementById('alertaConfirmar');
+
+    alertaMensaje.textContent = mensaje;
+    fondoOscuro.style.display = 'block';
+    alerta.style.display = 'block';
+
+    alertaCerrar.onclick = function() {
+        fondoOscuro.style.display = 'none';
+        alerta.style.display = 'none';
+    };
+
+
+    alertaConfirmar.onclick = function() {
+        fondoOscuro.style.display = 'none';
+        alerta.style.display = 'none';
+        if (callback) {
+            callback();
+        }
+    };
 }
 
 // Espera a que el contenido del documento esté completamente cargado

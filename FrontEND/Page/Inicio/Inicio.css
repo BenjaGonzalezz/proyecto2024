@@ -202,7 +202,6 @@ main {
   background-color: #e4f7ff;
   border: 1px solid var(--principal-color);
   border-radius: 10px;
-  transition: max-height 0.7s ease-out;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
   max-height: 0;
   font-size: 23px;
@@ -254,11 +253,15 @@ main {
 .ReservasAdmin:hover {
   background-color: rgba(177, 255, 239, 0.492);
 }
-.MisReservas {
-  border-bottom: 1px solid black;
+.user-nav{
+  padding: 10px 0;
+  background-color: #8dc3ea;
 }
-.MisReservas:hover {
-  background-color: rgb(255, 248, 198);
+.MisReservas {
+  border-bottom: 2px solid black;
+}
+.Micuenta{
+  border-bottom: 1px solid rgb(176, 176, 176);
 }
 .OfertaAdmin {
   border-bottom: 1px solid black;
@@ -418,6 +421,7 @@ main {
 }
 
 /* // HEADER */
+
 
 
 /* PRIMER ANUNCIO INICIO*/

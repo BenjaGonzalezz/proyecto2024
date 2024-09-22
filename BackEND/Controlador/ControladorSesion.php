@@ -24,6 +24,12 @@ switch ($function) {
     case "cerrarSesion":
         cerrarSesion();
         break;
+
+        
+    // Si 'function' es "eliminarCuenta", se llama a la función eliminarCuenta()
+    case "eliminarCuenta":
+        eliminarCuenta();
+        break;
 }
 
 // Función para registrar un nuevo usuario
@@ -36,7 +42,7 @@ function registerUsuario() {
     $contraseña = $_POST['contraseña'];
 
     // Llamar al método del modelo para registrar al usuario y obtener el resultado
-    $resultado = (new Usuario())->RegisterUsuarioModel($nombre, $usuario, $email, $telefono, $contraseña);
+    $resultado = (new Usuario())->RegisterUsuarioModelo($nombre, $usuario, $email, $telefono, $contraseña);
 
     // Enviar el resultado en formato JSON como respuesta
     echo json_encode($resultado);
@@ -49,7 +55,7 @@ function loginUsuario() {
     $contraseña = $_POST['contraseña'];
 
     // Llamar al método del modelo para realizar el login y obtener el resultado
-    $resultado = (new Usuario())->loginUsuarioModel($usuario, $contraseña);
+    $resultado = (new Usuario())->loginUsuarioModelo($usuario, $contraseña);
 
     // Enviar el resultado en formato JSON como respuesta
     echo json_encode($resultado);
@@ -71,4 +77,25 @@ function cerrarSesion() {
     // Enviar una respuesta en formato JSON confirmando que la sesión fue cerrada
     echo json_encode(["success" => true, "message" => "Sesión cerrada"]);
 }
+// Función para eliminar una cuenta de usuario y sus datos relacionados
+function eliminarCuenta() {
+    // Verificar si se recibió el usuario por el método POST
+    if (isset($_POST['usuario'])) {
+        // Obtener el usuario desde el POST
+        $usuario = $_POST['usuario'];
 
+        // Llamar al método del modelo para eliminar la cuenta del usuario
+        $resultado = (new Usuario())->eliminarCuentaModelo($usuario);
+
+        // Destruir la sesión actual
+        session_start();
+        session_unset();
+        session_destroy();
+
+        // Enviar el resultado como respuesta en formato JSON
+        echo json_encode(["success" => true, "message" => "Cuenta eliminada exitosamente."]);
+    } else {
+        // Enviar un mensaje de error si el usuario no se envió correctamente
+        echo json_encode(["success" => false, "message" => "Error: Usuario no proporcionado."]);
+    }
+}
