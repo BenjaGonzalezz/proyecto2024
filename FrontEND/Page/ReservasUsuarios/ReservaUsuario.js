@@ -4,7 +4,80 @@ import ReservaDAO from '../../dao/ReservaDAO.js';
 window.onload = () => {
     mostrarReservas();
     guardarLocalStorage();
+    mostrarProductosCarrito();
+    admin();
 }
+
+function mostrarProductosCarrito() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carritoContainer = document.getElementById("productos-carrito");
+
+    carritoContainer.innerHTML = ""; 
+
+    carrito.forEach((producto, index) => {
+        const productoCarritoDiv = document.createElement("div");
+        productoCarritoDiv.classList.add("producto-carrito");
+
+        productoCarritoDiv.innerHTML = `
+            <p class="p-carrito">${producto.nombre} (Cantidad: ${producto.cantidad})</p>
+            <p class="p-carrito">Precio: $${producto.precio}</p>
+        `;
+
+        // Crear el botón de eliminar
+        const botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.classList.add("botonEliminar");
+
+        // Añadir evento al botón de eliminar
+        botonEliminar.addEventListener("click", () => {
+            eliminarProductoDelCarrito(index);
+        });
+
+        productoCarritoDiv.appendChild(botonEliminar);
+        carritoContainer.appendChild(productoCarritoDiv);
+    });
+
+    // Agregar el botón de solicitar reserva si hay productos en el carrito
+    if (carrito.length > 0) {
+        const botonSolicitarReserva = document.createElement("button");
+        botonSolicitarReserva.textContent = "Solicitar Reserva";
+        botonSolicitarReserva.classList.add("botonSolicitarReserva");
+
+        botonSolicitarReserva.addEventListener("click", async () => {
+            try {
+                const usuario_cliente = "nombreDelUsuario"; // Obtener de manera dinámica
+                const resultado = await CarritoDAO.solicitarReservaCarrito({
+                    usuario_cliente,
+                    id_producto: carrito[0].id_producto // Suponiendo que tienes el id_producto en el carrito
+                });
+
+                if (resultado.success) {
+                    mostrarProductosCarrito(); // Actualizar la vista del carrito
+                    alert(resultado.message);
+                } else {
+                    console.error("Error del servidor:", resultado.message);
+                    alert(resultado.message);
+                }
+            } catch (error) {
+                console.error("Error en la solicitud de reserva:", error);
+                alert("Hubo un error al procesar la solicitud.");
+            }
+        });
+
+        carritoContainer.appendChild(botonSolicitarReserva);
+    }
+}
+function eliminarProductoDelCarrito(index) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito.splice(index, 1);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarProductosCarrito();
+}
+
+
 
 // Crear una instancia de ReservaDAO
 const reservaDAO = new ReservaDAO();
@@ -129,4 +202,36 @@ async function mostrarReservas() {
             // Manejar el caso de error
             console.error('Error al obtener reservas:', resultado.message);
         }
+}
+
+// Espera a que el contenido del documento esté completamente cargado
+function admin() {
+    // Recupera el rol del usuario desde el localStorage
+    const role = localStorage.getItem('role');
+    // Muestra/oculta elementos según el rol del usuario
+    if (role === 'user') {
+
+        document.querySelectorAll('.aparecerU').forEach(element => {
+            element.style.display = 'block';
+        });
+
+    }
+    // Muestra/oculta elementos según el rol del usuario
+    if (role === 'admin') {
+        // Añade una clase al body para estilos específicos de admin
+        document.body.classList.add('admin-body');
+
+        // Muestra los elementos específicos para admin
+        document.querySelectorAll('.aparecerAdmin').forEach(element => {
+            element.style.display = 'block';
+        });
+
+        // Oculta los elementos específicos que no deberían verse para admin
+        document.querySelectorAll('.desaparecerAdmin').forEach(element => {
+            element.style.display = 'none';
+        });
+    } else {
+        // Si no es administrador, remueve la clase 'admin-body'
+        document.body.classList.remove('admin-body');
+    }
 }
