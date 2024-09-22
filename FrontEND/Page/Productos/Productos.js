@@ -1,53 +1,135 @@
 import ProductosDAO from "../../dao/ProductosDAO.js";
+import CarritoDAO from "../../dao/CarritoDAO.js";
+
+// Crear una instancia de CarritoDAO
+const carritoDAO = new CarritoDAO();
 
 window.onload = () => {
     mostrarProductoCategoria();
     admin();
     guardarLocalStorage();
+    mostrarProductosCarrito();
 }
 
-// Espera a que el contenido del documento esté completamente cargado
-async function  mostrarProductoCategoria() {
-    const productosDAO = new ProductosDAO(); // Crea una instancia de ProductosDAO
-    const contenedores = document.querySelectorAll(".todos-productos > div > .productos-categoria"); // Selecciona los contenedores de productos por categoría
+function mostrarProductosCarrito() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carritoContainer = document.getElementById("productos-carrito");
 
-    // Llama a la función para obtener los productos desde el servidor
+    carritoContainer.innerHTML = ""; 
+
+    carrito.forEach((producto, index) => {
+        const productoCarritoDiv = document.createElement("div");
+        productoCarritoDiv.classList.add("producto-carrito");
+
+        productoCarritoDiv.innerHTML = `
+            <p class="p-carrito">${producto.nombre} (Cantidad: ${producto.cantidad})</p>
+            <p class="p-carrito">Precio: $${producto.precio}</p>
+        `;
+
+        // Crear el botón de eliminar
+        const botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.classList.add("botonEliminar");
+
+        // Añadir evento al botón de eliminar
+        botonEliminar.addEventListener("click", () => {
+            eliminarProductoDelCarrito(index);
+        });
+
+        productoCarritoDiv.appendChild(botonEliminar);
+        carritoContainer.appendChild(productoCarritoDiv);
+    });
+
+    // Agregar el botón de solicitar reserva si hay productos en el carrito
+    if (carrito.length > 0) {
+        const botonSolicitarReserva = document.createElement("button");
+        botonSolicitarReserva.textContent = "Solicitar Reserva";
+        botonSolicitarReserva.classList.add("botonSolicitarReserva");
+
+        botonSolicitarReserva.addEventListener("click", async () => {
+            try {
+                const usuario_cliente = "nombreDelUsuario"; // Obtener de manera dinámica
+                const resultado = await CarritoDAO.solicitarReservaCarrito({
+                    usuario_cliente,
+                    id_producto: carrito[0].id_producto // Suponiendo que tienes el id_producto en el carrito
+                });
+
+                if (resultado.success) {
+                    mostrarProductosCarrito(); // Actualizar la vista del carrito
+                    alert(resultado.message);
+                } else {
+                    console.error("Error del servidor:", resultado.message);
+                    alert(resultado.message);
+                }
+            } catch (error) {
+                console.error("Error en la solicitud de reserva:", error);
+                alert("Hubo un error al procesar la solicitud.");
+            }
+        });
+
+        carritoContainer.appendChild(botonSolicitarReserva);
+    }
+}
+
+function agregarProductoAlCarrito(producto) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // Verificar si el producto ya esta en el carrito
+    const productoExistente = carrito.find((item) => item.id_producto === producto.id_producto);
+    if (productoExistente) {
+        productoExistente.cantidad += 1;
+    } else {
+        producto.cantidad = 1; // Si el producto no está en el carrito, agrega 1
+        carrito.push(producto);
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarAlerta("Producto agregado al carrito.", () => {
+        mostrarProductosCarrito();
+    });
+}
+
+function eliminarProductoDelCarrito(index) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito.splice(index, 1);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarProductosCarrito();
+}
+
+
+async function mostrarProductoCategoria() {
+    const productosDAO = new ProductosDAO(); 
+    const contenedores = document.querySelectorAll(".todos-productos > div > .productos-categoria");
+
     const resultado = await productosDAO.obtenerProductos();
-    console.log("Resultado de obtenerProductos:", resultado); // Muestra el resultado en la consola para verificar
+    console.log("Resultado de obtenerProductos:", resultado);
 
-    // Verifica si la solicitud fue exitosa
     if (resultado.success) {
-        const productos = resultado.productos; // Extrae la lista de productos del resultado
-        const categorias = [
-            "mosquitero",
-            "ventana",
-            "puerta",
-            "mampara",
-            "pañofijo",
-            "monoblock",
-            "vidrio",
-        ]; // Lista de categorías de productos
+        const productos = resultado.productos;
+        const categorias = ["mosquitero", "ventana", "puerta", "mampara", "pañofijo", "monoblock", "vidrio"];
 
-        // Recorre cada categoría y filtra los productos que pertenecen a esa categoría
         categorias.forEach((categoria) => {
             const productosCategoria = productos.filter(
                 (producto) => producto.categoria === categoria
             );
             const contenedor = Array.from(contenedores).find(
                 (div) => div.dataset.categoria === categoria
-            ); // Busca el contenedor correspondiente a la categoría
+            );
 
-            // Si hay productos en esa categoría, los muestra en el contenedor
             if (productosCategoria.length > 0) {
                 productosCategoria.forEach((producto) => {
-                    const productoDiv = document.createElement("div"); // Crea un div para cada producto
-                    productoDiv.classList.add("producto-item"); // Añade una clase al div
+                    const productoDiv = document.createElement("div");
+                    productoDiv.classList.add("producto-item");
                     productoDiv.innerHTML = `
                     <a href="../ProductosDetalles/Mamparas/Mampara1.html" style="text-decoration: none; color:black;">
                         <h3>${producto.nombre}</h3>
                         <div class="parrafo-y-img">
                             <div class="img-contenedor">
-                                    <img class="img-producto" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150">
+                                <img class="img-producto" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150">
                             </div>
                             <div class="p-contenedor">
                                 <p class="P-producto">Precio: $ ${producto.precio}</p>
@@ -57,17 +139,22 @@ async function  mostrarProductoCategoria() {
                             </div>
                         </div>
                     </a>
-                        <button class="botonAgregarCarrito aparecer">Agregar al Carrito</button>
-                    `; // Inserta el contenido HTML del producto
-                    contenedor.appendChild(productoDiv); // Añade el producto al contenedor
+                    <button class="botonAgregarCarrito aparecer">Agregar al Carrito</button>
+                    `;
+
+                    // Agregar evento para añadir producto al carrito
+                    const botonAgregar = productoDiv.querySelector(".botonAgregarCarrito");
+                    botonAgregar.addEventListener("click", () => {
+                        agregarProductoAlCarrito(producto);
+                    });
+
+                    contenedor.appendChild(productoDiv);
                 });
             } else {
-                // Si no hay productos en esa categoría, muestra un mensaje
                 contenedor.innerHTML = "<p>No hay productos en esta categoría.</p>";
             }
         });
     } else {
-        // Si hay un error al obtener productos, muestra un mensaje de error en la consola
         console.error("Error al obtener productos:", resultado.message);
     }
 }

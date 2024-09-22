@@ -6,7 +6,18 @@ window.onload = function () {
     admin();
     FormularioAgregarStock();
     FormularioModificarPrecio();
+    verificarAcceso();
 };
+
+function verificarAcceso() {
+    const role = localStorage.getItem('role');
+    
+    if (role !== 'admin') {
+        mostrarAlerta('❌⚠ LO QUE ESTAS HACIENDO ES ILEGAL ⚠❌', () => {
+            window.location.href = '../Inicio/Inicio.html';
+        });
+    }
+}
 
 async function obtenerProductos() {
     const productosTableBody = document.querySelector("#productosTable tbody");

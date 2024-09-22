@@ -6,6 +6,16 @@ window.onload = () => {
     mostrarReservas();
     admin();
     guardarLocalStorage();
+    verificarAcceso();
+}
+
+function verificarAcceso() {
+    const role = localStorage.getItem('role');
+    if (role !== 'admin') {
+        mostrarAlerta('❌⚠ LO QUE ESTAS HACIENDO ES ILEGAL ⚠❌', () => {
+            window.location.href = '../Inicio/Inicio.html';
+        });
+    }
 }
 
 async function mostrarReservas() {

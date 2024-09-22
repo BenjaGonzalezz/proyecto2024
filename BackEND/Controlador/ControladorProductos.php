@@ -61,6 +61,7 @@ switch ($function) {
 
 // Función para agregar un nuevo producto
 function agregarProducto() {
+    
     // Recibe los datos enviados mediante POST
     $categoria = $_POST['categoria'];
     $nombre = $_POST['nombre'];

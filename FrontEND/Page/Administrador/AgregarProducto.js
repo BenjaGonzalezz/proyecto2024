@@ -1,10 +1,21 @@
 import ProductosDAO from '../../dao/ProductosDAO.js';
 
 window.onload = () => {
+    verificarAcceso(); 
     EventosFormularios();
     guardarLocalStorage();
     admin();
     EventoPreviw();
+}
+
+function verificarAcceso() {
+    const role = localStorage.getItem('role');
+    
+    if (role !== 'admin') {
+        mostrarAlerta('❌⚠ LO QUE ESTAS HACIENDO ES ILEGAL ⚠❌', () => {
+            window.location.href = '../Inicio/Inicio.html';
+        });
+    }
 }
 
 function EventosFormularios() {

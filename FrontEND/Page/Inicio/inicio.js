@@ -2,7 +2,79 @@ window.onload = () => {
     guardarLocalStorage();
     admin();
     mostrarOfertas();
+    mostrarProductosCarrito();
 }
+
+function mostrarProductosCarrito() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carritoContainer = document.getElementById("productos-carrito");
+
+    carritoContainer.innerHTML = ""; 
+
+    carrito.forEach((producto, index) => {
+        const productoCarritoDiv = document.createElement("div");
+        productoCarritoDiv.classList.add("producto-carrito");
+
+        productoCarritoDiv.innerHTML = `
+            <p class="p-carrito">${producto.nombre} (Cantidad: ${producto.cantidad})</p>
+            <p class="p-carrito">Precio: $${producto.precio}</p>
+        `;
+
+        // Crear el botón de eliminar
+        const botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.classList.add("botonEliminar");
+
+        // Añadir evento al botón de eliminar
+        botonEliminar.addEventListener("click", () => {
+            eliminarProductoDelCarrito(index);
+        });
+
+        productoCarritoDiv.appendChild(botonEliminar);
+        carritoContainer.appendChild(productoCarritoDiv);
+    });
+
+    // Agregar el botón de solicitar reserva si hay productos en el carrito
+    if (carrito.length > 0) {
+        const botonSolicitarReserva = document.createElement("button");
+        botonSolicitarReserva.textContent = "Solicitar Reserva";
+        botonSolicitarReserva.classList.add("botonSolicitarReserva");
+
+        botonSolicitarReserva.addEventListener("click", async () => {
+            try {
+                const usuario_cliente = "nombreDelUsuario"; // Obtener de manera dinámica
+                const resultado = await CarritoDAO.solicitarReservaCarrito({
+                    usuario_cliente,
+                    id_producto: carrito[0].id_producto // Suponiendo que tienes el id_producto en el carrito
+                });
+
+                if (resultado.success) {
+                    mostrarProductosCarrito(); // Actualizar la vista del carrito
+                    alert(resultado.message);
+                } else {
+                    console.error("Error del servidor:", resultado.message);
+                    alert(resultado.message);
+                }
+            } catch (error) {
+                console.error("Error en la solicitud de reserva:", error);
+                alert("Hubo un error al procesar la solicitud.");
+            }
+        });
+
+        carritoContainer.appendChild(botonSolicitarReserva);
+    }
+}
+function eliminarProductoDelCarrito(index) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito.splice(index, 1);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarProductosCarrito();
+}
+
+
 
 function mostrarOfertas() {
     fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta')
@@ -17,7 +89,7 @@ function mostrarOfertas() {
 
                         <div class="nombre-e-imagen"> 
 
-                        <h2>${producto.nombre}</h2>
+                        <h2 class="h2-a">${producto.nombre}</h2>
                         <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100">
 
                         </div>
