@@ -3,10 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="CambiarInfo.css">
+    <script type="module" src="CambiarInfo.js"></script>
+    <title>Cambiar Nombre</title>
 </head>
 <body>
+    <header class=" header ">
+        <div class="header__logo-container ">
+            <a href="../Inicio/Inicio.html ">
+                <img class="header__logo " src="../img/logoProyectoEMPRESA.png " />
+            </a>
+        </div>
+        <nav class="header__nav ">
+            <ul class="header__nav-list ">
+                <li class="header__nav-item ">
+                    <a href="../Inicio/Inicio.html ">Inicio</a>
+                </li>
+                <li class="header__nav-item header__nav-item2 ">
+                    <div class="menu ">
+                        <ul class="tipos-productos ">
+                            <li>
+                                <div class="productos-navbar ">
+                                    <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
+                                </div>
+                                <ul>
+                                    <li style="display: none;" class="ReservasAdmin aparecerAdmin">
+                                        <a href="../Administrador/VerReservas.html">Ver Reservas</a>
+                                    </li>
+                                    <li style="display: none;" class="OfertaAdmin aparecerAdmin">
+                                        <a href="../Administrador/AgregarOferta.html">Modificar Ofertas</a>
+                                    </li>
+                                    <li style="display: none;" class="AgregarAdmin aparecerAdmin">
+                                        <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
+                                    </li>
+                                    <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
+                                        <a href="../Administrador/GestionarProductos.html">Gestionar Productos</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-ventana ">VENTANAS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-puerta ">PUERTAS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-mampara ">MAMPARAS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-pañofijo ">PAÑOFIJOS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-monoblock ">MONOBLOCKS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-vidrio">VIDRIOS</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
+                <div class="carrito-container aparecerU" style="display: none;">
+                    <img src="../img/Carrito.png " class="imagen-carrito" alt="">
+                    <div id="productos-carrito"></div>
+                </div>
+                <div class="login-boton">
+                    <input type="checkbox" class="menu-desplegable" id="menu-toggle">
+                    <label class="login-link" for="menu-toggle">
+                    <img class="user" src="../img/user.webp" alt="">
+                </label>
+                    <div class="menuUser">
+                        <a id="desaparecer" href="../Login/LoginCliente.html">Login</a>
+                        <a id="desaparecer" href="../Register/RegisterCliente.html">Registro</a>
+                        <div id="aparecer" style="display: none;">
+                            <a href="../Cuenta/Micuenta.html">Mi cuenta</a>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Nombre:</span>
+                                <span class="span" id="nombre"></span>
+                            </p>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Usuario:</span>
+                                <span class="span" id="usuario"></span>
+                            </p>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Teléfono:</span>
+                                <span class="span" id="telefono"></span>
+                            </p>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Email:</span>
+                                <span class="span" id="email"></span>
+                            </p>
+                        </div>
+                        <div id="aparecer" style="display: none;">
+                            <div style="display: none;" class="ReservasAdmin aparecerU">
+                                <a href="../ReservasUsuarios/ReservaUsuario.html">Mis Reservas</a>
+                            </div>
+                        </div>
+                        <a id="cerrarSesion" class="aparecer" style="display: none;" href="#">Cerrar Sesión</a>
+                    </div>
+
+                </div>
+
+
+            </ul>
+        </nav>
+    </header>
+    <!-- // HEADER  -->
+
+
+    <!-- Alerta personalizada -->
+
+    <div id="fondoOscuro"></div>
+
+    <div id="alertaPersonalizada">
+        <p class="p-alerta1" id="alertaMensaje">!Muchas gracias por confiar en nosotros!</p>
+        <button id="alertaCerrar">Aceptar</button>
+    </div>
+
     
-    <p>Proximamente</p><a href="../Inicio/Inicio.html">Inicio</a>
+    <div id="form-modificar">
+        <h2>Modificar Nombre</h2>
+        <form id="form-modificar">
+            <input type="text" id="nuevoNombre" placeholder="Nuevo Nombre" required>
+            <button type="submit">Modificar Nombre</button>
+        </form>
+    </div>
+
+</div>
 </body>
 </html>

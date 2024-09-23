@@ -96,7 +96,7 @@ function guardarLocalStorage() {
 
         // Limpia el localStorage y redirige al login
         localStorage.clear();
-        mostrarAlerta("Has cerrado sesión correctamente.", () => {
+        mostrarAlertaExito("Has cerrado sesión correctamente.", () => {
             window.location.href = '../Login/LoginCliente.html'; // Redirige al login
         });
     });
@@ -138,31 +138,6 @@ function mostrarAlertaConfirmacion(mensaje, callback) {
     };
 
     alertaConfirmar.onclick = function() {
-        alerta.style.display = 'none';
-        if (callback) {
-            callback();
-        }
-    };
-}
-function mostrarAlerta(mensaje, callback) {
-    const fondoOscuro = document.getElementById('fondoOscuro');
-    const alerta = document.getElementById('alertaPersonalizada');
-    const alertaMensaje = document.getElementById('alertaMensaje');
-    const alertaCerrar = document.getElementById('alertaCerrar');
-    const alertaConfirmar = document.getElementById('alertaConfirmar');
-
-    alertaMensaje.textContent = mensaje;
-    fondoOscuro.style.display = 'block';
-    alerta.style.display = 'block';
-
-    alertaCerrar.onclick = function() {
-        fondoOscuro.style.display = 'none';
-        alerta.style.display = 'none';
-    };
-
-
-    alertaConfirmar.onclick = function() {
-        fondoOscuro.style.display = 'none';
         alerta.style.display = 'none';
         if (callback) {
             callback();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2024 a las 06:03:42
+-- Tiempo de generación: 23-09-2024 a las 05:22:26
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,7 +39,25 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`usuario`, `telefono`, `email`) VALUES
 ('Administrador1', '000 000 000', 'Administrador1@admin.com'),
-('UsuarioNormal1', '111 111 111', 'UsuarioNormal1@gmail.com');
+('UsuarioNormal1', '111 222 333', 'UsuarioNormal0@gmail.com'),
+('UsuarioNormal2', '3131313131', 'UsuarioNormal2@a');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `oferta`
+--
+
+CREATE TABLE `oferta` (
+  `id_producto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `oferta`
+--
+
+INSERT INTO `oferta` (`id_producto`) VALUES
+(17);
 
 -- --------------------------------------------------------
 
@@ -60,7 +78,8 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`usuario`, `contraseña`, `nombre`, `role`) VALUES
 ('Administrador1', '$2y$10$lQ4KLsNBW/H7s.Cmr8edmOkL0Acf99FNHqltKqx.wxvM3N6VTmbhW', 'Administrador1', 'admin'),
-('UsuarioNormal1', '$2y$10$ct9Nz1RoEZDrU4xXDcF/E.Qu/PR80KEg/NbN1Udpg/4McgNQgvy7q', 'UsuarioNormal1', 'user');
+('UsuarioNormal1', '$2y$10$ct9Nz1RoEZDrU4xXDcF/E.Qu/PR80KEg/NbN1Udpg/4McgNQgvy7q', 'UsuarioNormal1', 'user'),
+('UsuarioNormal2', '$2y$10$Kt58oL6J7Ay9kaSeRiEi0.HAEmnj3ikD4U3zUei7Mrpn157oFdJaS', 'UsuarioNormal2', 'user');
 
 -- --------------------------------------------------------
 
@@ -84,7 +103,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `categoria`, `nombre`, `stock`, `precio`, `imagen`, `color`, `medida`) VALUES
-(17, 'mosquitero', 'Mosquitero PREMIUM', '21', '43.400', 'mosquitero.png', 'Blanco', '1x1');
+(17, 'mosquitero', 'Mosquitero PREMIUM', '13', '3.779', 'mosquitero.png', 'Blanco', '1x1'),
+(27, 'puerta', 'Puerta', '30', '9.799', '27.png', 'Gris', '1x3'),
+(28, 'puerta', 'Puerta2', '31', '9.999', '28.png', 'Gris', '1x4'),
+(29, 'ventana', 'Ventana Antibalas', '9', '3.499', '29.png', 'Gris', '1x1,5');
 
 -- --------------------------------------------------------
 
@@ -106,7 +128,6 @@ CREATE TABLE `producto_reserva` (
 CREATE TABLE `reserva` (
   `id_reserva` int(11) NOT NULL,
   `estado` varchar(255) NOT NULL,
-  `direccion` varchar(255) NOT NULL,
   `fecha_limite` date NOT NULL,
   `fecha_reserva` date NOT NULL,
   `usuario_cliente` varchar(255) NOT NULL
@@ -121,6 +142,12 @@ CREATE TABLE `reserva` (
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`usuario`);
+
+--
+-- Indices de la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  ADD UNIQUE KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `persona`
@@ -156,13 +183,13 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Restricciones para tablas volcadas
@@ -173,6 +200,12 @@ ALTER TABLE `reserva`
 --
 ALTER TABLE `cliente`
   ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `persona` (`usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  ADD CONSTRAINT `oferta_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `producto_reserva`

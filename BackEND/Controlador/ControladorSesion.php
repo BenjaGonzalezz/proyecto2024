@@ -1,6 +1,10 @@
 <?php
+
 // Incluir el archivo que contiene el acceso a la base de datos y los métodos de sesión de usuario
 require_once '../Modelo/SesionDAO.php';
+
+// Iniciar la sesión para acceder a las variables de sesión
+session_start();
 
 // Establecer el tipo de contenido de la respuesta a JSON
 header('Content-Type: application/json');
@@ -50,6 +54,7 @@ function registerUsuario() {
 
 // Función para iniciar sesión de un usuario
 function loginUsuario() {
+    
     // Obtener los datos del formulario enviados mediante POST
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
