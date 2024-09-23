@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="DetalleProducto.css">
+    <script type="module" src="DetalleProducto.js"></script>
+    <title>Detalles Del Producto</title>
+</head>
+
+<body>
+    <header class=" header ">
+        <div class="header__logo-container ">
+            <a href="../Inicio/Inicio.html ">
+                <img class="header__logo " src="../img/logoProyectoEMPRESA.png " />
+            </a>
+        </div>
+        <nav class="header__nav ">
+            <ul class="header__nav-list ">
+                <li class="header__nav-item ">
+                    <a href="../Inicio/Inicio.html ">Inicio</a>
+                </li>
+                <li class="header__nav-item header__nav-item2 ">
+                    <div class="menu ">
+                        <ul class="tipos-productos ">
+                            <li>
+                                <div class="productos-navbar ">
+                                    <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
+                                </div>
+                                <ul>
+                                    <li style="display: none;" class="ReservasAdmin aparecerAdmin">
+                                        <a href="../Administrador/VerReservas.html">Ver Reservas</a>
+                                    </li>
+                                    <li style="display: none;" class="OfertaAdmin aparecerAdmin">
+                                        <a href="../Administrador/AgregarOferta.html">Modificar Ofertas</a>
+                                    </li>
+                                    <li style="display: none;" class="AgregarAdmin aparecerAdmin">
+                                        <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
+                                    </li>
+                                    <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
+                                        <a href="../Administrador/GestionarProductos.html">Gestionar Productos</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-ventana ">VENTANAS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-puerta ">PUERTAS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-mampara ">MAMPARAS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-pañofijo ">PAÑOFIJOS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-monoblock ">MONOBLOCKS</a>
+                                    </li>
+                                    <li class="lista-productos">
+                                        <a href="../Productos/Productos.html#seccion-vidrio">VIDRIOS</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </li>
+                <div class="carrito-container aparecerU" style="display: none;">
+                    <img src="../img/Carrito.png " class="imagen-carrito" alt="">
+                    <div id="productos-carrito"></div>
+                </div>
+                <div class="login-boton">
+                    <input type="checkbox" class="menu-desplegable" id="menu-toggle">
+                    <label class="login-link" for="menu-toggle">
+                    <img class="user" src="../img/user.webp" alt="">
+                </label>
+                    <div class="menuUser">
+                        <a id="desaparecer" href="../Login/LoginCliente.html">Login</a>
+                        <a id="desaparecer" href="../Register/RegisterCliente.html">Registro</a>
+                        <div id="aparecer" style="display: none;">
+                            <a href="../Cuenta/Micuenta.html">Mi cuenta</a>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Nombre:</span>
+                                <span class="span" id="nombre"></span>
+                            </p>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Usuario:</span>
+                                <span class="span" id="usuario"></span>
+                            </p>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Teléfono:</span>
+                                <span class="span" id="telefono"></span>
+                            </p>
+                        </div>
+                        <div class="a" id="aparecer" style="display: none;">
+                            <p class="parrafoMenu">
+                                <span class="etiqueta">Email:</span>
+                                <span class="span" id="email"></span>
+                            </p>
+                        </div>
+                        <div id="aparecer" style="display: none;">
+                            <div style="display: none;" class="ReservasAdmin aparecerU">
+                                <a href="../ReservasUsuarios/ReservaUsuario.html">Mis Reservas</a>
+                            </div>
+                        </div>
+                        <a id="cerrarSesion" class="aparecer" style="display: none;" href="#">Cerrar Sesión</a>
+                    </div>
+
+                </div>
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- // HEADER  -->
+
+
+    <!-- Alerta personalizada -->
+
+    <div id="fondoOscuro"></div>
+
+    <div id="alertaPersonalizada">
+        <p class="p-alerta1" id="alertaMensaje">!Muchas gracias por confiar en nosotros!</p>
+        <button id="alertaCerrar">Aceptar</button>
+    </div>
+
+    <!-- MAIN -->
+
+
+    <main>
+
+        <h1>
+            Detalles del producto
+        </h1>
+
+
+        <div class="producto-contenedor">
+            <div class="imagen-contenedor">
+                <div id="mostrar-img">
+
+                </div>
+            </div>
+            <div class="detalles-contendor">
+                <div id="mostrar-nombre">
+
+                </div>
+                <div id="mostrar-precio">
+
+                </div>
+                <div id="mostrar-stock">
+
+                </div>
+                <div id="mostrar-color">
+
+                </div>
+                <input type="submit" value="Agregar al carrito">
+            </div>
+
+
+        </div>
+    </main>
+
+
+
+    <!--  FOOTER  -->
+    <footer>
+        <div class="footer-title ">
+            <p class="footer-title-lit ">Sofia Aberturas
+                <p class="copy ">Copyright</p> © 2024</p>
+        </div>
+        <div class="contenido-footer ">
+            <div class="footer-cont ">
+                <h4 class="footer-text ">Contactanos</h4>
+                <p class="parrafo ">
+                    Telefono: 094 403 230
+                </p>
+                <p class="parrafo ">
+                    Email: aluminiosofia@hotmail.com
+                </p>
+            </div>
+            <div class="footer-cont2 ">
+                <h4 class="footer-text ">Direccion</h4>
+                <p class="parrafo ">
+                    Las Quintitas de Bs. As. 1, Colonia del Sacramento.
+                </p>
+            </div>
+            <div class="footer-cont2 ">
+                <h4 class="footer-text ">Redes Sociales</h4>
+                <a href="https://www.instagram.com/ "><img src="../img/ig.png " alt=" "></a>
+                <a href="https://www.facebook.com/ "><img src="../img/face.png " alt=" "></a>
+            </div>
+        </div>
+    </footer>
+    <!-- / FOOTER  -->
+
+
+</body>
+
+</html>

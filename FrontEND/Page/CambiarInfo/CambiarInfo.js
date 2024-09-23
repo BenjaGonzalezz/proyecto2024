@@ -1,6 +1,5 @@
 import ModificarDAO from '../../dao/ModificarDAO.js';
 
-// Crear una instancia del DAO
 const modificarDAO = new ModificarDAO();
 
 window.onload = () => {
@@ -41,9 +40,9 @@ function guardarLocalStorage() {
             element.style.display = 'block';
         });
     }
-    
+
     document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
         if (!response.ok) {
@@ -64,7 +63,7 @@ function mostrarAlerta(mensaje, callback) {
     const alertaCerrar = document.getElementById('alertaCerrar');
 
     alertaMensaje.textContent = mensaje;
-    fondoOscuro.style.display = 'block'; 
+    fondoOscuro.style.display = 'block';
     alerta.style.display = 'block';
 
     alertaCerrar.onclick = function() {
@@ -81,7 +80,7 @@ function admin() {
 
     if (role === 'admin') {
         document.body.classList.add('admin-body');
-        
+
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
         });
@@ -92,6 +91,7 @@ function admin() {
         document.body.classList.remove('admin-body');
     }
 }
+
 function modificacionNombre() {
     const formularioModificar = document.getElementById('form-modificar');
 
@@ -104,7 +104,6 @@ function modificacionNombre() {
                 const resultado = await modificarDAO.modificarNombre(nuevoNombre);
 
                 if (resultado.success) {
-                    // Actualizar localStorage
                     localStorage.setItem('nombre', nuevoNombre);
                     mostrarAlerta("Tu nombre se actualizó correctamente", () => {
                         window.location.href = '../Cuenta/Micuenta.html';
@@ -133,7 +132,7 @@ function modificacionUsuario() {
                 const resultado = await modificarDAO.modificarUsuario(nuevoUsuario);
 
                 if (resultado.success) {
-                    localStorage.setItem('usuario', nuevoUsuario); // Actualizar en localStorage
+                    localStorage.setItem('usuario', nuevoUsuario);
                     mostrarAlerta("Tu usuario se actualizó correctamente", () => {
                         window.location.href = '../Cuenta/Micuenta.html';
                     });
@@ -162,7 +161,6 @@ function modificacionEmail() {
                 const resultado = await modificarDAO.modificarEmail(nuevoEmail);
 
                 if (resultado.success) {
-                    // Actualizar el email en localStorage
                     localStorage.setItem('email', nuevoEmail);
 
                     mostrarAlerta("Tu email se actualizó correctamente", () => {
@@ -192,7 +190,6 @@ function modificacionTelefono() {
                 const resultado = await modificarDAO.modificarTelefono(nuevoTelefono);
 
                 if (resultado.success) {
-                    // Actualizar el teléfono en localStorage
                     localStorage.setItem('telefono', nuevoTelefono);
 
                     mostrarAlerta("Tu teléfono se actualizó correctamente", () => {

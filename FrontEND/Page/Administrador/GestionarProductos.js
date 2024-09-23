@@ -1,6 +1,6 @@
 import ProductosDAO from '../../dao/ProductosDAO.js';
 
-window.onload = function () {
+window.onload = function() {
     obtenerProductos();
     guardarLocalStorage();
     admin();
@@ -11,7 +11,7 @@ window.onload = function () {
 
 function verificarAcceso() {
     const role = localStorage.getItem('role');
-    
+
     if (role !== 'admin') {
         mostrarAlerta('❌⚠ LO QUE ESTAS HACIENDO ES ILEGAL ⚠❌', () => {
             window.location.href = '../Inicio/Inicio.html';
@@ -22,18 +22,18 @@ function verificarAcceso() {
 async function obtenerProductos() {
     const productosTableBody = document.querySelector("#productosTable tbody");
 
-        const productosDAO = new ProductosDAO();
-        const resultado = await productosDAO.obtenerProductos(); 
+    const productosDAO = new ProductosDAO();
+    const resultado = await productosDAO.obtenerProductos();
 
-        if (resultado.success) {
-            const productos = resultado.productos;
+    if (resultado.success) {
+        const productos = resultado.productos;
 
-            productosTableBody.innerHTML = "";
+        productosTableBody.innerHTML = "";
 
-            productos.forEach(producto => {
-                const row = document.createElement("tr");
+        productos.forEach(producto => {
+            const row = document.createElement("tr");
 
-                row.innerHTML = `
+            row.innerHTML = `
                     <td class="td">${producto.id_producto}</td>
                     <td class="td">${producto.nombre}</td>
                     <td class="td">${producto.categoria}</td>
@@ -43,40 +43,37 @@ async function obtenerProductos() {
                     <td class="td-b"><button class="eliminar-btn" data-id="${producto.id_producto}">Eliminar</button></td>
                 `;
 
-                productosTableBody.appendChild(row);
-            });
+            productosTableBody.appendChild(row);
+        });
 
-            document.querySelectorAll(".eliminar-btn").forEach(button => {
-                button.addEventListener("click", async function () {
-                    const idProducto = this.dataset.id;
-                    await eliminarProducto(idProducto);
-                });
+        document.querySelectorAll(".eliminar-btn").forEach(button => {
+            button.addEventListener("click", async function() {
+                const idProducto = this.dataset.id;
+                await eliminarProducto(idProducto);
             });
-        } 
+        });
+    }
 
 }
 
 async function eliminarProducto(id_producto) {
 
-        const productosDAO = new ProductosDAO();
-        const resultado = await productosDAO.eliminarProducto(id_producto);
+    const productosDAO = new ProductosDAO();
+    const resultado = await productosDAO.eliminarProducto(id_producto);
 
-        if (resultado.success) {
-            mostrarAlerta("Producto Eliminado Exitosamente", () => {
-            });
-            obtenerProductos();
-        } else {
-            alert(`Error al eliminar el producto: ${resultado.message}`);
-        }
+    if (resultado.success) {
+        mostrarAlerta("Producto Eliminado Exitosamente", () => {});
+        obtenerProductos();
+    } else {
+        alert(`Error al eliminar el producto: ${resultado.message}`);
+    }
 
 }
 
-// Función para configurar el formulario de agregar stock
 function FormularioAgregarStock() {
     const agregarStockBtn = document.getElementById('agregarStockBtn');
 
-    // Maneja el evento de clic en el botón de agregar stock
-    agregarStockBtn.addEventListener('click', async () => {
+    agregarStockBtn.addEventListener('click', async() => {
         const idProducto = document.getElementById('id_producto_stock').value;
         const cantidadStock = document.getElementById('cantidad').value;
 
@@ -95,11 +92,11 @@ function FormularioAgregarStock() {
         }
     });
 }
+
 function FormularioModificarPrecio() {
     const modificarPrecioBtn = document.getElementById('modificarPrecioBtn');
 
-    // Maneja el evento de clic en el botón de modificar precio
-    modificarPrecioBtn.addEventListener('click', async () => {
+    modificarPrecioBtn.addEventListener('click', async() => {
         const idProducto = document.getElementById('id_producto_precio').value;
         const nuevoPrecio = document.getElementById('nuevo_precio').value;
 
@@ -146,9 +143,9 @@ function guardarLocalStorage() {
             aparecer2.style.display = 'block';
         });
     }
-    
+
     document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
         if (!response.ok) {
@@ -169,7 +166,7 @@ function mostrarAlerta(mensaje, callback) {
     const alertaCerrar = document.getElementById('alertaCerrar');
 
     alertaMensaje.textContent = mensaje;
-    fondoOscuro.style.display = 'block'; 
+    fondoOscuro.style.display = 'block';
     alerta.style.display = 'block';
 
     alertaCerrar.onclick = function() {
@@ -187,7 +184,7 @@ function admin() {
 
     if (role === 'admin') {
         document.body.classList.add('admin-body');
-        
+
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
         });
@@ -198,4 +195,3 @@ function admin() {
         document.body.classList.remove('admin-body');
     }
 };
-

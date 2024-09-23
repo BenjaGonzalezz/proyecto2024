@@ -1,7 +1,6 @@
 import ProductosDAO from "../../dao/ProductosDAO.js";
 import CarritoDAO from "../../dao/CarritoDAO.js";
 
-// Crear una instancia de CarritoDAO
 const carritoDAO = new CarritoDAO();
 
 window.onload = () => {
@@ -15,7 +14,7 @@ function mostrarProductosCarrito() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const carritoContainer = document.getElementById("productos-carrito");
 
-    carritoContainer.innerHTML = ""; 
+    carritoContainer.innerHTML = "";
 
     carrito.forEach((producto, index) => {
         const productoCarritoDiv = document.createElement("div");
@@ -26,12 +25,10 @@ function mostrarProductosCarrito() {
             <p class="p-carrito">Precio: $${producto.precio}</p>
         `;
 
-        // Crear el botón de eliminar
         const botonEliminar = document.createElement("button");
         botonEliminar.textContent = "Eliminar";
         botonEliminar.classList.add("botonEliminar");
 
-        // Añadir evento al botón de eliminar
         botonEliminar.addEventListener("click", () => {
             eliminarProductoDelCarrito(index);
         });
@@ -40,22 +37,21 @@ function mostrarProductosCarrito() {
         carritoContainer.appendChild(productoCarritoDiv);
     });
 
-    // Agregar el botón de solicitar reserva si hay productos en el carrito
     if (carrito.length > 0) {
         const botonSolicitarReserva = document.createElement("button");
         botonSolicitarReserva.textContent = "Solicitar Reserva";
         botonSolicitarReserva.classList.add("botonSolicitarReserva");
 
-        botonSolicitarReserva.addEventListener("click", async () => {
+        botonSolicitarReserva.addEventListener("click", async() => {
             try {
-                const usuario_cliente = "nombreDelUsuario"; // Obtener de manera dinámica
+                const usuario_cliente = "nombreDelUsuario";
                 const resultado = await CarritoDAO.solicitarReservaCarrito({
                     usuario_cliente,
-                    id_producto: carrito[0].id_producto // Suponiendo que tienes el id_producto en el carrito
+                    id_producto: carrito[0].id_producto
                 });
 
                 if (resultado.success) {
-                    mostrarProductosCarrito(); // Actualizar la vista del carrito
+                    mostrarProductosCarrito();
                     alert(resultado.message);
                 } else {
                     console.error("Error del servidor:", resultado.message);
@@ -74,12 +70,11 @@ function mostrarProductosCarrito() {
 function agregarProductoAlCarrito(producto) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    // Verificar si el producto ya esta en el carrito
     const productoExistente = carrito.find((item) => item.id_producto === producto.id_producto);
     if (productoExistente) {
         productoExistente.cantidad += 1;
     } else {
-        producto.cantidad = 1; // Si el producto no está en el carrito, agrega 1
+        producto.cantidad = 1;
         carrito.push(producto);
     }
 
@@ -102,7 +97,7 @@ function eliminarProductoDelCarrito(index) {
 
 
 async function mostrarProductoCategoria() {
-    const productosDAO = new ProductosDAO(); 
+    const productosDAO = new ProductosDAO();
     const contenedores = document.querySelectorAll(".todos-productos > div > .productos-categoria");
 
     const resultado = await productosDAO.obtenerProductos();
@@ -142,7 +137,6 @@ async function mostrarProductoCategoria() {
                     <button class="botonAgregarCarrito aparecer">Agregar al Carrito</button>
                     `;
 
-                    // Agregar evento para añadir producto al carrito
                     const botonAgregar = productoDiv.querySelector(".botonAgregarCarrito");
                     botonAgregar.addEventListener("click", () => {
                         agregarProductoAlCarrito(producto);
@@ -160,28 +154,23 @@ async function mostrarProductoCategoria() {
 }
 
 function guardarLocalStorage() {
-    // Cargar los datos del usuario desde el localStorage
     let nombre = localStorage.getItem("nombre");
     let usuario = localStorage.getItem("usuario");
     let telefono = localStorage.getItem("telefono");
     let email = localStorage.getItem("email");
 
-    // Insertar los valores en los elementos HTML correspondientes
     document.getElementById("nombre").textContent = nombre;
     document.getElementById("usuario").textContent = usuario;
     document.getElementById("telefono").textContent = telefono;
     document.getElementById("email").textContent = email;
 
-    // Si hay datos de usuario, oculta los elementos con la clase 'desaparecer'
     if (nombre && usuario && telefono && email) {
         let desaparecer = document.querySelectorAll("#desaparecer");
 
-        // Ocultar cada uno de los elementos seleccionados
         desaparecer.forEach((desaparecer) => {
             desaparecer.style.display = "none";
         });
 
-        // Mostrar los elementos con la clase 'aparecer'
         let aparecer = document.querySelectorAll("#aparecer");
         aparecer.forEach((aparecer) => {
             aparecer.style.display = "block";
@@ -193,77 +182,59 @@ function guardarLocalStorage() {
         });
     }
 
-    // Manejar el evento de cierre de sesión
     document.getElementById("cerrarSesion")
-    .addEventListener("click", async function (event) {
-            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+        .addEventListener("click", async function(event) {
+            event.preventDefault();
 
-            // Enviar la solicitud para cerrar sesión al servidor
             let response = await fetch(
                 "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion"
             );
-
-            // Verifica si la respuesta del servidor es correcta
             if (!response.ok) {
                 throw new Error("Error en la respuesta del servidor");
             }
-
-            // Limpiar el localStorage y redirigir al login
             localStorage.clear();
             mostrarAlerta("Has cerrado sesión correctamente.", () => {
                 window.location.href = "../Login/LoginCliente.html";
             });
         });
 }
-    // Función para mostrar una alerta personalizada
-    function mostrarAlerta(mensaje, callback) {
-        const fondoOscuro = document.getElementById("fondoOscuro");
-        const alerta = document.getElementById("alertaPersonalizada");
-        const alertaMensaje = document.getElementById("alertaMensaje");
-        const alertaCerrar = document.getElementById("alertaCerrar");
 
-        alertaMensaje.textContent = mensaje;
-        fondoOscuro.style.display = "block"; // Mostrar el fondo oscuro
-        alerta.style.display = "block"; // Mostrar la alerta
+function mostrarAlerta(mensaje, callback) {
+    const fondoOscuro = document.getElementById("fondoOscuro");
+    const alerta = document.getElementById("alertaPersonalizada");
+    const alertaMensaje = document.getElementById("alertaMensaje");
+    const alertaCerrar = document.getElementById("alertaCerrar");
 
-        // Cerrar la alerta cuando se hace clic en el botón de cerrar
-        alertaCerrar.onclick = function () {
-            fondoOscuro.style.display = "none"; // Ocultar el fondo oscuro
-            alerta.style.display = "none"; // Ocultar la alerta
-            if (callback) {
-                callback(); // Ejecutar la función de callback si se proporciona
-            }
-        };
+    alertaMensaje.textContent = mensaje;
+    fondoOscuro.style.display = "block";
+    alerta.style.display = "block";
+    alertaCerrar.onclick = function() {
+        fondoOscuro.style.display = "none";
+        alerta.style.display = "none";
+        if (callback) {
+            callback();
+        }
+    };
 }
 
-// Espera a que el contenido del documento esté completamente cargado
 function admin() {
-    // Recupera el rol del usuario desde el localStorage
     const role = localStorage.getItem('role');
-    // Muestra/oculta elementos según el rol del usuario
     if (role === 'user') {
 
         document.querySelectorAll('.aparecerU').forEach(element => {
             element.style.display = 'block';
         });
-
     }
-    // Muestra/oculta elementos según el rol del usuario
     if (role === 'admin') {
-        // Añade una clase al body para estilos específicos de admin
         document.body.classList.add('admin-body');
 
-        // Muestra los elementos específicos para admin
         document.querySelectorAll('.aparecerAdmin').forEach(element => {
             element.style.display = 'block';
         });
-
-        // Oculta los elementos específicos que no deberían verse para admin
         document.querySelectorAll('.desaparecerAdmin').forEach(element => {
             element.style.display = 'none';
         });
     } else {
-        // Si no es administrador, remueve la clase 'admin-body'
         document.body.classList.remove('admin-body');
     }
 }
