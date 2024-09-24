@@ -3,6 +3,7 @@ window.onload = () => {
     admin();
     mostrarOfertas();
     mostrarProductosCarrito();
+    mostrarSinLogueo();
 }
 
 function mostrarProductosCarrito() {
@@ -194,5 +195,24 @@ function admin() {
         });
     } else {
         document.body.classList.remove('admin-body');
+    }
+}
+
+
+function mostrarSinLogueo() {
+    const usuario = localStorage.getItem('usuario');
+
+    if (!usuario) {
+        const elementosSinLogueo = document.querySelectorAll('.aparecerSinLogueo');
+        
+        elementosSinLogueo.forEach(elemento => {
+            elemento.style.display = 'block';
+        });
+    } else {
+        const elementosSinLogueo = document.querySelectorAll('.aparecerSinLogueo');
+        
+        elementosSinLogueo.forEach(elemento => {
+            elemento.style.display = 'none';
+        });
     }
 }
