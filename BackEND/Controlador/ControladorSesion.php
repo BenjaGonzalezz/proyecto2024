@@ -29,7 +29,6 @@ switch ($function) {
         cerrarSesion();
         break;
 
-        
     // Si 'function' es "eliminarCuenta", se llama a la función eliminarCuenta()
     case "eliminarCuenta":
         eliminarCuenta();
