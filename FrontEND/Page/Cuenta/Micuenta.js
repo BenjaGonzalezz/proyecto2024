@@ -1,12 +1,89 @@
 import SesionDAO from '../../dao/SesionDAO.js';
+import CarritoDAO from "../../dao/CarritoDAO.js";
+
+const carritoDAO = new CarritoDAO();
+
 
 window.onload = () => {
     guardarLocalStorage();
     admin();
     eliminarMiCuenta();
+    mostrarProductosCarrito();
 }
 
 const sesionDAO = new SesionDAO();
+
+
+
+function mostrarProductosCarrito() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carritoContainer = document.getElementById("productos-carrito");
+
+    carritoContainer.innerHTML = "";
+
+    carrito.forEach((producto, index) => {
+        const productoCarritoDiv = document.createElement("div");
+        productoCarritoDiv.classList.add("producto-carrito");
+
+        productoCarritoDiv.innerHTML = `
+            <p class="p-carrito">${producto.nombre} (Cantidad: ${producto.cantidad})</p>
+            <p class="p-carrito">Precio: $${producto.precio}</p>
+        `;
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.classList.add("botonEliminar");
+
+        botonEliminar.addEventListener("click", () => {
+            eliminarProductoDelCarrito(index);
+        });
+
+        productoCarritoDiv.appendChild(botonEliminar);
+        carritoContainer.appendChild(productoCarritoDiv);
+    });
+
+    if (carrito.length > 0) {
+        const botonSolicitarReserva = document.createElement("button");
+        botonSolicitarReserva.textContent = "Solicitar Reserva";
+        botonSolicitarReserva.classList.add("botonSolicitarReserva");
+
+        botonSolicitarReserva.addEventListener("click", async () => {
+            try {
+                const usuario_cliente = localStorage.getItem("usuario") || "nombreDelUsuario";
+                const resultado = await carritoDAO.solicitarReservaCarrito(carrito, usuario_cliente);
+
+                if (resultado.success) {
+                    // Limpiar el carrito en el localStorage
+                    localStorage.removeItem("carrito");
+
+                    // Volver a mostrar el carrito vacío
+                    mostrarProductosCarrito();
+
+                    // Mostrar mensaje de éxito
+                    alert(resultado.message);
+                } else {
+                    console.error("Error del servidor:", resultado.message);
+                    alert(resultado.message);
+                }
+            } catch (error) {
+                console.error("Error en la solicitud de reserva:", error);
+                alert("Hubo un error al procesar la solicitud.");
+            }
+        });
+
+        carritoContainer.appendChild(botonSolicitarReserva);
+    }
+}
+
+function eliminarProductoDelCarrito(index) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito.splice(index, 1);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarProductosCarrito();
+}
 
 function eliminarMiCuenta() {
     const eliminarCuentaBtn = document.getElementById('eliminar-cuenta');

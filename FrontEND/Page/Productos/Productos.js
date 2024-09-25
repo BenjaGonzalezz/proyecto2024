@@ -8,7 +8,7 @@ window.onload = () => {
     admin();
     guardarLocalStorage();
     mostrarProductosCarrito();
-}
+};
 
 function mostrarProductosCarrito() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -42,16 +42,19 @@ function mostrarProductosCarrito() {
         botonSolicitarReserva.textContent = "Solicitar Reserva";
         botonSolicitarReserva.classList.add("botonSolicitarReserva");
 
-        botonSolicitarReserva.addEventListener("click", async() => {
+        botonSolicitarReserva.addEventListener("click", async () => {
             try {
-                const usuario_cliente = "nombreDelUsuario";
-                const resultado = await CarritoDAO.solicitarReservaCarrito({
-                    usuario_cliente,
-                    id_producto: carrito[0].id_producto
-                });
+                const usuario_cliente = localStorage.getItem("usuario") || "nombreDelUsuario";
+                const resultado = await carritoDAO.solicitarReservaCarrito(carrito, usuario_cliente);
 
                 if (resultado.success) {
+                    // Limpiar el carrito en el localStorage
+                    localStorage.removeItem("carrito");
+
+                    // Volver a mostrar el carrito vacío
                     mostrarProductosCarrito();
+
+                    // Mostrar mensaje de éxito
                     alert(resultado.message);
                 } else {
                     console.error("Error del servidor:", resultado.message);
@@ -94,7 +97,6 @@ function eliminarProductoDelCarrito(index) {
 
     mostrarProductosCarrito();
 }
-
 
 async function mostrarProductoCategoria() {
     const productosDAO = new ProductosDAO();

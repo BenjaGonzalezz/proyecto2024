@@ -3,6 +3,10 @@
 // Incluye el archivo que contiene las funciones del modelo de carrito
 require_once '../Modelo/CarritoDAO.php';
 
+
+session_start();
+
+
 // Obtiene el valor del parámetro 'function' enviado mediante la URL (GET)
 $function = $_GET['function'];
 
@@ -15,15 +19,29 @@ switch ($function) {
 }
 
 
-// Función para solicitar una reserva
+// Función para solicitar una reserva// Función para solicitar una reserva
 function solicitarReserva() {
-    // Recibe el nombre de usuario del cliente y el id del producto enviado mediante POST
-    $usuario_cliente = $_POST['usuario_cliente'];
-    $id_producto = $_POST['id_producto'];
+    header('Content-Type: application/json');
+    
+    // Obtener el cuerpo de la solicitud como un arreglo asociativo
+    $carrito = json_decode(file_get_contents("php://input"), true);
 
-    // Llama al método 'solicitarReservaModelo' del modelo ReservaCarrito para realizar la reserva
-    $resultado = (new ReservaCarrito())->solicitarReservaModelo($usuario_cliente, $id_producto);
+    // Verificar si el usuario está logueado
+    if (!isset($_SESSION['usuario'])) {
+        echo json_encode(["success" => false, "message" => "Usuario no autenticado."]);
+        return;
+    }
 
-    // Devuelve el resultado en formato JSON
+    // Obtener el nombre de usuario de la sesión
+    $usuario_cliente = $_SESSION['usuario'];
+
+    // Crea una instancia de ReservaCarrito
+    $reservaCarrito = new ReservaCarrito();
+
+    // Llama al método para realizar la reserva y captura el resultado
+    $resultado = $reservaCarrito->solicitarReservaModelo($carrito, $usuario_cliente);
+
+    // Retorna la respuesta como JSON
     echo json_encode($resultado);
 }
+
