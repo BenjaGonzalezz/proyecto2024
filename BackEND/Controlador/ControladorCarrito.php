@@ -12,6 +12,7 @@ $function = $_GET['function'];
 
 // Estructura switch para ejecutar diferentes funciones dependiendo del valor de 'function'
 switch ($function) {
+
     // Si 'function' es "solicitarReserva", se llama a la función solicitarReserva()
     case "solicitarReserva":
         solicitarReserva();
@@ -19,11 +20,11 @@ switch ($function) {
 }
 
 
-// Función para solicitar una reserva// Función para solicitar una reserva
+// Función para solicitar una reserva
 function solicitarReserva() {
     header('Content-Type: application/json');
     
-    // Obtener el cuerpo de la solicitud como un arreglo asociativo
+    // Maneja datos JSON enviados en una solicitud HTTP, permitiendo que el script PHP pueda trabajar con ellos de forma estructurada.
     $carrito = json_decode(file_get_contents("php://input"), true);
 
     // Verificar si el usuario está logueado

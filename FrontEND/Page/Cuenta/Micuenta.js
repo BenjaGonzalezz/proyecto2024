@@ -53,13 +53,12 @@ function mostrarProductosCarrito() {
                 const resultado = await carritoDAO.solicitarReservaCarrito(carrito, usuario_cliente);
 
                 if (resultado.success) {
+                    
                     // Limpiar el carrito en el localStorage
                     localStorage.removeItem("carrito");
 
-                    // Volver a mostrar el carrito vacío
                     mostrarProductosCarrito();
 
-                    // Mostrar mensaje de éxito
                     alert(resultado.message);
                 } else {
                     console.error("Error del servidor:", resultado.message);

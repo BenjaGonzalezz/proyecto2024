@@ -17,7 +17,7 @@ function guardarLocalStorage() {
     let telefono = localStorage.getItem('telefono');
     let email = localStorage.getItem('email');
 
-    console.log('Nombre:', nombre, 'Usuario:', usuario, 'Teléfono:', telefono, 'Email:', email); // Depuración
+    console.log('Nombre:', nombre, 'Usuario:', usuario, 'Teléfono:', telefono, 'Email:', email); 
 
     document.getElementById('nombre').textContent = nombre;
     document.getElementById('usuario').textContent = usuario;
