@@ -26,22 +26,35 @@ function mostrarProductosCarrito() {
         productoCarritoDiv.classList.add("producto-carrito");
 
         productoCarritoDiv.innerHTML = `
-            <p class="p-carrito">${producto.nombre} (Cantidad: ${producto.cantidad})</p>
-            <p class="p-carrito">Precio: $${producto.precio}</p>
+            <div class="cada-producto">
+            <div class="img-carrito-container">
+                <img class="img-producto-carrito" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150">
+            </div>
+            <div style=" width: 150px; ">
+                <p>${producto.nombre}</p>
+                <p style="font-size: 15px;"> Cantidad: ${producto.cantidad} </p>
+            </div>
+            <p class="p-carrito">$${producto.precio}</p>
+            </div>
         `;
 
-        const botonEliminar = document.createElement("button");
-        botonEliminar.textContent = "Eliminar";
+
+        const divCadaProducto = productoCarritoDiv.querySelector(".cada-producto");
+
+        const botonEliminar = document.createElement("img");
+        botonEliminar.src = "../img/basura.png"; 
+        botonEliminar.alt = "Eliminar";
         botonEliminar.classList.add("botonEliminar");
+        botonEliminar.style.cursor = "pointer";
 
         botonEliminar.addEventListener("click", () => {
             eliminarProductoDelCarrito(index);
         });
 
-        productoCarritoDiv.appendChild(botonEliminar);
+        divCadaProducto.appendChild(botonEliminar);
+
         carritoContainer.appendChild(productoCarritoDiv);
     });
-
     if (carrito.length > 0) {
         const botonSolicitarReserva = document.createElement("button");
         botonSolicitarReserva.textContent = "Solicitar Reserva";
@@ -53,12 +66,11 @@ function mostrarProductosCarrito() {
                 const resultado = await carritoDAO.solicitarReservaCarrito(carrito, usuario_cliente);
 
                 if (resultado.success) {
-                    
                     // Limpiar el carrito en el localStorage
                     localStorage.removeItem("carrito");
 
+                    // Volver a mostrar el carrito vacío
                     mostrarProductosCarrito();
-
                     alert(resultado.message);
                 } else {
                     console.error("Error del servidor:", resultado.message);
@@ -73,6 +85,7 @@ function mostrarProductosCarrito() {
         carritoContainer.appendChild(botonSolicitarReserva);
     }
 }
+
 
 function eliminarProductoDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
