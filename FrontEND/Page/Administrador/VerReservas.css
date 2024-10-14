@@ -422,6 +422,78 @@ main {
 
 /* // HEADER */
 
+/*MAIN*/
+
+
+.h1_reservas{
+  text-align: center;
+  margin-top: 100px;
+  font-size: 24px;
+}
+
+table{
+   width: 80%;
+   margin: 70px auto 0 auto;
+   background-color: #ccc;
+   border-collapse: collapse;
+}
+th{
+  width: 25%;
+  background-color: rgb(138, 210, 238);
+  padding: 9px;
+  border-bottom: 1px solid black;
+  border: 1px solid black;
+}
+td{
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #494646;
+}
+tr:hover{
+  
+  background-color: #a8a0a0;
+}
+
+.form{
+  width: 400px;
+  margin: 100px auto 0 auto;
+  background-color: rgb(171, 205, 250);
+  padding: 40px 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 10px 1px black;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2{
+  margin-bottom: 40px;
+}
+.form-group input{
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+}
+.form-group2{
+  margin-top: 50px;
+}
+.form-group2 select{
+  padding: 4px 7px;
+  border-radius: 5px;
+}
+.boton-cambiar-reserva{
+  margin-top: 50px;
+  padding: 7px 13px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #0b8dea;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+.boton-cambiar-reserva:hover{
+  background-color: #71bcf1;
+}
 
 /*alerta personalizada :)*/
 

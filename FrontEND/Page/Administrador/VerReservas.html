@@ -132,16 +132,13 @@
     <!-- MAIN  -->
 
     <main>
-    <h1>Reservas</h1>
-    <div id="reservas-container"></div>
-
-    <h2>Cambiar Estado de Reserva</h2>
-    <form id="cambiar-estado-form">
+    <form class="form" id="cambiar-estado-form">
+        <h2>Cambiar Estado de Reserva</h2>
         <div class="form-group">
             <label for="id_reserva">ID de Reserva:</label>
             <input type="text" id="id_reserva" name="id_reserva" required>
         </div>
-        <div class="form-group">
+        <div class="form-group2">
             <label for="nuevo_estado">Nuevo Estado:</label>
             <select id="nuevo_estado" name="nuevo_estado" required>
                 <option value="pendiente">Pendiente</option>
@@ -149,8 +146,26 @@
                 <option value="cancelada">Cancelada</option>
             </select>
         </div>
-        <button type="submit">Cambiar Estado</button>
+        <button class="boton-cambiar-reserva" type="submit">Cambiar Estado</button>
     </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Estado</th>
+                <th>Fecha Reserva</th>
+                <th>Fecha Limite</th>
+                <th>Usuario</th>
+            </tr>
+        </thead>
+    
+            <tbody id="reservas-container">
+    
+            </tbody>
+    
+    </table>
+
 </main>
 
 <div style="display: none;">

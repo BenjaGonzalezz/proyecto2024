@@ -425,10 +425,61 @@ main {
 
 /* MAIN */
 
-
-agregar aca estilos del_formulario 
-
-
+h1{
+  text-align: center;
+  align-items: center;
+  margin-top: 80px;
+}
+.form-oferta{
+  width: 400px;
+  margin: 10px auto 0 auto;
+  background-color: rgb(171, 205, 250);
+  padding: 40px 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 10px 1px black;
+  border-radius: 10px;
+}
+.form-oferta input{
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+}
+.oferta-boton{
+  margin-top: 50px;
+  padding: 7px 13px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #0b8dea;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+.oferta-boton:hover{
+  background-color: #71bcf1;
+}
+.aviso-oferta{
+  background-color: var(--clarito-color);
+  width: 70%;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+  margin-top: 100px;
+  border-radius: 18px;
+  border: 1px solid var(--principal-color);
+  box-shadow: 0 0 10px 1px black;
+}
+.aviso-oferta button{
+  padding: 7px 14px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(228, 120, 120);
+  cursor: pointer;
+}
+.aviso-oferta button:hover{
+  background-color: rgb(245, 168, 168);
+}
 
 
 /*alerta personalizada :)*/
