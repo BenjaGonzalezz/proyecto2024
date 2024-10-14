@@ -174,14 +174,14 @@ async function mostrarReservas() {
         reservasContainer.innerHTML = '';
 
         resultado.data.forEach(reserva => {
-            const reservaElement = document.createElement('div');
+            const reservaElement = document.createElement('tr');
             reservaElement.classList.add('reserva-item');
 
             reservaElement.innerHTML = `
-                    <p>ID Reserva: ${reserva.id_reserva}</p>
-                    <p>Estado: ${reserva.estado}</p>
-                    <p>Fecha Reserva: ${reserva.fecha_reserva}</p>
-                    <p>Fecha Límite: ${reserva.fecha_limite}</p>
+                    <td>${reserva.id_reserva}</td>
+                    <td>${reserva.estado}</td>
+                    <td>${reserva.fecha_reserva}</td>
+                    <td>${reserva.fecha_limite}</td>
                 `;
 
             reservasContainer.appendChild(reservaElement);

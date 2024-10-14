@@ -483,6 +483,7 @@ h1 {
     width: 50%;
     border: 2px solid red;
     max-width: 690px;
+    background-color: white;
 }
 .detalles{
   border: 1px solid black;
@@ -496,7 +497,6 @@ h1 {
 }
 
 .detalles-imagen{
-  border: 1px solid black; /* ESTO HAY QUE SACARLO DSP */
   height: 80%;
   width: 90%;
   display: flex;
