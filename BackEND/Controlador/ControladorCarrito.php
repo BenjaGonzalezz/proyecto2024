@@ -6,7 +6,7 @@ require_once '../Modelo/CarritoDAO.php';
 
 session_start();
 
-
+ 
 // Obtiene el valor del parámetro 'function' enviado mediante la URL (GET)
 $function = $_GET['function'];
 

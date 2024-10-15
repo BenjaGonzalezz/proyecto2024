@@ -690,7 +690,21 @@ h1 {
 .h1 {
   position: absolute;
 }
+@keyframes moverTexto {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
 
+h5{
+  display: inline-block; /* Asegura que el texto se comporte como un bloque */
+  animation: moverTexto 1s ease-in-out infinite;
+  text-align: center;
+  font-size: 40px;
+  margin-top:300px;
+  width: 100%;
+  margin: 0 auto;
+}
 .mas_vendidos {
   margin-top: 120px;
   position: relative;
