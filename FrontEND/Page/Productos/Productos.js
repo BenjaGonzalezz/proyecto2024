@@ -66,14 +66,29 @@ function mostrarProductosCarrito() {
 
                     // Volver a mostrar el carrito vacío
                     mostrarProductosCarrito();
-                    alert(resultado.message);
+
+                    // Crear el mensaje con la lista de productos reservados
+                    let productosReservados = carrito.map(producto => `
+                        <li>${producto.nombre} - Cantidad: ${producto.cantidad}</li>
+                    `).join(""); //el join este convierte el array de productos en una sola cadena de <li> HTML
+        
+                    //mensaje completo para la alerta
+                    const mensajeAlerta = `
+                        <p>¡Gracias por reservar los siguientes productos!</p>
+                        <ul>${productosReservados}</ul>
+                        <a href="../ReservasUsuarios/ReservaUsuario.html" style="text-decoration: underline; color: blue;">
+                            Ver mis reservas
+                        </a>
+                    `;
+        
+                    mostrarAlerta(mensajeAlerta);
                 } else {
                     console.error("Error del servidor:", resultado.message);
-                    alert(resultado.message);
+                    mostrarAlerta(resultado.message);
                 }
             } catch (error) {
                 console.error("Error en la solicitud de reserva:", error);
-                alert("Hubo un error al procesar la solicitud.");
+                mostrarAlerta("Hubo un error al procesar la solicitud.");
             }
         });
 
@@ -218,7 +233,7 @@ function mostrarAlerta(mensaje, callback) {
     const alertaMensaje = document.getElementById("alertaMensaje");
     const alertaCerrar = document.getElementById("alertaCerrar");
 
-    alertaMensaje.textContent = mensaje;
+    alertaMensaje.innerHTML = mensaje;
     fondoOscuro.style.display = "block";
     alerta.style.display = "block";
     alertaCerrar.onclick = function() {

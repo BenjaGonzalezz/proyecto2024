@@ -277,12 +277,6 @@ main {
   width: 90%;
   font-size: 15px;
 }
-.ReservasAdmin {
-  border-bottom: 1px solid black;
-}
-.ReservasAdmin:hover {
-  background-color: rgba(177, 255, 239, 0.492);
-}
 .user-nav{
   padding: 10px 0;
   background-color: #8dc3ea;
@@ -293,23 +287,23 @@ main {
 .Micuenta{
   border-bottom: 1px solid rgb(176, 176, 176);
 }
-.OfertaAdmin {
+.ReservasAdmin {
   border-bottom: 1px solid black;
 }
-.OfertaAdmin:hover {
-  background-color: rgb(255, 248, 198);
+.ReservasAdmin2{
+  background-color: #9dd0f4;
+}
+.OfertaAdmin {
+  border-bottom: 1px solid black;
+  background-color: #9dd0f4;
 }
 .AgregarAdmin {
   border-bottom: 1px solid black;
-}
-.AgregarAdmin:hover {
-  background-color: rgb(204, 252, 204);
+  background-color: #9dd0f4;
 }
 .EliminarAdmin2 {
   border-bottom: 1px solid black;
-}
-.EliminarAdmin2:hover {
-  background-color: rgb(255, 198, 198);
+  background-color: #9dd0f4;
 }
 .etiqueta {
   display: block;

@@ -27,18 +27,7 @@
                                     <a class="productos-principal " href="../Productos/Productos.html ">Productos🡣</a>
                                 </div>
                                 <ul>
-                                    <li style="display: none;" class="ReservasAdmin aparecerAdmin">
-                                        <a href="../Administrador/VerReservas.html">Ver Reservas</a>
-                                    </li>
-                                    <li style="display: none;" class="OfertaAdmin aparecerAdmin">
-                                        <a href="../Administrador/AgregarOferta.html">Modificar Ofertas</a>
-                                    </li>
-                                    <li style="display: none;" class="AgregarAdmin aparecerAdmin">
-                                        <a href="../Administrador/AgregarProducto.html">Agregar Productos</a>
-                                    </li>
-                                    <li style="display: none;" class="EliminarAdmin2 aparecerAdmin">
-                                        <a href="../Administrador/GestionarProductos.html">Gestionar Productos</a>
-                                    </li>
+                                
                                     <li class="lista-productos">
                                         <a href="../Productos/Productos.html#seccion-mosquitero ">MOSQUITEROS</a>
                                     </li>
@@ -64,9 +53,11 @@
                             </li>
                         </ul>
                     </div>
+
                 </li>
                 <div class="carrito-container aparecerU" style="display: none;">
                     <img src="../img/Carrito.png " class="imagen-carrito" alt="">
+                    <div id="productos-carrito"></div>
                 </div>
                 <div class="login-boton">
                     <input type="checkbox" class="menu-desplegable" id="menu-toggle">
@@ -76,36 +67,40 @@
                     <div class="menuUser">
                         <a id="desaparecer" href="../Login/LoginCliente.html">Login</a>
                         <a id="desaparecer" href="../Register/RegisterCliente.html">Registro</a>
+                        
                         <div class="a" id="aparecer" style="display: none;">
                             <p class="parrafoMenu">
-                                <span class="etiqueta">Nombre:</span>
-                                <span class="span" id="nombre"></span>
-                            </p>
-                        </div>
-                        <div class="a" id="aparecer" style="display: none;">
-                            <p class="parrafoMenu">
-                                <span class="etiqueta">Usuario:</span>
                                 <span class="span" id="usuario"></span>
                             </p>
                         </div>
-                        <div class="a" id="aparecer" style="display: none;">
-                            <p class="parrafoMenu">
-                                <span class="etiqueta">Teléfono:</span>
-                                <span class="span" id="telefono"></span>
-                            </p>
+
+                        <div style="display: none;" class="ReservasAdmin aparecerAdmin">
+                            
+                            <a style="display: flex;  justify-content: center; align-items: center;" href="../Administrador/VerReservas.html">Ver Reservas
+                                <img src="../img/admin-logo.png" style="width: 30px; height: 30px;" alt=""></a>
                         </div>
-                        <div class="a" id="aparecer" style="display: none;">
-                            <p class="parrafoMenu">
-                                <span class="etiqueta">Email:</span>
-                                <span class="span" id="email"></span>
-                            </p>
+
+                        
+                        <div style="display: none;" class="OfertaAdmin aparecerAdmin">
+                            <a style="display: flex;  justify-content: center; align-items: center;" href="../Administrador/AgregarOferta.html">Modificar Ofertas<img src="../img/admin-logo.png" style="width: 30px; height: 30px;" alt=""></a>
                         </div>
+                        <div style="display: none;" class="AgregarAdmin aparecerAdmin">
+                            <a style="display: flex;  justify-content: center; align-items: center;" href="../Administrador/AgregarProducto.html">Agregar Productos<img src="../img/admin-logo.png" style="width: 30px; height: 30px;" alt=""></a>
+                        </div>
+                        <div style="display: none;" class="EliminarAdmin2 aparecerAdmin">
+                            <a style="display: flex;  justify-content: center; align-items: center;" href="../Administrador/GestionarProductos.html">Gestionar Productos<img src="../img/admin-logo.png" style="width: 30px; height: 30px;" alt=""></a>
+                        </div>
+
+                        <div id="aparecer" style="display: none;">
+                            <a href="../Cuenta/Micuenta.html">Mi cuenta</a>
+                        </div>
+                       
                         <div id="aparecer" style="display: none;">
                             <div style="display: none;" class="ReservasAdmin aparecerU">
                                 <a href="../ReservasUsuarios/ReservaUsuario.html">Mis Reservas</a>
                             </div>
                         </div>
-                        <a id="cerrarSesion" class="aparecer" style="display: none;" href="#">Cerrar Sesión</a>
+                        <a id="cerrarSesion" class="aparecer" style="display: none; border-top: 1px solid black;" href="#">Cerrar Sesión</a>
                     </div>
 
                 </div>

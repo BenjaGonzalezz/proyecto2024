@@ -88,6 +88,14 @@ main {
 .carrito-container:hover .botonSolicitarReserva{
   display: block;
 }
+.botonEliminar{
+  width: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.botonEliminar:hover{
+  opacity: .7;
+}
 .botonSolicitarReserva{
   display: none;
   width: 100%;
@@ -95,23 +103,48 @@ main {
   padding: 14px;
   cursor: pointer;
   border: none;
+  border-left: 1px solid #a9a9a9;
+  border-right: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a9a9a9;
 }
 .botonSolicitarReserva:hover{
   box-shadow: inset 0 0 7px 0.5px black;
+  border: none;
 }
 #productos-carrito{
   position: absolute;
   right: 120px;
   top: 88px;
+  box-shadow: 0 0 10px 1px black;
 }
 .producto-carrito{
   display: none;
   width: 420px;
-  background-color: rgb(237, 145, 145);
-  padding: 30px 10px;
+  background-color: rgb(218, 217, 217);
+  padding: 5px 10px;
+  border-left: 1px solid #a9a9a9;
+  border-right: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a9a9a9;
+}
+.producto-carrito:hover{
+  background-color: rgb(206, 205, 205);
 }
 .p-carrito{
   margin: 0;
+  width: 100px;
+}
+.img-carrito-container{
+  display: flex;
+  justify-content: start;
+}
+.cada-producto{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.img-producto-carrito{
+  width: 90px;
+  height: 75px;
 }
 .imagen-carrito {
   width: 90px;
@@ -219,16 +252,13 @@ main {
   text-decoration: none;
   color: #000;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #93a7f6;
 }
 .menuUser a:hover {
   opacity: 0.7;
   background-color: #afafaf;
 }
-.menuUser .a:hover {
-  opacity: 0.8;
-  background-color: #ebe8e8;
-  cursor: pointer;
-}
+
 .menu-desplegable:checked + .login-link + .menuUser {
   max-height: none;
   height: auto;
@@ -247,12 +277,6 @@ main {
   width: 90%;
   font-size: 15px;
 }
-.ReservasAdmin {
-  border-bottom: 1px solid black;
-}
-.ReservasAdmin:hover {
-  background-color: rgba(177, 255, 239, 0.492);
-}
 .user-nav{
   padding: 10px 0;
   background-color: #8dc3ea;
@@ -263,23 +287,21 @@ main {
 .Micuenta{
   border-bottom: 1px solid rgb(176, 176, 176);
 }
+.ReservasAdmin {
+  border-bottom: 1px solid black;
+  background-color: #9dd0f4;
+}
 .OfertaAdmin {
   border-bottom: 1px solid black;
-}
-.OfertaAdmin:hover {
-  background-color: rgb(255, 248, 198);
+  background-color: #9dd0f4;
 }
 .AgregarAdmin {
   border-bottom: 1px solid black;
-}
-.AgregarAdmin:hover {
-  background-color: rgb(204, 252, 204);
+  background-color: #9dd0f4;
 }
 .EliminarAdmin2 {
   border-bottom: 1px solid black;
-}
-.EliminarAdmin2:hover {
-  background-color: rgb(255, 198, 198);
+  background-color: #9dd0f4;
 }
 .etiqueta {
   display: block;
@@ -421,6 +443,7 @@ main {
 }
 
 /* // HEADER */
+
 
 /*MAIN*/
 
