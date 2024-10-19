@@ -112,11 +112,11 @@ function ProductoSeleccionado(){
         document.getElementById("mostrar-precio").innerHTML = `<h3>$${producto.precio}</h3>`;
         document.getElementById("mostrar-stock").innerHTML = `<h5>Stock: ${producto.stock}</h5>`;
         document.getElementById("mostrar-color").innerHTML = `<h5>Color: ${producto.color}</h5>`;
+        document.getElementById("mostrar-medida").innerHTML = `<h5>Medida: ${producto.medida}</h5>`;
         document.getElementById("mostrar-img").innerHTML = `
             <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100%" height="100%">
         `;
 
-        // Aquí se agrega el event listener para el botón
         const agregarCarritoBtn = document.getElementById("agregar-carrito-btn");
         agregarCarritoBtn.onclick = () => {
             agregarProductoSeleccionadoAlCarrito();

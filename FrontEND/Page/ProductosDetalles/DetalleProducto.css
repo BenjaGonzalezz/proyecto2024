@@ -289,6 +289,8 @@ main {
 }
 .ReservasAdmin {
   border-bottom: 1px solid black;
+}
+.ReservasAdmin2{
   background-color: #9dd0f4;
 }
 .OfertaAdmin {
@@ -445,7 +447,6 @@ main {
 /* // HEADER */
 
 
-
 /* MAIN */
 
 h1 {
@@ -454,38 +455,50 @@ h1 {
     justify-content: center;
     margin: 60px auto;
 }
-
+h2{
+  font-size: 30px;
+  margin-bottom: 0;
+}
+h3{
+  font-size: 24px;
+}
+h5{
+  font-size: 15px;
+  margin: 5px;
+}
 .producto-contenedor {
     width: 85%;
     margin: 0 auto;
     display: flex;
     min-height: 430px;
+    justify-content: center;
 }
 
 .imagen-contenedor {
     width: 50%;
     max-width: 690px;
-    border: 2px solid red;
+    border: 1px solid rgb(0, 0, 0);
     background-color: white;
     margin-right: 10px;
     border-radius: 15px 0 0 15px;
-    box-shadow: 0 0 10px 1px black;
+    box-shadow: 0 0 5px 1px black;
 }
 
 .detalles-contendor {
     width: 50%;
-    border: 2px solid red;
     max-width: 690px;
-    background-color: white;
 }
 .detalles{
-  border: 1px solid black;
-  height: 80%;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 100%;
   width: 80%;
   display: flex;
-  margin: 44px auto 0 0;
+  margin: 0 auto 0 0;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 0 15px 15px 0;
 
 }
 
@@ -501,6 +514,16 @@ h1 {
 }
 input[type="submit"] {
     width: 60%;
+    margin: 0 auto 20px auto;
+    padding: 10px 0;
+    border-radius: 15px;
+    border: 1px solid var(--principal-color);
+    box-shadow: 0 0 6px 1px black;
+    background-color: var(--clarito-color);
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+background-color: #93aec1;
 }
 
 /*alerta personalizada :)*/

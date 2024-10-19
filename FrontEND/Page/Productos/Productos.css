@@ -289,6 +289,8 @@ main {
 }
 .ReservasAdmin {
   border-bottom: 1px solid black;
+}
+.ReservasAdmin2{
   background-color: #9dd0f4;
 }
 .OfertaAdmin {
@@ -461,8 +463,14 @@ h2 {
 
 h3 {
     text-align: center;
-    max-width: 30px;
     height: 50px;
+    margin-bottom: 0;
+}
+h6{
+  margin: 0;
+  margin-bottom: 10px;
+  color: green;
+  font-size: 16px;
 }
 .todos-productos{
   user-select: none;
@@ -515,16 +523,22 @@ h3 {
 
 .parrafo-y-img {
     display: flex;
+    justify-content: center;
 }
 
-
+.img-contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .img-producto {
-    height: 120px;
-    width: 120px;
+    height: 130px;
+    width: 130px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
     border-radius: 15px;
     user-select: none;
+    margin: 0 auto;
 }
 
 .img-producto:hover {

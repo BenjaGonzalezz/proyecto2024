@@ -150,6 +150,7 @@ async function mostrarProductoCategoria() {
                     productoDiv.innerHTML = `
                     <a class="link-detalle-producto" href="../ProductosDetalles/DetalleProducto.html" style="text-decoration: none; color:black;">
                         <h3>${producto.nombre}</h3>
+                        <h6>$${producto.precio}</h6>
                         <div class="parrafo-y-img">
                             <div class="img-contenedor">
                                 <img class="img-producto" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150">
