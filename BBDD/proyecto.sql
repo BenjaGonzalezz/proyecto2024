@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-09-2024 a las 05:22:26
+-- Tiempo de generación: 19-10-2024 a las 06:44:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -103,10 +103,26 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `categoria`, `nombre`, `stock`, `precio`, `imagen`, `color`, `medida`) VALUES
-(17, 'mosquitero', 'Mosquitero PREMIUM', '13', '3.779', 'mosquitero.png', 'Blanco', '1x1'),
-(27, 'puerta', 'Puerta', '30', '9.799', '27.png', 'Gris', '1x3'),
-(28, 'puerta', 'Puerta2', '31', '9.999', '28.png', 'Gris', '1x4'),
-(29, 'ventana', 'Ventana Antibalas', '9', '3.499', '29.png', 'Gris', '1x1,5');
+(17, 'mosquitero', 'Mosquitero PREMIUM', '44', '3.779', 'mosquitero.png', 'Blanco', '1x1'),
+(45, 'ventana', 'Ventana 2', '15', '9.200', '45.webp', 'Gris', '150 x 120'),
+(46, 'ventana', 'Ventana 3', '15', '2.700', '46.webp', 'Plateado', '1.20 x 1.0'),
+(47, 'ventana', 'Ventana 4', '15', '5.950', '47.webp', 'Plateado', '1.50 x 2.00'),
+(48, 'ventana', 'Ventana 5', '14', '7.850', '48.webp', 'Gris', '120 x 100'),
+(50, 'ventana', 'Ventana 6', '15', '2.805', '50.webp', 'Plateado', '1 x 1'),
+(51, 'ventana', 'Ventana 7', '19', '9.095', '51.webp', 'Gris', '150 x 200'),
+(52, 'ventana', 'Ventana 8', '15', '2.309', '52.webp', 'Plateado', '1.2 x 0.4'),
+(53, 'ventana', 'Ventana 9 ', '16', '5.469', '53.webp', 'Gris', '120 x 200'),
+(54, 'ventana', 'Ventana 10', '19', '5.500', '54.webp', 'Blanco', '100 x 150'),
+(55, 'puerta', 'Puerta 1', '15', '7.970', '55.webp', 'Plateado', '200 x 80'),
+(56, 'puerta', 'Puerta 2', '5', '7.900', '56.webp', 'Plateado', '200 x 80'),
+(57, 'puerta', 'Puerta 3', '10', '10.399', '57.webp', 'Blanco', '200 x 85'),
+(58, 'puerta', 'Puerta 4', '14', '12.799', '58.webp', 'Plateado', '200 x 80'),
+(59, 'puerta', 'Puerta 5', '15', '13.899', '59.webp', 'Blanco', '200 x 80'),
+(60, 'puerta', 'Puerta 6', '14', '11.800', '60.webp', 'Plateado', '200 x 80'),
+(61, 'puerta', 'Puerta 7', '13', '9.990', '61.webp', 'Plateado', '200 x 80'),
+(62, 'puerta', 'Puerta 8', '16', '9.500', '62.webp', 'Marrón', '200 x 80'),
+(63, 'puerta', 'Puerta 9', '14', '14.155', '63.webp', 'Marrón', '200 x 80'),
+(64, 'puerta', 'Puerta 10', '15', '17.900', '64.webp', 'Plateado', '200 x 80');
 
 -- --------------------------------------------------------
 
@@ -118,6 +134,14 @@ CREATE TABLE `producto_reserva` (
   `id_producto` int(11) NOT NULL,
   `id_reserva` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto_reserva`
+--
+
+INSERT INTO `producto_reserva` (`id_producto`, `id_reserva`) VALUES
+(17, 88),
+(17, 89);
 
 -- --------------------------------------------------------
 
@@ -132,6 +156,14 @@ CREATE TABLE `reserva` (
   `fecha_reserva` date NOT NULL,
   `usuario_cliente` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reserva`
+--
+
+INSERT INTO `reserva` (`id_reserva`, `estado`, `fecha_limite`, `fecha_reserva`, `usuario_cliente`) VALUES
+(88, 'pendiente', '2024-10-22', '2024-10-15', 'UsuarioNormal1'),
+(89, 'pendiente', '2024-10-22', '2024-10-15', 'UsuarioNormal1');
 
 --
 -- Índices para tablas volcadas
@@ -183,13 +215,13 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- Restricciones para tablas volcadas
