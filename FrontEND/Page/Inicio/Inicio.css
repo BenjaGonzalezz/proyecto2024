@@ -690,14 +690,8 @@ h1 {
 .h1 {
   position: absolute;
 }
-@keyframes moverTexto {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-
 h5{
-  display: inline-block; /* Asegura que el texto se comporte como un bloque */
+  display: inline-block;
   animation: moverTexto 1s ease-in-out infinite;
   text-align: center;
   font-size: 40px;
@@ -705,6 +699,12 @@ h5{
   width: 100%;
   margin: 0 auto;
 }
+@keyframes moverTexto {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
 .mas_vendidos {
   margin-top: 120px;
   position: relative;
@@ -779,6 +779,7 @@ button.boton-Detalle {
   border-radius: 10px;
   box-shadow: 0 0 10px 1px black;
   margin-top: 240px;
+  margin-bottom: 90px;
   background-image: linear-gradient(
     90deg,
     rgb(118, 163, 245),
@@ -831,6 +832,11 @@ button.boton-Detalle {
   }
 }
 
+@media (min-width: 1208px) {
+  .anuncio {
+    margin-top: 320px;
+  }
+}
 .cuadrante1 {
   width: 30%;
   padding: 0 38px;
@@ -983,6 +989,42 @@ h6 {
   }
 }
 
+/*MAPA*/
+
+.mapa-container{
+  width: 80%;
+  display: flex;
+  background-color: #97a8b4;
+  border-radius: 10px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px 1px black;
+}
+.texto-mapa{
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.p-mapa1{
+  font-size: 33px;
+}
+.p-mapa2{
+  font-size: 21px;
+}
+.mapa{
+  width: 50%;
+}
+.mapa iframe{
+  width: 100%;
+  height: 450px;
+  user-select: none;
+  border: 0;
+  padding: 12px 12px 10px 12px;
+}
+
+
 /*alerta personalizada :)*/
 
 #fondoOscuro {
@@ -1052,7 +1094,7 @@ h6 {
 /* FOOTER */
 
 footer {
-  margin-top: 500px;
+  margin-top: 100px;
   width: 100%;
   background-color: #979292;
   min-height: 170px;
@@ -1112,6 +1154,7 @@ h4 {
 .parrafo {
   font-size: 14px;
   margin: 10px;
+  user-select: text;
 }
 
 .footer-cont2 {

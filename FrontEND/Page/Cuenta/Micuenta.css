@@ -502,8 +502,8 @@ main {
 }
 .aviso img{
     width: 30px;
-    position: relative; /* Necesario para posicionar el tooltip */
-    display: inline-block; /* Ajusta el contenedor al tamaño de la imagen */
+    position: relative;
+    display: inline-block;
 }
 .info-cambiar a{
     display: flex;
