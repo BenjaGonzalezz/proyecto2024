@@ -449,6 +449,8 @@ main {
 
 /* MAIN */
 
+
+
 h1 {
     display: flex;
     align-items: center;
@@ -460,28 +462,36 @@ h2{
   margin-bottom: 0;
 }
 h3{
-  font-size: 24px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #007bff;
 }
 h5{
-  font-size: 15px;
-  margin: 5px;
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #555;
 }
 .producto-contenedor {
-    width: 85%;
-    margin: 0 auto;
-    display: flex;
-    min-height: 430px;
-    justify-content: center;
+  display: flex;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+  height: auto; 
+  margin: auto;
 }
 
 .imagen-contenedor {
     width: 50%;
     max-width: 690px;
-    border: 1px solid rgb(0, 0, 0);
     background-color: white;
     margin-right: 10px;
     border-radius: 15px 0 0 15px;
-    box-shadow: 0 0 5px 1px black;
+    margin: auto;
+    
 }
 
 .detalles-contendor {
@@ -489,41 +499,36 @@ h5{
     max-width: 690px;
 }
 .detalles{
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  height: 100%;
-  width: 80%;
+  padding: 30px;
+  flex: 1;
   display: flex;
-  margin: 0 auto 0 0;
   flex-direction: column;
-  justify-content: space-between;
-  border-radius: 0 15px 15px 0;
+  justify-content: center;
+  background-color: #eaf6ff;
+  height: 100%;
 
 }
 
 .detalles-imagen{
-  height: 80%;
-  width: 90%;
-  display: flex;
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  padding: 30px;
   margin: auto;
-  margin: 44px auto;
-  max-width: 340px;
-  justify-content: center;
-  align-items: center;
 }
 input[type="submit"] {
-    width: 60%;
-    margin: 0 auto 20px auto;
-    padding: 10px 0;
-    border-radius: 15px;
-    border: 1px solid var(--principal-color);
-    box-shadow: 0 0 6px 1px black;
-    background-color: var(--clarito-color);
-    cursor: pointer;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 input[type="submit"]:hover {
-background-color: #93aec1;
+  background-color: #0056b3;
 }
 
 /*alerta personalizada :)*/
@@ -599,6 +604,7 @@ footer {
     width: 100%;
     background-color: #979292;
     min-height: 170px;
+    margin-top: 150px;
 }
 
 .footer-title {
