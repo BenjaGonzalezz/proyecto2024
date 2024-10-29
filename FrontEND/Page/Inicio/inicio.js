@@ -114,23 +114,27 @@ function mostrarOfertas() {
     fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta')
         .then(response => response.json())
         .then(data => {
-            const ofertasContainer = document.getElementById('ofertas');
+            const ofertasContainer = document.getElementById('ofertas1');
             ofertasContainer.innerHTML = '';
 
             if (data.success) {
                 data.productos.forEach(producto => {
                     ofertasContainer.innerHTML += `
 
-                        <div class="nombre-e-imagen"> 
+                        <div class="nombre-y-imagen"> 
 
-                        <h2 class="h2-a">${producto.nombre}</h2>
+                        <div class="img-a1"> 
+
                         <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100">
 
                         </div>
 
+                        </div>
 
-                        <div class="detalles-anuncio"> 
 
+                        <div class="detalles-anuncio1"> 
+
+                        <h2 class="h2-a1">${producto.nombre}</h2>
                         <p>Precio: $ ${producto.precio}</p>
                         <p>Stock: ${producto.stock}</p>
 
