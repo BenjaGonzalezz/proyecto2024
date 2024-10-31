@@ -122,6 +122,8 @@ function mostrarOfertas() {
                     ofertasContainer.innerHTML += `
 
                         <div class="nombre-y-imagen"> 
+                        
+                        <img class="bigsale" src="../img/imgBigSale.png" alt="">
 
                         <div class="img-a1"> 
 

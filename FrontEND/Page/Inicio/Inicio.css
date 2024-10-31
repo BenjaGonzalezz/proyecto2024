@@ -523,12 +523,23 @@ main {
 }
  /* // HEADER  */
 
+ .bigsale{
+  width:200px;
+  position: absolute;
+  left: -60px;
+  top: -40px;
+  transform: rotate(-25deg);
+ }
+
 .anuncio-1{
-  width: 100%;
+  width: 85%;
   height: 400px;
   display: flex;
-  margin: 0;
+  margin: 40px auto;
+  position: relative;
+  border-radius: 10px;
   background-color: var(--clarito-color);
+  box-shadow: 0 0 10px 1px black;
 }
 .nombre-y-imagen{
   width: 50%;
@@ -539,6 +550,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid var(--principal-color);
+}
+.nombre-y-imagen .img-a1 img{
+  width: 200px;
 }
 .detalles-anuncio1{
   width: 50%;
