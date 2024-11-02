@@ -1,4 +1,7 @@
 import { agregarProductoAlCarrito } from "../Productos/Productos.js";
+import CarritoDAO from "../../dao/CarritoDAO.js";
+
+const carritoDAO = new CarritoDAO();
 
 window.onload = () => {
     ProductoSeleccionado();
@@ -130,7 +133,10 @@ function agregarProductoSeleccionadoAlCarrito() {
     const producto = JSON.parse(localStorage.getItem("productoSeleccionado"));
     if (producto) {
         agregarProductoAlCarrito(producto);
-        mostrarAlerta(`Agregado al carrito: ${producto.nombre}`, null); // Muestra una alerta cuando se agrega
+       
+        mostrarAlerta(`Agregado al carrito: ${producto.nombre}`, () => {
+            location.reload();
+        });
     } else {
         console.error("No se encontró el producto seleccionado.");
     }

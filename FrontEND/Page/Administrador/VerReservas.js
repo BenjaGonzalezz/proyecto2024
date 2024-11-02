@@ -7,6 +7,7 @@ window.onload = () => {
     admin();
     guardarLocalStorage();
     verificarAcceso();
+    filtrarEstadoReserva();
 }
 
 function verificarAcceso() {
@@ -17,17 +18,27 @@ function verificarAcceso() {
         });
     }
 }
-
-async function mostrarReservas() {
+function filtrarEstadoReserva() {
+    const filtrarEstadoBtn = document.getElementById('filtrarEstadoBtn');
+    filtrarEstadoBtn.addEventListener('click', function() {
+        const estadoSeleccionado = document.getElementById('estadoFiltro').value;
+        mostrarReservas(estadoSeleccionado); // Llama con el estado seleccionado
+    });
+}
+async function mostrarReservas(estado = "") {
     try {
         let resultado = await reservaDAO.obtenerReservas();
 
         if (resultado.status === 'success') {
             const reservasContainer = document.getElementById('reservas-container');
-
             reservasContainer.innerHTML = '';
 
-            resultado.data.forEach(reserva => {
+            // Filtra las reservas si se selecciona un estado
+            const reservasFiltradas = estado 
+                ? resultado.data.filter(reserva => reserva.estado === estado)
+                : resultado.data;
+
+            reservasFiltradas.forEach(reserva => {
                 const reservaElement = document.createElement('tr');
                 reservaElement.classList.add('reserva-item');
 
@@ -49,6 +60,7 @@ async function mostrarReservas() {
     }
 }
 
+
 async function CambiarEstado(event) {
     event.preventDefault();
 
@@ -59,10 +71,10 @@ async function CambiarEstado(event) {
         let resultado = await reservaDAO.cambiarEstado(id_reserva, nuevo_estado);
 
         if (resultado.status === 'success') {
-            alert('Estado de reserva cambiado exitosamente');
+            mostrarAlerta('Estado de reserva cambiado exitosamente');
             mostrarReservas();
         } else {
-            alert('Error al cambiar el estado: ' + resultado.message);
+            mostrarAlerta('Error al cambiar el estado: ' + resultado.message);
         }
     } catch (error) {
         console.error('Error en la solicitud:', error.message);

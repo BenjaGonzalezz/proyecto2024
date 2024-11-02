@@ -119,30 +119,30 @@ function mostrarOfertas() {
 
             if (data.success) {
                 data.productos.forEach(producto => {
-                    ofertasContainer.innerHTML += `
+                    const ofertaDiv = document.createElement('div');
+                    ofertaDiv.classList.add('ofertaa');
 
+                    ofertaDiv.innerHTML = `
+                    
                         <div class="nombre-y-imagen"> 
-                        
-                        <img class="bigsale" src="../img/imgBigSale.png" alt="">
-
-                        <div class="img-a1"> 
-
-                        <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100">
-
+                            <img class="bigsale" src="../img/imgBigSale.png" alt="">
+                            <div class="img-a1"> 
+                                <img src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="100">
+                            </div>
                         </div>
-
-                        </div>
-
-
                         <div class="detalles-anuncio1"> 
-
-                        <h2 class="h2-a1">${producto.nombre}</h2>
-                        <p>Precio: $ ${producto.precio}</p>
-                        <p>Stock: ${producto.stock}</p>
-
+                            <h2 class="h2-a1">${producto.nombre}</h2>
+                            <p>Precio: $ ${producto.precio}</p>
+                            <p>Stock: ${producto.stock}</p>
                         </div>
+                    `;
 
-                `;
+                    ofertaDiv.addEventListener('click', () => {
+                        localStorage.setItem('productoSeleccionado', JSON.stringify(producto));
+                        window.location.href = '../DetallesProductos/DetalleProducto.html';
+                    });
+
+                    ofertasContainer.appendChild(ofertaDiv);
                 });
             } else {
                 ofertasContainer.innerText = data.message;
@@ -150,7 +150,6 @@ function mostrarOfertas() {
         })
         .catch(error => console.error('Error:', error));
 }
-
 
 function guardarLocalStorage() {
 

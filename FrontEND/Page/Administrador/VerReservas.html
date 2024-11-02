@@ -144,6 +144,17 @@
         <button class="boton-cambiar-reserva" type="submit">Cambiar Estado</button>
     </form>
 
+    <div class="filtro-container">
+        <label class="label-filtro" for="estadoFiltro">Filtrar por Estado:</label>
+        <select class="select-filtro" id="estadoFiltro">
+            <option class="option-filtro" value="">Todos</option>
+            <option class="option-filtro" value="pendiente">Pendiente</option>
+            <option class="option-filtro" value="confirmada">Confirmada</option>
+            <option class="option-filtro" value="cancelada">Cancelada</option>
+        </select>
+        <button id="filtrarEstadoBtn" class="boton-filtro">Filtrar</button>
+    </div>
+
     <table>
         <thead>
             <tr>

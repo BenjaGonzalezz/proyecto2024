@@ -518,6 +518,35 @@ h2{
   background-color: #71bcf1;
 }
 
+.filtro-container{
+  display: flex;
+  margin: 50px auto 10px auto;
+  justify-content: center;
+  }
+  .label-filtro{
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    margin-right: 6px;
+  }
+  .select-filtro{
+    padding: 9px;
+  }
+  .boton-filtro{
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    margin-left: 10px;
+    border-radius: 9px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  .boton-filtro:hover{
+    opacity: .8;
+  }
 /*alerta personalizada :)*/
 
 #fondoOscuro {

@@ -7,6 +7,8 @@ window.onload = function() {
     FormularioAgregarStock();
     FormularioModificarPrecio();
     verificarAcceso();
+    filtrarProductos();
+
 };
 
 function verificarAcceso() {
@@ -18,8 +20,14 @@ function verificarAcceso() {
         });
     }
 }
-
-async function obtenerProductos() {
+function filtrarProductos() {
+    const filtrarBtn = document.getElementById('filtrarBtn');
+    filtrarBtn.addEventListener('click', function() {
+        const categoriaSeleccionada = document.getElementById('categoriaFiltro').value;
+        obtenerProductos(categoriaSeleccionada);
+    });
+}
+async function obtenerProductos(categoria = "") {
     const productosTableBody = document.querySelector("#productosTable tbody");
 
     const productosDAO = new ProductosDAO();
@@ -28,24 +36,29 @@ async function obtenerProductos() {
     if (resultado.success) {
         const productos = resultado.productos;
 
-        productosTableBody.innerHTML = "";
+        // Filtra los productos por categoría si se ha seleccionado una
+        const productosFiltrados = categoria 
+            ? productos.filter(producto => producto.categoria === categoria) 
+            : productos;
 
-        productos.forEach(producto => {
+        productosTableBody.innerHTML = ""; // Limpia la tabla
+
+        productosFiltrados.forEach(producto => {
             const row = document.createElement("tr");
-
             row.innerHTML = `
-                    <td class="td">${producto.id_producto}</td>
-                    <td class="td">${producto.nombre}</td>
-                    <td class="td">${producto.categoria}</td>
-                    <td class="td"><img class="img-producto" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150"></td>
-                    <td class="td"> $ ${producto.precio}</td>
-                    <td class="td">${producto.stock}</td>
-                    <td class="td-b"><button class="eliminar-btn" data-id="${producto.id_producto}">Eliminar</button></td>
-                `;
+                <td class="td">${producto.id_producto}</td>
+                <td class="td">${producto.nombre}</td>
+                <td class="td">${producto.categoria}</td>
+                <td class="td"><img class="img-producto" src="../../../BackEND/imgs/${producto.imagen}" alt="${producto.nombre}" width="150"></td>
+                <td class="td"> $ ${producto.precio}</td>
+                <td class="td">${producto.stock}</td>
+                <td class="td-b"><button class="eliminar-btn" data-id="${producto.id_producto}">Eliminar</button></td>
+            `;
 
             productosTableBody.appendChild(row);
         });
 
+        // Agrega eventos de eliminación a los botones nuevamente
         document.querySelectorAll(".eliminar-btn").forEach(button => {
             button.addEventListener("click", async function() {
                 const idProducto = this.dataset.id;
@@ -53,7 +66,6 @@ async function obtenerProductos() {
             });
         });
     }
-
 }
 
 async function eliminarProducto(id_producto) {
