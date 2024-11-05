@@ -451,7 +451,13 @@ main {
 /* MAIN */
 
 
-
+.CambiarCantCarrito{
+  padding: 6px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--principal-color);
+  background-color: #e7d7d7;
+  cursor: pointer;
+}
 h1 {
     display: flex;
     align-items: center;

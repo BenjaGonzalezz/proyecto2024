@@ -29,9 +29,28 @@ function mostrarProductosCarrito() {
                 <p>${producto.nombre}</p>
                 <p style="font-size: 15px;"> Cantidad: ${producto.cantidad} </p>
             </div>
-            <p class="p-carrito">$${producto.precio}</p>
+            <p class="p-carrito">$${producto.precio*producto.cantidad}</p>
             </div>
         `;
+
+        let btnModificar = document.createElement("button");
+        btnModificar.innerHTML="Cambiar Cantidad";
+        btnModificar.className="CambiarCantCarrito"
+        btnModificar.onclick = ()=>{
+            let valor  = prompt("Ingresar cantidad");
+            let cantidad = parseInt(valor);
+            if(cantidad !=null && cantidad > 0){
+                if(cantidad > producto.cantidad){
+                    let diferencia = cantidad - producto.cantidad;
+                    agregarProductoAlCarrito(producto,diferencia);
+
+                }else{
+                    let diferencia = producto.cantidad - cantidad;
+                    agregarProductoAlCarrito(producto,diferencia*-1);
+                }
+            }
+        }
+        productoCarritoDiv.appendChild(btnModificar);
 
 
         const divCadaProducto = productoCarritoDiv.querySelector(".cada-producto");
@@ -131,15 +150,23 @@ function ProductoSeleccionado(){
 
 function agregarProductoSeleccionadoAlCarrito() {
     const producto = JSON.parse(localStorage.getItem("productoSeleccionado"));
-    if (producto) {
-        agregarProductoAlCarrito(producto);
-       
-        mostrarAlerta(`Agregado al carrito: ${producto.nombre}`, () => {
-            location.reload();
-        });
-    } else {
-        console.error("No se encontró el producto seleccionado.");
+    let cantidad = parseInt( document.querySelector("#inputCantidad").value);
+    if(cantidad >= 1){
+        if (producto) {
+            agregarProductoAlCarrito(producto,cantidad);
+           
+            mostrarAlerta(`Agregado al carrito: ${producto.nombre}`, () => {
+                location.reload();
+            });
+        } else {
+            console.error("No se encontró el producto seleccionado.");
+        }
+    }else{
+        alert("La cantidad no puede ser menor a 1");
     }
+
+
+
 }
 
 

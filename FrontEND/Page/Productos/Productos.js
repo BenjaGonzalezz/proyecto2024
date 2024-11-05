@@ -29,9 +29,27 @@ function mostrarProductosCarrito() {
                 <p>${producto.nombre}</p>
                 <p style="font-size: 15px;"> Cantidad: ${producto.cantidad} </p>
             </div>
-            <p class="p-carrito">$${producto.precio}</p>
+            <p class="p-carrito">$${producto.precio*producto.cantidad}</p>
             </div>
         `;
+        let btnModificar = document.createElement("button");
+        btnModificar.innerHTML="edit";
+        btnModificar.onclick = ()=>{
+            let valor  = prompt("Ingresar cantidad");
+            let cantidad = parseInt(valor);
+            //3  5
+            if(cantidad !=null && cantidad > 0){
+                if(cantidad > producto.cantidad){
+                    let diferencia = cantidad - producto.cantidad;
+                    agregarProductoAlCarrito(producto,diferencia);
+
+                }else{
+                    let diferencia = producto.cantidad - cantidad;
+                    agregarProductoAlCarrito(producto,diferencia*-1);
+                }
+            }
+        }
+        productoCarritoDiv.appendChild(btnModificar);
 
 
         const divCadaProducto = productoCarritoDiv.querySelector(".cada-producto");
@@ -96,14 +114,15 @@ function mostrarProductosCarrito() {
     }
 }
 
-export function agregarProductoAlCarrito(producto) {
+export function agregarProductoAlCarrito(producto,cantidad=1) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    
 
     const productoExistente = carrito.find((item) => item.id_producto === producto.id_producto);
     if (productoExistente) {
-        productoExistente.cantidad += 1;
+        productoExistente.cantidad += cantidad;
     } else {
-        producto.cantidad = 1;
+        producto.cantidad = cantidad;
         carrito.push(producto);
     }
 
