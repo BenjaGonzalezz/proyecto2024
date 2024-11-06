@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2024 a las 06:57:17
+-- Tiempo de generación: 06-11-2024 a las 01:41:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -103,28 +103,28 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `categoria`, `nombre`, `stock`, `precio`, `imagen`, `color`, `medida`) VALUES
-(45, 'ventana', 'Ventana 2', '15', '9.200', '45.webp', 'Gris', '150 x 120'),
-(46, 'ventana', 'Ventana 3', '15', '2.700', '46.webp', 'Plateado', '1.20 x 1.0'),
-(47, 'ventana', 'Ventana 4', '15', '5.950', '47.webp', 'Plateado', '1.50 x 2.00'),
-(48, 'ventana', 'Ventana 5', '14', '7.850', '48.webp', 'Gris', '120 x 100'),
-(50, 'ventana', 'Ventana 6', '15', '2.805', '50.webp', 'Plateado', '1 x 1'),
-(51, 'ventana', 'Ventana 7', '19', '9.095', '51.webp', 'Gris', '150 x 200'),
-(52, 'ventana', 'Ventana 8', '15', '2.309', '52.webp', 'Plateado', '1.2 x 0.4'),
-(53, 'ventana', 'Ventana 9 ', '16', '5.469', '53.webp', 'Gris', '120 x 200'),
-(54, 'ventana', 'Ventana 10', '19', '5.500', '54.webp', 'Blanco', '100 x 150'),
-(55, 'puerta', 'Puerta 1', '15', '7.970', '55.webp', 'Plateado', '200 x 80'),
-(56, 'puerta', 'Puerta 2', '5', '7.900', '56.webp', 'Plateado', '200 x 80'),
-(57, 'puerta', 'Puerta 3', '10', '10.399', '57.webp', 'Blanco', '200 x 85'),
-(58, 'puerta', 'Puerta 4', '14', '12.799', '58.webp', 'Plateado', '200 x 80'),
-(59, 'puerta', 'Puerta 5', '15', '13.899', '59.webp', 'Blanco', '200 x 80'),
-(60, 'puerta', 'Puerta 6', '14', '11.800', '60.webp', 'Plateado', '200 x 80'),
-(61, 'puerta', 'Puerta 7', '13', '9.990', '61.webp', 'Plateado', '200 x 80'),
-(62, 'puerta', 'Puerta 8', '16', '9.500', '62.webp', 'Marrón', '200 x 80'),
-(63, 'puerta', 'Puerta 9', '14', '14.155', '63.webp', 'Marrón', '200 x 80'),
-(64, 'puerta', 'Puerta 10', '15', '17.900', '64.webp', 'Plateado', '200 x 80'),
-(65, 'mosquitero', 'Mosquitero 1', '20', '1.500', '65.jpg', 'Gris', '100x50'),
-(66, 'mosquitero', 'Mosquitero 2', '35', '1750', '66.jpg', 'Negro', '100x100'),
-(67, 'mosquitero', 'Mosquitero 3', '15', '1400', '67.jpg', 'Negro', '70x70'),
+(45, 'ventana', 'Ventana 2', '12', '9200', '45.webp', 'Gris', '150 x 120'),
+(46, 'ventana', 'Ventana 3', '14', '2700', '46.webp', 'Plateado', '1.20 x 1.0'),
+(47, 'ventana', 'Ventana 4', '15', '5950', '47.webp', 'Plateado', '1.50 x 2.00'),
+(48, 'ventana', 'Ventana 5', '53', '7850', '48.webp', 'Gris', '120 x 100'),
+(50, 'ventana', 'Ventana 6', '15', '2805', '50.webp', 'Plateado', '1 x 1'),
+(51, 'ventana', 'Ventana 7', '19', '9095', '51.webp', 'Gris', '150 x 200'),
+(52, 'ventana', 'Ventana 8', '15', '2309', '52.webp', 'Plateado', '1.2 x 0.4'),
+(53, 'ventana', 'Ventana 9 ', '16', '5469', '53.webp', 'Gris', '120 x 200'),
+(54, 'ventana', 'Ventana 10', '19', '5500', '54.webp', 'Blanco', '100 x 150'),
+(55, 'puerta', 'Puerta 1', '15', '7970', '55.webp', 'Plateado', '200 x 80'),
+(56, 'puerta', 'Puerta 2', '5', '7900', '56.webp', 'Plateado', '200 x 80'),
+(57, 'puerta', 'Puerta 3', '10', '10399', '57.webp', 'Blanco', '200 x 85'),
+(58, 'puerta', 'Puerta 4', '14', '12799', '58.webp', 'Plateado', '200 x 80'),
+(59, 'puerta', 'Puerta 5', '15', '13899', '59.webp', 'Blanco', '200 x 80'),
+(60, 'puerta', 'Puerta 6', '14', '11800', '60.webp', 'Plateado', '200 x 80'),
+(61, 'puerta', 'Puerta 7', '13', '9990', '61.webp', 'Plateado', '200 x 80'),
+(62, 'puerta', 'Puerta 8', '16', '9500', '62.webp', 'Marrón', '200 x 80'),
+(63, 'puerta', 'Puerta 9', '14', '14155', '63.webp', 'Marrón', '200 x 80'),
+(64, 'puerta', 'Puerta 10', '15', '17900', '64.webp', 'Plateado', '200 x 80'),
+(65, 'mosquitero', 'Mosquitero 1', '109', '1500', '65.jpg', 'Gris', '100x50'),
+(66, 'mosquitero', 'Mosquitero 2', '31', '1750', '66.jpg', 'Negro', '100x100'),
+(67, 'mosquitero', 'Mosquitero 3', '44', '1400', '67.jpg', 'Negro', '70x70'),
 (68, 'mosquitero', 'Mosquitero 4', '40', '1900', '68.jpg', 'Gris', '80x40'),
 (69, 'mosquitero', 'Mosquitero 5', '23', '2000', '69.jpg', 'Gris', '80x100'),
 (70, 'mosquitero', 'Mosquitero 6', '27', '2500', '70.jpg', 'Blanco', '150x110'),
@@ -132,36 +132,36 @@ INSERT INTO `producto` (`id_producto`, `categoria`, `nombre`, `stock`, `precio`,
 (72, 'mosquitero', 'Mosquitero 8', '12', '1450', '72.jpg', 'Negro', '80x40'),
 (73, 'mosquitero', 'Mosquitero 9', '31', '1500', '73.jpg', 'Blanco', '60x100'),
 (74, 'mosquitero', 'Mosquitero 10', '17', '1200', '74.jpg', 'Gris', '50X50'),
-(75, 'mampara', 'Mampara 1', '12', '24.000', '75.jpg', 'Negro', '80x80x180'),
-(77, 'mampara', 'Mampara 2', '15', '24.000', '77.jpg', 'Gris', '80x80x180'),
+(75, 'mampara', 'Mampara 1', '12', '24000', '75.jpg', 'Negro', '80x80x180'),
+(77, 'mampara', 'Mampara 2', '15', '24000', '77.jpg', 'Gris', '80x80x180'),
 (78, 'mampara', 'Mampara 3', '19', '20.000', '78.jpg', 'Gris', '145x180'),
-(79, 'mampara', 'Mampara 4', '27', '26.000', '79.jpg', 'Gris', '80x80x180'),
-(80, 'mampara', 'Mampara 5', '4', '30.000', '80.jpg', 'Gris', '80x80x180'),
-(81, 'mampara', 'Mampara 6', '19', '25.000', '81.jpg', 'Gris', '80x80x180'),
-(82, 'mampara', 'Mampara 7', '35', '27.000', '82.jpg', 'Gris', '80x80x180'),
-(83, 'mampara', 'Mampara 8', '19', '22.000', '83.jpg', 'Gris', '145x180'),
-(84, 'mampara', 'Mampara 9', '24', '23.000', '84.jpg', 'Blanco', '145x180'),
-(85, 'mampara', 'Mampara 10', '37', '29.000', '85.jpg', 'Gris', '80x80x180'),
-(86, 'pañofijo', 'Paño fijo 1', '13', '8.500', '86.png', 'Gris', '50x100'),
-(87, 'pañofijo', 'Paño fijo 2', '19', '7.000', '87.png', 'Gris', '50x50'),
-(88, 'pañofijo', 'Paño fijo 3', '25', '9.000', '88.png', 'Blanco', '60x1.10'),
-(89, 'pañofijo', 'Paño fijo 4', '34', '6.550', '89.png', 'Gris', '70x120'),
-(90, 'pañofijo', 'Paño fijo 5', '26', '5.000', '90.png', 'Gris', '50x140'),
-(91, 'pañofijo', 'Paño fijo 6', '15', '7.300', '91.png', 'Negro', '60x100'),
-(92, 'pañofijo', 'Paño fijo 7', '18', '8.400', '92.png', 'Blanco', '80x100'),
-(93, 'pañofijo', 'Paño fijo 8', '24', '5.800', '93.png', 'Negro', '60x30'),
-(94, 'pañofijo', 'Paño fijo 9', '23', '6.700', '94.png', 'Blanco', '60x120'),
-(96, 'pañofijo', 'Paño fijo 10', '7', '7.300', '96.png', 'Negro', '30x80'),
-(97, 'monoblock', 'Monoblock 1', '13', '12.000', '97.jpg', 'Gris', '150x180'),
-(98, 'monoblock', 'Monoblock 2', '27', '10.000', '98.jpg', 'Gris', '150x150'),
-(99, 'monoblock', 'Monoblock 3', '17', '11.000', '99.jpg', 'Gris', '120x100'),
-(100, 'monoblock', 'Monoblock 4', '22', '15.000', '100.jpg', 'Gris', '200x200'),
-(102, 'monoblock', 'Monoblock 5', '9', '11.500', '102.jpg', 'Blanco', '120x100'),
-(103, 'monoblock', 'Monoblock 6', '20', '15.000', '103.jpg', 'Negro', '150x150'),
-(104, 'monoblock', 'Monoblock 7', '29', '9.000', '104.jpg', 'Blanco', '100X100'),
-(105, 'monoblock', 'Monoblock 8', '34', '11.500', '105.jpg', 'Gris', '120x100'),
-(106, 'monoblock', 'Monoblock 9', '17', '10.500', '106.jpg', 'Blanco', '120x100'),
-(107, 'monoblock', 'Monoblock 10', '4', '14.200', '107.webp', 'Gris', '150x120');
+(79, 'mampara', 'Mampara 4', '27', '26000', '79.jpg', 'Gris', '80x80x180'),
+(80, 'mampara', 'Mampara 5', '4', '30000', '80.jpg', 'Gris', '80x80x180'),
+(81, 'mampara', 'Mampara 6', '19', '25000', '81.jpg', 'Gris', '80x80x180'),
+(82, 'mampara', 'Mampara 7', '35', '27000', '82.jpg', 'Gris', '80x80x180'),
+(83, 'mampara', 'Mampara 8', '19', '22000', '83.jpg', 'Gris', '145x180'),
+(84, 'mampara', 'Mampara 9', '24', '23000', '84.jpg', 'Blanco', '145x180'),
+(85, 'mampara', 'Mampara 10', '37', '29000', '85.jpg', 'Gris', '80x80x180'),
+(86, 'pañofijo', 'Paño fijo 1', '13', '8500', '86.png', 'Gris', '50x100'),
+(87, 'pañofijo', 'Paño fijo 2', '19', '7000', '87.png', 'Gris', '50x50'),
+(88, 'pañofijo', 'Paño fijo 3', '25', '9000', '88.png', 'Blanco', '60x1.10'),
+(89, 'pañofijo', 'Paño fijo 4', '34', '6550', '89.png', 'Gris', '70x120'),
+(90, 'pañofijo', 'Paño fijo 5', '26', '5000', '90.png', 'Gris', '50x140'),
+(91, 'pañofijo', 'Paño fijo 6', '15', '7300', '91.png', 'Negro', '60x100'),
+(92, 'pañofijo', 'Paño fijo 7', '18', '8400', '92.png', 'Blanco', '80x100'),
+(93, 'pañofijo', 'Paño fijo 8', '24', '5800', '93.png', 'Negro', '60x30'),
+(94, 'pañofijo', 'Paño fijo 9', '23', '6700', '94.png', 'Blanco', '60x120'),
+(96, 'pañofijo', 'Paño fijo 10', '7', '7300', '96.png', 'Negro', '30x80'),
+(97, 'monoblock', 'Monoblock 1', '13', '12000', '97.jpg', 'Gris', '150x180'),
+(98, 'monoblock', 'Monoblock 2', '27', '10000', '98.jpg', 'Gris', '150x150'),
+(99, 'monoblock', 'Monoblock 3', '17', '11000', '99.jpg', 'Gris', '120x100'),
+(100, 'monoblock', 'Monoblock 4', '22', '15000', '100.jpg', 'Gris', '200x200'),
+(102, 'monoblock', 'Monoblock 5', '9', '11500', '102.jpg', 'Blanco', '120x100'),
+(103, 'monoblock', 'Monoblock 6', '20', '15000', '103.jpg', 'Negro', '150x150'),
+(104, 'monoblock', 'Monoblock 7', '29', '9000', '104.jpg', 'Blanco', '100X100'),
+(105, 'monoblock', 'Monoblock 8', '34', '11500', '105.jpg', 'Gris', '120x100'),
+(106, 'monoblock', 'Monoblock 9', '17', '10500', '106.jpg', 'Blanco', '120x100'),
+(107, 'monoblock', 'Monoblock 10', '4', '14200', '107.webp', 'Gris', '150x120');
 
 -- --------------------------------------------------------
 
@@ -173,6 +173,24 @@ CREATE TABLE `producto_reserva` (
   `id_producto` int(11) NOT NULL,
   `id_reserva` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto_reserva`
+--
+
+INSERT INTO `producto_reserva` (`id_producto`, `id_reserva`) VALUES
+(45, 93),
+(45, 94),
+(46, 94),
+(48, 96),
+(65, 90),
+(65, 91),
+(65, 92),
+(65, 95),
+(65, 97),
+(66, 95),
+(66, 97),
+(67, 97);
 
 -- --------------------------------------------------------
 
@@ -194,7 +212,15 @@ CREATE TABLE `reserva` (
 
 INSERT INTO `reserva` (`id_reserva`, `estado`, `fecha_limite`, `fecha_reserva`, `usuario_cliente`) VALUES
 (88, 'pendiente', '2024-10-22', '2024-10-15', 'UsuarioNormal1'),
-(89, 'pendiente', '2024-10-22', '2024-10-15', 'UsuarioNormal1');
+(89, 'pendiente', '2024-10-22', '2024-10-15', 'UsuarioNormal1'),
+(90, 'pendiente', '2024-11-08', '2024-11-01', 'UsuarioNormal1'),
+(91, 'pendiente', '2024-11-08', '2024-11-01', 'UsuarioNormal1'),
+(92, 'pendiente', '2024-11-08', '2024-11-01', 'UsuarioNormal1'),
+(93, 'pendiente', '2024-11-08', '2024-11-01', 'UsuarioNormal1'),
+(94, 'pendiente', '2024-11-08', '2024-11-01', 'UsuarioNormal1'),
+(95, 'pendiente', '2024-11-08', '2024-11-01', 'UsuarioNormal1'),
+(96, 'pendiente', '2024-11-09', '2024-11-02', 'UsuarioNormal1'),
+(97, 'pendiente', '2024-11-12', '2024-11-05', 'UsuarioNormal1');
 
 --
 -- Índices para tablas volcadas
@@ -252,7 +278,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- Restricciones para tablas volcadas
