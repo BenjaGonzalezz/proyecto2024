@@ -5,51 +5,91 @@ window.onload = () => {
 }
 
 function Registro() {
+    // Agrega los eventos para el formulario y los botones de mostrar contraseña
+    agregarEventoFormulario();
+    agregarEventosMostrarContraseña();
+}
 
-    document.getElementById("Register").addEventListener("submit", async function(event) {
+function agregarEventoFormulario() {
+    const formulario = document.getElementById("Register");
+    formulario.addEventListener("submit", validarFormulario);
+}
 
-        event.preventDefault();
+async function validarFormulario(event) {
+    event.preventDefault();
 
-        let nombre = document.getElementById("nombre2").value;
-        let usuario = document.getElementById("usuario2").value;
-        let email = document.getElementById("email2").value;
-        let telefono = document.getElementById("telefono2").value;
-        let contraseña = document.getElementById("contraseña2").value;
+    let nombre = document.getElementById("nombre2").value;
+    let usuario = document.getElementById("usuario2").value;
+    let email = document.getElementById("email2").value;
+    let telefono = document.getElementById("telefono2").value;
+    let contraseña = document.getElementById("contraseña2").value;
+    let repetirContraseña = document.getElementById("repetirContraseña").value;
 
-        console.log('nombre', nombre);
-        console.log('usuario', usuario);
-        console.log('email', email);
-        console.log('telefono', telefono);
-        console.log('contraseña', contraseña);
+    // Verifica si las contraseñas coinciden
+    if (!validarCoincidenciaContraseñas(contraseña, repetirContraseña)) {
+        mostrarAlerta2("❌ Las contraseñas no coinciden ❌");
+        return;
+    }
 
-        let sesionDAO = new SesionDAO();
-        let resultado = await sesionDAO.registerUsuario(nombre, usuario, contraseña, email, telefono);
+    console.log('nombre', nombre);
+    console.log('usuario', usuario);
+    console.log('email', email);
+    console.log('telefono', telefono);
+    console.log('contraseña', contraseña);
 
-        console.log('Resultado de registro:', resultado);
+    let sesionDAO = new SesionDAO();
+    let resultado = await sesionDAO.registerUsuario(nombre, usuario, contraseña, email, telefono);
 
-        if (resultado.success === true) {
-            mostrarAlerta("✅Registro Exitoso✅", () => {
-                console.log('Intentando redirigir al login...');
-                window.location.href = '../Login/LoginCliente.html';
-            });
-        } else {
-            console.log('Registro fallido:', resultado);
-            mostrarAlerta2(resultado.message || 'Error en el registro');
-        }
-    });
+    console.log('Resultado de registro:', resultado);
 
+    if (resultado.success === true) {
+        mostrarAlerta("✅Registro Exitoso✅", () => {
+            console.log('Intentando redirigir al login...');
+            window.location.href = '../Login/LoginCliente.html';
+        });
+    } else {
+        console.log('Registro fallido:', resultado);
+        mostrarAlerta2(resultado.message || 'Error en el registro');
+    }
+}
+
+function validarCoincidenciaContraseñas(contraseña, repetirContraseña) {
+    return contraseña === repetirContraseña;
+}
+
+function agregarEventosMostrarContraseña() {
     const toggleIcon = document.getElementById('togglePassword');
-    toggleIcon.addEventListener('click', function() {
-        const passwordInput = document.getElementById('contraseña2');
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleIcon.src = '../img/esconder.png';
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.src = '../img/ver.png';
-        }
-    });
-};
+    toggleIcon.addEventListener('click', alternarVisibilidadContraseña);
+
+    const toggleConfirmIcon = document.getElementById('toggleConfirmPassword');
+    toggleConfirmIcon.addEventListener('click', alternarVisibilidadConfirmacionContraseña);
+}
+
+function alternarVisibilidadContraseña() {
+    const passwordInput = document.getElementById('contraseña2');
+    const toggleIcon = document.getElementById('togglePassword');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.src = '../img/esconder.png';
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.src = '../img/ver.png';
+    }
+}
+
+function alternarVisibilidadConfirmacionContraseña() {
+    const confirmPasswordInput = document.getElementById('repetirContraseña');
+    const toggleConfirmIcon = document.getElementById('toggleConfirmPassword');
+    
+    if (confirmPasswordInput.type === 'password') {
+        confirmPasswordInput.type = 'text';
+        toggleConfirmIcon.src = '../img/esconder.png';
+    } else {
+        confirmPasswordInput.type = 'password';
+        toggleConfirmIcon.src = '../img/ver.png';
+    }
+}
 
 function mostrarAlerta(mensaje, callback) {
     const fondoOscuro = document.getElementById('fondoOscuro');
