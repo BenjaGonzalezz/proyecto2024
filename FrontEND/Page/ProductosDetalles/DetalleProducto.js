@@ -162,7 +162,7 @@ function agregarProductoSeleccionadoAlCarrito() {
             console.error("No se encontró el producto seleccionado.");
         }
     }else{
-        alert("La cantidad no puede ser menor a 1");
+        mostrarAlerta(" ⚠ La cantidad no puede ser menor a 1");
     }
 
 

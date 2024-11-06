@@ -10,6 +10,7 @@ window.onload = () => {
     mostrarProductosCarrito();
 };
 
+
 function mostrarProductosCarrito() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const carritoContainer = document.getElementById("productos-carrito");
@@ -32,12 +33,13 @@ function mostrarProductosCarrito() {
             <p class="p-carrito">$${producto.precio*producto.cantidad}</p>
             </div>
         `;
+
         let btnModificar = document.createElement("button");
-        btnModificar.innerHTML="edit";
+        btnModificar.innerHTML="Cambiar Cantidad";
+        btnModificar.className="CambiarCantCarrito"
         btnModificar.onclick = ()=>{
             let valor  = prompt("Ingresar cantidad");
             let cantidad = parseInt(valor);
-            //3  5
             if(cantidad !=null && cantidad > 0){
                 if(cantidad > producto.cantidad){
                     let diferencia = cantidad - producto.cantidad;

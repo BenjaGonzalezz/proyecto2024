@@ -29,9 +29,28 @@ function mostrarProductosCarrito() {
                 <p>${producto.nombre}</p>
                 <p style="font-size: 15px;"> Cantidad: ${producto.cantidad} </p>
             </div>
-            <p class="p-carrito">$${producto.precio}</p>
+            <p class="p-carrito">$${producto.precio*producto.cantidad}</p>
             </div>
         `;
+
+        let btnModificar = document.createElement("button");
+        btnModificar.innerHTML="Cambiar Cantidad";
+        btnModificar.className="CambiarCantCarrito"
+        btnModificar.onclick = ()=>{
+            let valor  = prompt("Ingresar cantidad");
+            let cantidad = parseInt(valor);
+            if(cantidad !=null && cantidad > 0){
+                if(cantidad > producto.cantidad){
+                    let diferencia = cantidad - producto.cantidad;
+                    agregarProductoAlCarrito(producto,diferencia);
+
+                }else{
+                    let diferencia = producto.cantidad - cantidad;
+                    agregarProductoAlCarrito(producto,diferencia*-1);
+                }
+            }
+        }
+        productoCarritoDiv.appendChild(btnModificar);
 
 
         const divCadaProducto = productoCarritoDiv.querySelector(".cada-producto");
@@ -40,7 +59,7 @@ function mostrarProductosCarrito() {
         botonEliminar.src = "../img/basura.png"; 
         botonEliminar.alt = "Eliminar";
         botonEliminar.classList.add("botonEliminar");
-        botonEliminar.style.cursor = "pointer";
+        botonEliminar.style.cursor = "pointer"; 
 
         botonEliminar.addEventListener("click", () => {
             eliminarProductoDelCarrito(index);
@@ -95,7 +114,6 @@ function mostrarProductosCarrito() {
         carritoContainer.appendChild(botonSolicitarReserva);
     }
 }
-
 
 function eliminarProductoDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];

@@ -447,8 +447,20 @@ main {
 /* // HEADER */
 
 
-/*MAIN*/
+/* BOTON CARRITO*/
+.CambiarCantCarrito{
+  padding: 6px 6px;
+  border-radius: 3px;
+  border: 1px solid black;
+  background-color: #c1bbbb;
+  cursor: pointer;
+}
+.CambiarCantCarrito:hover{
+  background-color: #cac6c6;
+}
 
+
+/*MAIN*/
 
 .h1_reservas{
   text-align: center;

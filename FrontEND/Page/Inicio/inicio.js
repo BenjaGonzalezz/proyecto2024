@@ -30,9 +30,28 @@ function mostrarProductosCarrito() {
                 <p>${producto.nombre}</p>
                 <p style="font-size: 15px;"> Cantidad: ${producto.cantidad} </p>
             </div>
-            <p class="p-carrito">$${producto.precio}</p>
+            <p class="p-carrito">$${producto.precio*producto.cantidad}</p>
             </div>
         `;
+
+        let btnModificar = document.createElement("button");
+        btnModificar.innerHTML="Cambiar Cantidad";
+        btnModificar.className="CambiarCantCarrito"
+        btnModificar.onclick = ()=>{
+            let valor  = prompt("Ingresar cantidad");
+            let cantidad = parseInt(valor);
+            if(cantidad !=null && cantidad > 0){
+                if(cantidad > producto.cantidad){
+                    let diferencia = cantidad - producto.cantidad;
+                    agregarProductoAlCarrito(producto,diferencia);
+
+                }else{
+                    let diferencia = producto.cantidad - cantidad;
+                    agregarProductoAlCarrito(producto,diferencia*-1);
+                }
+            }
+        }
+        productoCarritoDiv.appendChild(btnModificar);
 
 
         const divCadaProducto = productoCarritoDiv.querySelector(".cada-producto");
@@ -41,7 +60,7 @@ function mostrarProductosCarrito() {
         botonEliminar.src = "../img/basura.png"; 
         botonEliminar.alt = "Eliminar";
         botonEliminar.classList.add("botonEliminar");
-        botonEliminar.style.cursor = "pointer";
+        botonEliminar.style.cursor = "pointer"; 
 
         botonEliminar.addEventListener("click", () => {
             eliminarProductoDelCarrito(index);
@@ -97,7 +116,6 @@ function mostrarProductosCarrito() {
     }
 }
 
-
 function eliminarProductoDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -132,14 +150,23 @@ function mostrarOfertas() {
                         </div>
                         <div class="detalles-anuncio1"> 
                             <h2 class="h2-a1">${producto.nombre}</h2>
-                            <p>Precio: $ ${producto.precio}</p>
-                            <p>Stock: ${producto.stock}</p>
+                            
+                                <div class="precio-a1">
+                                        <div class="ps2">
+                                            <p class="p2-a1">$ ${producto.precio}</p>
+                                            <img class="img25off" src="../img/25off-removebg-preview.png" alt="">
+                                    </div>
+                                </div>
+
+                                <a class="link-detalle-producto" href="../ProductosDetalles/DetalleProducto.html">
+                                VER DETALLES
+                                </a>
                         </div>
                     `;
 
                     ofertaDiv.addEventListener('click', () => {
                         localStorage.setItem('productoSeleccionado', JSON.stringify(producto));
-                        window.location.href = '../DetallesProductos/DetalleProducto.html';
+                        window.location.href = '../ProductosDetalles/DetalleProducto.html';
                     });
 
                     ofertasContainer.appendChild(ofertaDiv);

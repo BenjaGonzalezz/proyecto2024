@@ -519,11 +519,29 @@ main {
   top: 70px;
   right: 28%;
 }
-  
 }
+
+
  /* // HEADER  */
 
+
+
+/* BOTON CARRITO*/
+
+.CambiarCantCarrito{
+  padding: 6px 6px;
+  border-radius: 3px;
+  border: 1px solid black;
+  background-color: #c1bbbb;
+  cursor: pointer;
+}
+.CambiarCantCarrito:hover{
+  background-color: #cac6c6;
+}
+
+
 /* ANUNCIO ADMINISTRADOR */
+
 .ofertaa{
   width: 70%;
   height: 400px;
@@ -531,7 +549,6 @@ main {
   margin: 40px auto;
   position: relative;
   border-radius: 10px;
-  background-color: var(--clarito-color);
   box-shadow: 0 0 10px 1px black;
 }
  .bigsale{
@@ -540,6 +557,7 @@ main {
   left: -60px;
   top: -40px;
   transform: rotate(-25deg);
+  user-select: none;
  }
 
 .anuncio-1{
@@ -548,6 +566,8 @@ main {
 }
 .nombre-y-imagen{
   width: 50%;
+  background-color: #81cae4;
+  border-radius: 10px 0 0 10px;
 }
 .nombre-y-imagen .img-a1{
   margin: auto;
@@ -565,12 +585,51 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #81cae4;
+  border-radius: 0 10px 10px 0;
 }
 .h2-a1{
-  font-size: 20px;
+  font-size: 47px;
+  text-align: center;
 }
+.precio-a1{
+display: flex;
+justify-content: center;
+}
+.img25off{
+  width: 70px;
+  height: 50px;
+  user-select: none;
+}
+.p-a1{
+  text-align: start;
+  margin-top: 90px;
+}
+.p2-a1{
+  margin: 0 10px 0 0;
+  font-size: 50px;
+  color: green;
+}
+.ps2{
+  display: flex;
+  margin-top: 40px;
+}
+.link-detalle-producto{
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 15px;
+  border: 1px solid rgb(139, 0, 0);
+  width: 58%;
+  margin: 70px auto 0 auto;
+  font-weight: bold;
+  user-select: none;
+}
+.link-detalle-producto:hover{
+  background-color: rgb(229, 20, 20);
+}
+
 
 /* INICIO */
 
@@ -842,6 +901,7 @@ h6 {
   align-items: center;
   text-align: center;
   margin-right: 10px;
+  user-select: none;
 }
 
 @media (max-width: 565px) {
