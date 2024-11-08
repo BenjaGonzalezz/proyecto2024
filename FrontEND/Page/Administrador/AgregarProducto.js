@@ -39,6 +39,7 @@ function EventosFormularios() {
 
             if (resultado.success) {
                 mostrarAlerta('Producto agregado exitosamente', ()=>{
+                    window.location.href = '../Productos/Productos.html';
                 });
                 form.reset();
             } else {
@@ -131,12 +132,16 @@ function admin() {
     }
 };
 
-
 function EventoPreviw() {
     let imagen = document.getElementById('imagenpreviw');
     let imagenpreviw = document.getElementById('imagen');
+    
+    // Evento cuando cambia el archivo
     imagenpreviw.onchange = () => {
-        let url = URL.createObjectURL(imagenpreviw.files[0])
-        imagen.src = url
-    }
+        let url = URL.createObjectURL(imagenpreviw.files[0]);
+        
+        // Mostrar la imagen de vista previa
+        imagen.style.display = 'block';
+        imagen.src = url;
+    };
 }

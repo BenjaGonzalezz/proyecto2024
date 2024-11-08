@@ -74,7 +74,8 @@ async function eliminarProducto(id_producto) {
     const resultado = await productosDAO.eliminarProducto(id_producto);
 
     if (resultado.success) {
-        mostrarAlerta("Producto Eliminado Exitosamente", () => {});
+        mostrarAlerta("Producto Eliminado Exitosamente", () => {
+        });
         obtenerProductos();
     } else {
         alert(`Error al eliminar el producto: ${resultado.message}`);
