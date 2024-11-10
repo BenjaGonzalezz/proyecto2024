@@ -6,9 +6,8 @@ Este proyecto educativo fue desarrollado para **Sofia Aberturas**, una empresa e
 
 ## Objetivos
 
-- Capacitar al personal en los productos de la empresa, incluidas sus características, materiales y especificaciones.
 - Desarrollar habilidades de atención al cliente para mejorar la experiencia del usuario.
-- Tener una interfaz amigable para adapatarse a cualquier usuario
+- Tener una interfaz amigable para adapatarse a cualquier usuario.
 - Poder realizar reservas de los productos desde la comodidad de tu hogar y al momento.
   
 
