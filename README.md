@@ -19,10 +19,11 @@ Utilizamos diversas tecnologías frontend y backend para aplicar conocimientos d
 ## 🚀 Características del Sitio Web
 
 - **Catálogo de productos**: Visualización de todos los productos con filtros por categorías (ventanas, mamparas, puertas, etc.).
+- **Detalles de productos**: Visualización de el Precio, stock, medida y color de los productos.
 - **Sistema de reservas**: Los clientes pueden seleccionar productos y realizar una **reserva** para asegurarse disponibilidad.
 - **Autenticación de usuarios**: Registro e inicio de sesión para gestionar las reservas.
 - **Gestión de reservas**: Almacena las reservas en la base de datos y permite a los clientes ver su historial de reservas.
-- **Página de contacto**: Formulario para enviar consultas a la empresa.
+- **Gestión de Administrador** El admin puede cambiar la oferta, modificar el stock o precio de los productos, ver todas las reservas realizadas y gestionarlas y agregar nuevos productos
 
 ## 🗃️ Base de Datos
 
