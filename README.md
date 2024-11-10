@@ -6,7 +6,7 @@ Este proyecto tiene como objetivo desarrollar un **sitio web de reservas** para 
 
 El propósito principal es que este sitio web sirva como una **plataforma en línea** donde los clientes puedan explorar el catálogo de productos, realizar **reservas** de los artículos que deseen, y gestionar sus reservas de manera eficiente.
 
-El proyecto es parte de un **proyecto educativo**, utilizando diversas tecnologías frontend y backend para aplicar conocimientos de desarrollo web y bases de datos.
+Utilizamos diversas tecnologías frontend y backend para aplicar conocimientos de desarrollo web y bases de datos.
 
 ## 🖥️ Tecnologías Utilizadas
 
