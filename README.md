@@ -53,6 +53,6 @@ Importa el archivo proyecto.sql de la carpeta BBDD en tu servidor MySQL.
 
 ##  👨‍💻 Desarrollado por:
 
-Benjamín González
-Emilio González
-Mateo Quintana
+- **Benjamín González**
+- **Emilio González**
+- **Mateo Quintana**
