@@ -81,6 +81,7 @@ function cerrarSesion() {
     // Enviar una respuesta en formato JSON confirmando que la sesión fue cerrada
     echo json_encode(["success" => true, "message" => "Sesión cerrada"]);
 }
+
 // Función para eliminar una cuenta de usuario y sus datos relacionados
 function eliminarCuenta() {
     // Verificar si se recibió el usuario por el método POST

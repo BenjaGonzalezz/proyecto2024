@@ -475,6 +475,7 @@ h2{
   box-shadow: 0 0 7px 1px black;
   width: 40%;
   margin: 0 auto;
+  cursor: pointer;
 }
 .form-modificar form button:hover{
   background-color: #859fb1;
