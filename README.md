@@ -1,32 +1,57 @@
-# Proyecto Educativo - Sofia Aberturas
+# Proyecto Educativo: e-Commerce Sofia Aberturas
 
-## Descripción
+## 🛠️ Descripción del Proyecto
 
-Este proyecto educativo fue desarrollado para **Sofia Aberturas**, una empresa especializada en la fabricación y venta de aberturas. Su objetivo principal es capacitar al personal sobre los distintos tipos de productos, su instalación y el proceso de atención al cliente.
+Este proyecto tiene como objetivo desarrollar un **sitio web de reservas** para la empresa **Sofia Aberturas**, una compañía especializada en la venta de **ventanas, mamparas, paños fijos, puertas**, y otros productos de aluminio.
 
-## Objetivos
+El propósito principal es que este sitio web sirva como una **plataforma en línea** donde los clientes puedan explorar el catálogo de productos, realizar **reservas** de los artículos que deseen, y gestionar sus reservas de manera eficiente.
 
-- Desarrollar habilidades de atención al cliente para mejorar la experiencia del usuario.
-- Tener una interfaz amigable para adapatarse a cualquier usuario.
-- Poder realizar reservas de los productos desde la comodidad de tu hogar y al momento.
-  
+El proyecto es parte de un **proyecto educativo**, utilizando diversas tecnologías frontend y backend para aplicar conocimientos de desarrollo web y bases de datos.
 
-## Estructura del Proyecto
+## 🖥️ Tecnologías Utilizadas
 
-El proyecto se divide en los siguientes módulos:
+- **HTML**: Estructura del sitio web.
+- **CSS**: Estilos y diseño responsivo.
+- **JavaScript**: Interactividad y lógica en el frontend.
+- **PHP**: Lógica del servidor y conexión con la base de datos.
+- **MySQL**: Base de datos para gestionar la información de los productos, usuarios y reservas.
 
-1. **Introducción a los productos de Sofia Aberturas**: Características y tipos de aberturas, diferencias en materiales y acabados.
-2. **Instalación y mantenimiento**: Técnicas y procedimientos clave para la correcta instalación y conservación de las aberturas.
-3. **Atención al cliente**: Buenas prácticas, resolución de problemas y mejora de la experiencia del cliente.
+## 🚀 Características del Sitio Web
 
-## Tecnologías Utilizadas
+- **Catálogo de productos**: Visualización de todos los productos con filtros por categorías (ventanas, mamparas, puertas, etc.).
+- **Sistema de reservas**: Los clientes pueden seleccionar productos y realizar una **reserva** para asegurarse disponibilidad.
+- **Autenticación de usuarios**: Registro e inicio de sesión para gestionar las reservas.
+- **Gestión de reservas**: Almacena las reservas en la base de datos y permite a los clientes ver su historial de reservas.
+- **Página de contacto**: Formulario para enviar consultas a la empresa.
 
-- **Frontend**: HTML, CSS, JavaScript.
-- **Backend**: PHP para la gestión de usuarios y resultados.
-- **Base de Datos**: MySQL para almacenar los datos de los participantes, progresos y resultados de las evaluaciones.
+## 🗃️ Base de Datos
 
-## Instalación y Uso
+La base de datos **MySQL** contiene las siguientes tablas:
 
-1. Clonar el repositorio:  
+- **cliente**: Detalles del cliente (telefono, email)
+- **oferta**: Id del producto en oferta
+- **persona**: Información de los clientes registrados.
+- **producto**: Detalles de los productos disponibles para reserva.
+- **producto_reserva**: Id de las reserva y los productos de la misma.
+- **reservas**: Información sobre las reservas realizadas por los usuarios.
+
+
+## 🔧 Configuración
+
+Para ejecutar este proyecto en tu entorno local:
+
+1. **Clonar el repositorio**:
    ```bash
    git clone https://github.com/BenjaGonzalezz/proyecto2024.git
+
+   
+## 🗃️ Configurar la base de datos:
+
+Importa el archivo proyecto.sql de la carpeta BBDD en tu servidor MySQL.
+
+
+##  👨‍💻 Desarrollado por:
+
+Benjamín González
+Emilio González
+Mateo Quintana
