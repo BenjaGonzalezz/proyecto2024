@@ -1,8 +1,9 @@
+
 <?php
 // Incluir el archivo de conexión a la base de datos
 require_once "../Connection/Connection.php";
-
 // Definir la clase ReservaCarrito
+
 class ReservaCarrito {
     
     public function solicitarReservaModelo($carrito, $usuario_cliente) {

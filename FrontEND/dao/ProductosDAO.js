@@ -1,7 +1,9 @@
+import origin from "../../BackEND/Origin/Origin";
+
 export default class ProductosDAO {
 
     async agregarProducto($categoria, $nombre, $stock, $precio, $imagen, $color, $medida) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=agregarProducto";
+        let url = origin + "/BackEND/Controlador/ControladorProductos.php?function=agregarProducto";
 
         let formdata = new FormData();
         formdata.append("categoria", $categoria);
@@ -28,7 +30,7 @@ export default class ProductosDAO {
     }
 
     async obtenerProductos() {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerProductos";
+        let url = origin + "/BackEND/Controlador/ControladorProductos.php?function=obtenerProductos";
 
         let config = {
             method: "POST"
@@ -46,7 +48,7 @@ export default class ProductosDAO {
     }
 
     async obtenerProductosPorCategoria(categoria) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerProductosPorCategoria";
+        let url = origin + "/BackEND/Controlador/ControladorProductos.php?function=obtenerProductosPorCategoria";
 
         let formdata = new FormData();
         formdata.append("categoria", categoria);
@@ -69,7 +71,7 @@ export default class ProductosDAO {
 
     async eliminarProducto(id_producto) {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=eliminarProducto";
+        let url = origin + "/BackEND/Controlador/ControladorProductos.php?function=eliminarProducto";
 
 
         let formdata = new FormData();
@@ -91,7 +93,7 @@ export default class ProductosDAO {
         return resultado;
     }
     async agregarStockProducto(id_producto, cantidad) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=agregarStockProducto";
+        let url = origin + "/BackEND/Controlador/ControladorProductos.php?function=agregarStockProducto";
 
         let formdata = new FormData();
         formdata.append("id_producto", id_producto);
@@ -116,7 +118,7 @@ export default class ProductosDAO {
 
     async modificarPrecioProducto(id_producto, nuevo_precio) {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=modificarPrecioProducto";
+        let url = origin + "/BackEND/Controlador/ControladorProductos.php?function=modificarPrecioProducto";
 
 
         let formdata = new FormData();

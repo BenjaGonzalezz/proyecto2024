@@ -1,8 +1,10 @@
+import origin from "../../BackEND/Origin/Origin";
+
 export default class ReservaDAO {
 
     async cambiarEstado(id_reserva, nuevo_estado) {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorReserva.php?function=cambiarEstado";
+        let url = origin + "/BackEND/Controlador/ControladorReserva.php?function=cambiarEstado";
 
         let formdata = new FormData();
         formdata.append("id_reserva", id_reserva);
@@ -26,7 +28,7 @@ export default class ReservaDAO {
 
     async obtenerReservas() {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorReserva.php?function=obtenerReservas";
+        let url = origin + "/BackEND/Controlador/ControladorReserva.php?function=obtenerReservas";
 
         let config = {
             method: "GET",
@@ -45,7 +47,7 @@ export default class ReservaDAO {
 
     async obtenerReservaUsuario(usuario_cliente) {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorReserva.php?function=obtenerReservaUsuario";
+        let url = origin + "/BackEND/Controlador/ControladorReserva.php?function=obtenerReservaUsuario";
 
         let formdata = new FormData();
         formdata.append("usuario_cliente", usuario_cliente);

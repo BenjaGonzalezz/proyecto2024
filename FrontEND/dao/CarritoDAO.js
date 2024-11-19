@@ -1,8 +1,10 @@
+import origin from "../../BackEND/Origin/Origin.js";
+
 export default class CarritoDAO {
 
 
     async solicitarReservaCarrito(carrito) {
-        const url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorCarrito.php?function=solicitarReserva";
+        const url = origin + "/BackEND/Controlador/ControladorCarrito.php?function=solicitarReserva";
     
         const config = {
             method: "POST",

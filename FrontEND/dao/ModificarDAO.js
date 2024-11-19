@@ -1,7 +1,9 @@
+import origin from "../../BackEND/Origin/Origin.js";
+
 export default class ModificarDAO {
 
     async modificarNombre(nuevoNombre) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorModificar.php?function=modificarNombre";
+        let url = origin + "/BackEND/Controlador/ControladorModificar.php?function=modificarNombre";
 
         let formData = new FormData();
         formData.append("nuevoNombre", nuevoNombre);
@@ -23,7 +25,7 @@ export default class ModificarDAO {
     }
 
     async modificarUsuario(nuevoUsuario) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorModificar.php?function=modificarUsuario";
+        let url = origin + "/BackEND/Controlador/ControladorModificar.php?function=modificarUsuario";
 
         let formData = new FormData();
         formData.append("nuevoUsuario", nuevoUsuario);
@@ -46,7 +48,7 @@ export default class ModificarDAO {
 
 
     async modificarEmail(nuevoEmail) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorModificar.php?function=modificarEmail";
+        let url = origin + "/BackEND/Controlador/ControladorModificar.php?function=modificarEmail";
 
         let formData = new FormData();
         const usuarioActual = localStorage.getItem('usuario');
@@ -69,7 +71,7 @@ export default class ModificarDAO {
     }
 
     async modificarTelefono(nuevoTelefono) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorModificar.php?function=modificarTelefono";
+        let url = origin + "/BackEND/Controlador/ControladorModificar.php?function=modificarTelefono";
 
         let formData = new FormData();
         const usuarioActual = localStorage.getItem('usuario');

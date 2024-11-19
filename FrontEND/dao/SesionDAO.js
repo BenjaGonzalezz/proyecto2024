@@ -1,8 +1,10 @@
+import origin from "../../BackEND/Origin/Origin";
+
 export default class SesionDAO {
 
     async registerUsuario(nombre, usuario, contraseña, email, telefono) {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=registerUsuario";
+        let url = origin + "/BackEND/Controlador/ControladorSesion.php?function=registerUsuario";
 
         let formdata = new FormData();
         formdata.append("nombre", nombre);
@@ -29,7 +31,7 @@ export default class SesionDAO {
 
     async loginUsuario(usuario, contraseña) {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=loginUsuario";
+        let url = origin + "/BackEND/Controlador/ControladorSesion.php?function=loginUsuario";
 
 
         let formdata = new FormData();
@@ -54,7 +56,7 @@ export default class SesionDAO {
 
     async cerrarSesion() {
 
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion";
+        let url = origin + "/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion";
 
         let respuesta = await fetch(url);
 
@@ -67,7 +69,7 @@ export default class SesionDAO {
 
 
     async eliminarCuenta(usuario) {
-        let url = "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=eliminarCuenta";
+        let url = origin + "/BackEND/Controlador/ControladorSesion.php?function=eliminarCuenta";
 
         let formdata = new FormData();
         formdata.append("usuario", usuario);
