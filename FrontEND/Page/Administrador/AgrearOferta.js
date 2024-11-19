@@ -1,3 +1,6 @@
+import origin from "../../BackEND/Origin/Origin";
+
+
 window.onload = () => {
     agregarOferta();
     verificarOferta();
@@ -23,7 +26,7 @@ function agregarOferta() {
         event.preventDefault();
 
         try {
-            const response = await fetch("http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=agregarOferta", {
+            const response = await fetch( origin + "/BackEND/Controlador/ControladorProductos.php?function=agregarOferta", {
                 method: 'POST',
                 body: new FormData(formularioOferta)
             });
@@ -46,7 +49,7 @@ function agregarOferta() {
 }
 
 function verificarOferta() {
-    fetch("http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta")
+    fetch( origin + "/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta")
         .then(response => response.json())
         .then(data => {
             const divEliminarOferta = document.getElementById('divEliminarOferta');
@@ -65,7 +68,7 @@ function eliminarOferta() {
 
     botonEliminar.addEventListener('click', async function() {
 
-            const response = await fetch("http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=eliminarOferta", {
+            const response = await fetch( origin + "/BackEND/Controlador/ControladorProductos.php?function=eliminarOferta", {
                 method: 'POST'
             });
 
@@ -119,7 +122,7 @@ function guardarLocalStorage() {
     document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
         event.preventDefault();
 
-        let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
+        let response = await fetch( origin + '/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
         if (!response.ok) {
             throw new Error('Error en la respuesta del servidor');
         }

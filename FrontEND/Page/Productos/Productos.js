@@ -1,5 +1,6 @@
 import ProductosDAO from "../../dao/ProductosDAO.js";
 import CarritoDAO from "../../dao/CarritoDAO.js";
+import origin from "../../BackEND/Origin/Origin";
 
 const carritoDAO = new CarritoDAO();
 
@@ -237,7 +238,7 @@ function guardarLocalStorage() {
             event.preventDefault();
 
             let response = await fetch(
-                "http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion"
+                 origin + "/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion"
             );
             if (!response.ok) {
                 throw new Error("Error en la respuesta del servidor");

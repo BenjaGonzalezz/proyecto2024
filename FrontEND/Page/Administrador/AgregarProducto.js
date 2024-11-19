@@ -1,4 +1,6 @@
 import ProductosDAO from '../../dao/ProductosDAO.js';
+import origin from "../../BackEND/Origin/Origin";
+
 
 window.onload = () => {
     verificarAcceso(); 
@@ -83,7 +85,7 @@ function guardarLocalStorage() {
     document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
         event.preventDefault(); 
 
-        let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
+        let response = await fetch( origin + '/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
         if (!response.ok) {
             throw new Error('Error en la respuesta del servidor');
         }

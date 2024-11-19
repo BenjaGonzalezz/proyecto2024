@@ -1,4 +1,5 @@
 import CarritoDAO from "../../dao/CarritoDAO.js";
+import origin from "../../BackEND/Origin/Origin";
 
 const carritoDAO = new CarritoDAO();
 
@@ -129,7 +130,7 @@ function eliminarProductoDelCarrito(index) {
 
 
 function mostrarOfertas() {
-    fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta')
+    fetch( origin + '/BackEND/Controlador/ControladorProductos.php?function=obtenerOferta')
         .then(response => response.json())
         .then(data => {
             const ofertasContainer = document.getElementById('ofertas1');
@@ -211,7 +212,7 @@ function guardarLocalStorage() {
     document.getElementById('cerrarSesion').addEventListener('click', async function(event) {
         event.preventDefault();
 
-        let response = await fetch('http://localhost/proyecto2024/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
+        let response = await fetch( origin + '/BackEND/Controlador/ControladorSesion.php?function=cerrarSesion');
         if (!response.ok) {
             throw new Error('Error en la respuesta del servidor');
         }
